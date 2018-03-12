@@ -1,0 +1,173 @@
+body { background: #000; }
+#content img {
+	width: 100%;
+	}
+#loader {
+	font-family: 'Marvel', sans-serif;
+	margin: 0 auto;
+	width: 300px;
+	text-align: center;
+	font-size: 25px;
+	color: #efefef;
+	margin-top: 300px;
+	}
+#bar {
+	width: 300px;
+	height: 2px;
+	border:1px solid #efefef;
+	padding: 1px;
+	margin-top: 10px;
+	font-size: 1px;
+	}
+#bar span {
+	display: block;
+	width: 0px;
+	height: 2px;
+	background: #efefef;
+	}
+
+#main {
+	margin: 0 auto;
+	text-align: center;
+	font-size: 25px;
+	color: #efefef;
+}
+
+.body {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 4;
+}	
+#f1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 5;
+	opacity:0;
+}	
+#f2 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 6;
+	opacity:0;
+}	
+#f3 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 7;
+	opacity:0;
+}	
+#f4 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 8;
+	opacity:0;
+}	
+#f5 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 9;
+	opacity:0;
+}	
+#f6 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+	opacity:0;
+}	
+
+#reel1 {
+	position: relative;
+	left: 0px;
+	top: -730px;
+	}
+#reel2 {
+	position: relative;
+	left: 0px;
+	top: -730px;
+	}
+#reel3 {
+	position: relative;
+	left: 0px;
+	top: -730px;
+	}
+
+.reel1waku{
+	overflow: hidden;
+	height: 600px;   /* トリミングしたい枠の高さ */
+	position: absolute;
+	left: 319px;
+	top: 100px;
+	z-index: 1;
+}
+.reel2waku {
+	overflow: hidden;
+	height: 600px;   /* トリミングしたい枠の高さ */
+	position: absolute;
+	left: 540px;
+	top: 100px;
+	z-index: 2;
+	}
+.reel3waku {
+	overflow: hidden;
+	height: 600px;   /* トリミングしたい枠の高さ */
+	position: absolute;
+	left: 760px;
+	top: 100px;
+	z-index: 3;
+	}
+#debug{
+	font-size : 16px;
+	color : #ffffff;
+	z-index:100;
+	}
+.text{
+	font-size : 14px;
+	color : #ffffff;
+	z-index:110;
+	}
+#coin{
+	font-size : 20px;
+	color : #f9ffa7;
+	z-index:120;
+	}
+#pay{
+	font-size : 20px;
+	color : #f9ffa7;
+	z-index:130;
+	}
+#gamecountA{
+	font-size : 20px;
+	color : #a1ffa1;
+	z-index:120;
+	}
+#gamecountB{
+	font-size : 20px;
+	color : #ffa7a7;
+	z-index:130;
+	}
+
+.reel-body{
+	display:block;
+	margin: auto;
+	width:1280px; 
+	height:720px;
+	
+}
+
+.stats{
+	display:block;
+	margin: 0 auto;
+	text-align:center;
+}
+
+.box1{
+	display:inline-block;
+	text-align:center;
+}
