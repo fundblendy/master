@@ -122,6 +122,8 @@ function touch(){
         kaiten1 = setInterval (reel1kaiten,1);
         kaiten2 = setInterval (reel2kaiten,1);
         kaiten3 = setInterval (reel3kaiten,1);
+
+        document.getElementById("sound-start").play();
             
         setTimeout(function(){
             keyflag = 2
@@ -174,6 +176,7 @@ function touch1(){
             default: reel1stop(0);
         }
         document.getElementById("btn2").style.background = "#441010";
+        document.getElementById("sound-stop1").play();
         setTimeout(function(){
             keyflag = 4
         }, 100);
@@ -202,6 +205,7 @@ function touch2(){
             default: reel2stop(0);
         }
         document.getElementById("btn3").style.background = "#441010";
+        document.getElementById("sound-stop2").play();
         setTimeout(function(){
             keyflag = 6
         }, 100);
@@ -232,6 +236,7 @@ function touch3(){
         reel3stop();
         payout1();
         document.getElementById("btn4").style.background = "#441010";
+        document.getElementById("sound-stop3").play();
         setTimeout(function(){
             keyflag = 0
             document.getElementById("btn1").style.background = "#fdc689";
@@ -389,16 +394,16 @@ function payout1(){
     var payout;
     switch (flag){
         case "ハズレ": payout = NON; break;
-        case "リプレイ": payout = RP; flash1(); break;
-        case "ベル": payout = BELL; flash2(); break;
-        case "BBベル": payout = BELL2; flash2(); break;
-        case "スイカ": payout = SUIKA; flash4(); break;
-        case "チェリー": payout = CHERRY; flash3(); break;
-        case "強チェリー": payout = CHERRY; flash5(); break;
-        case "強チャンス": payout = SUIKA; flash6(); break;
-        case "確定チェリー": payout = CHERRY; flash7(); break;
-        case "BB": payout = RP; Bgame = 20; potmode = 2; flash7(); break;
-        case "RB": payout = RP; Bgame = 8; potmode = 2; flash7(); break;
+        case "リプレイ": payout = RP; flash1(); document.getElementById("sound-RP").play();　break;
+        case "ベル": payout = BELL; flash2(); document.getElementById("sound-BELL").play(); break;
+        case "BBベル": payout = BELL2; flash2(); document.getElementById("sound-BELL").play(); break;
+        case "スイカ": payout = SUIKA; flash4(); document.getElementById("sound-Rare").play(); break;
+        case "チェリー": payout = CHERRY; flash3(); document.getElementById("sound-Rare").play(); break;
+        case "強チェリー": payout = CHERRY; flash5(); document.getElementById("sound-Rare2").play(); break;
+        case "強チャンス": payout = SUIKA; flash6(); document.getElementById("sound-Rare2").play(); break;
+        case "確定チェリー": payout = CHERRY; flash7(); document.getElementById("sound-Rare2").play(); break;
+        case "BB": payout = RP; Bgame = 20; potmode = 2; flash7(); document.getElementById("sound-Bonus").play(); break;
+        case "RB": payout = RP; Bgame = 8; potmode = 2; flash7(); document.getElementById("sound-Bonus").play(); break;
         default: payout = NON; break;
     }
 
@@ -413,7 +418,7 @@ function payout1(){
 //　リールフラッシュ演出
 ////////////////////////////////////////////////
 
-function flash1(){ //中段3回フラッシュ
+function flash1(){ //リプレイ中段3回フラッシュ
     
     var target1 = document.getElementById("f1")
 
@@ -435,7 +440,7 @@ function flash1(){ //中段3回フラッシュ
 
 }
 
-function flash2(){ //上段3回フラッシュ
+function flash2(){ //ベル上段6回フラッシュ
     
     var target1 = document.getElementById("f2")
 
@@ -454,6 +459,24 @@ function flash2(){ //上段3回フラッシュ
     setTimeout(function(){
         target1.style.opacity = 1;
     }, 250);
+    setTimeout(function(){
+        target1.style.opacity = 0;
+    }, 300);
+    setTimeout(function(){
+        target1.style.opacity = 1;
+    }, 350);
+    setTimeout(function(){
+        target1.style.opacity = 0;
+    }, 400);
+    setTimeout(function(){
+        target1.style.opacity = 1;
+    }, 450);
+    setTimeout(function(){
+        target1.style.opacity = 0;
+    }, 500);
+    setTimeout(function(){
+        target1.style.opacity = 1;
+    }, 550);
 
 }
 
