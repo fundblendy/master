@@ -34,3 +34,7 @@
 keyflag = 0;
 document.onkeydown = keyinput;
 
+
+
+
+

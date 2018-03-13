@@ -116,48 +116,57 @@ function reel3kaiten(){
 function keyinput(){
 
     if (event.keyCode == 38){  //「↑」が押されたか確認
-        setTimeout(function(){
-            flashreset();
-            if (keyflag == 0){
-                switch(potmode){
-                    case 0: Nomalpot(); break;
-                    case 1: Bonuskakutei(); break;
-                    case 2: Bonusmode(); break;
-                }
-                kaiten1 = setInterval (reel1kaiten,1);
-                kaiten2 = setInterval (reel2kaiten,1);
-                kaiten3 = setInterval (reel3kaiten,1);
-                keyflag = 1;
+        if (keyflag == 0){
+            keyflag = 1;
+
+            flashreset();            
+            switch(potmode){
+                case 0: Nomalpot(); break;
+                case 1: Bonuskakutei(); break;
+                case 2: Bonusmode(); break;
             }
-        }, 900);
+            kaiten1 = setInterval (reel1kaiten,1);
+            kaiten2 = setInterval (reel2kaiten,1);
+            kaiten3 = setInterval (reel3kaiten,1);
+
+            setTimeout(function(){
+                keyflag = 2
+            }, 600);
+        }
     }
 
     if (event.keyCode == 37){  //「←」が押されたか確認
-        if (keyflag == 1){
+
+        if (keyflag == 2){
+            keyflag = 3
+            
+            flashreset();
+            switch (flag){
+                case "ハズレ": reel1stop(1); break;
+                case "リプレイ": reel1stop(1); break;
+                case "ベル": reel1stop(1); break;
+                case "BBベル": reel1stop(1); break;
+                case "スイカ": reel1stop(2); break;
+                case "チェリー": reel1stop(3); break;
+                case "強チェリー": reel1stop(3); break;
+                case "強チャンス": reel1stop(2); break;
+                case "確定チェリー": reel1stop(4); break;
+                case "BB": reel1stop(5); break;
+                case "RB": reel1stop(5); break;
+                default: reel1stop(0);
+            }
+            
             setTimeout(function(){
-                flashreset();
-                switch (flag){
-                    case "ハズレ": reel1stop(1); break;
-                    case "リプレイ": reel1stop(1); break;
-                    case "ベル": reel1stop(1); break;
-                    case "BBベル": reel1stop(1); break;
-                    case "スイカ": reel1stop(2); break;
-                    case "チェリー": reel1stop(3); break;
-                    case "強チェリー": reel1stop(3); break;
-                    case "強チャンス": reel1stop(2); break;
-                    case "確定チェリー": reel1stop(4); break;
-                    case "BB": reel1stop(5); break;
-                    case "RB": reel1stop(5); break;
-                    default: reel1stop(0);
-                }
-                keyflag = 2
-            }, 150);
+                keyflag = 4
+            }, 100);
+
         }
         
     }
 
     if (event.keyCode == 40){  //「↓」が押されたか確認
-        if (keyflag == 2){
+        if (keyflag == 4){
+            keyflag = 5
             flashreset();
             switch (flag){
                 case "ハズレ": reel2stop(1); break;
@@ -173,12 +182,17 @@ function keyinput(){
                 case "RB": reel2stop(6); break;
                 default: reel2stop(0);
             }
-            keyflag = 3
+
+            setTimeout(function(){
+                keyflag = 6
+            }, 100);
+
         }
     }
 
     if (event.keyCode == 39){  //「→」が押されたか確認
-        if (keyflag == 3){
+        if (keyflag == 6){
+            keyflag = 7
             flashreset();
             switch (flag){
                 case "ハズレ": reel3stop(1); break;
@@ -196,11 +210,136 @@ function keyinput(){
             }
             reel3stop();
             payout1();
-            keyflag = 0
+
+
+            document.getElementById("btn1").style.background = "#747474";
+            setTimeout(function(){
+                keyflag = 0
+                document.getElementById("btn1").style.background = "#fdc689";
+            }, 900);
         }
     }
 
 }
+
+
+
+
+/////////////////////////////////////////////////
+// クリックorタッチ入力
+/////////////////////////////////////////////////
+
+function touch(){
+
+    
+
+    if (keyflag == 0){
+        keyflag = 1;
+        
+        flashreset();
+
+        switch(potmode){
+            case 0: Nomalpot(); break;
+            case 1: Bonuskakutei(); break;
+            case 2: Bonusmode(); break;
+        }
+        kaiten1 = setInterval (reel1kaiten,1);
+        kaiten2 = setInterval (reel2kaiten,1);
+        kaiten3 = setInterval (reel3kaiten,1);
+            
+        setTimeout(function(){
+            keyflag = 2
+        }, 600);
+
+        
+    }
+
+    
+    if (keyflag == 2){
+        keyflag = 3
+        
+        flashreset();
+        switch (flag){
+            case "ハズレ": reel1stop(1); break;
+            case "リプレイ": reel1stop(1); break;
+            case "ベル": reel1stop(1); break;
+            case "BBベル": reel1stop(1); break;
+            case "スイカ": reel1stop(2); break;
+            case "チェリー": reel1stop(3); break;
+            case "強チェリー": reel1stop(3); break;
+            case "強チャンス": reel1stop(2); break;
+            case "確定チェリー": reel1stop(4); break;
+            case "BB": reel1stop(5); break;
+            case "RB": reel1stop(5); break;
+            default: reel1stop(0);
+        }
+        
+        setTimeout(function(){
+            keyflag = 4
+        }, 100);
+        
+    }
+        
+    
+
+    
+    if (keyflag == 4){
+        keyflag = 5
+        
+        flashreset();
+        switch (flag){
+            case "ハズレ": reel2stop(1); break;
+            case "リプレイ": reel2stop(1); break;
+            case "ベル": reel2stop(2); break;
+            case "BBベル": reel2stop(2); break;
+            case "スイカ": reel2stop(3); break;
+            case "チェリー": reel2stop(4); break;
+            case "強チェリー": reel2stop(5); break;
+            case "強チャンス": reel2stop(3); break;
+            case "確定チェリー": reel2stop(4); break;
+            case "BB": reel2stop(6); break;
+            case "RB": reel2stop(6); break;
+            default: reel2stop(0);
+        }
+        setTimeout(function(){
+            keyflag = 6
+        }, 100);
+
+    }
+
+
+    
+    if (keyflag == 6){
+        keyflag = 7
+        
+        flashreset();
+            switch (flag){
+                case "ハズレ": reel3stop(1); break;
+                case "リプレイ": reel3stop(2); break;
+                case "ベル": reel3stop(3); break;
+                case "BBベル": reel3stop(3); break;
+                case "スイカ": reel3stop(4); break;
+                case "チェリー": reel3stop(3); break;
+                case "強チェリー": reel3stop(4); break;
+                case "強チャンス": reel3stop(5); break;
+                case "確定チェリー": reel3stop(4); break;
+                case "BB": reel3stop(6); break;
+                case "RB": reel3stop(7); break;
+                default: reel3stop(0);
+            }
+        reel3stop();
+        payout1();
+        document.getElementById("btn1").style.background = "#747474";
+        setTimeout(function(){
+            keyflag = 0
+            document.getElementById("btn1").style.background = "#fdc689";
+        }, 900);
+    }
+    
+
+}
+
+
 
 /////////////////////////////////////////////////
 // 停止位置調整関数
@@ -415,9 +554,9 @@ function flash2(){ //上段3回フラッシュ
 
 }
 
-function flash3(){ //下段フラッシュ
+function flash3(){ //チェリーフラッシュ
     
-    var target1 = document.getElementById("f3")
+    var target1 = document.getElementById("f10")
     var target2 = document.getElementById("f4")
     var target3 = document.getElementById("f5")
     var target4 = document.getElementById("f6")
@@ -457,9 +596,9 @@ function flash3(){ //下段フラッシュ
     }, 550);
 }
 
-function flash4(){ //中段フラッシュ
+function flash4(){ //スイカフラッシュ
     
-    var target1 = document.getElementById("f1")
+    var target1 = document.getElementById("f8")
     var target2 = document.getElementById("f4")
     var target3 = document.getElementById("f5")
     var target4 = document.getElementById("f6")
@@ -499,9 +638,9 @@ function flash4(){ //中段フラッシュ
     }, 550);
 }
 
-function flash5(){ //下段特殊フラッシュ
+function flash5(){ //右上がり特殊フラッシュ
     
-    var target1 = document.getElementById("f3")
+    var target1 = document.getElementById("f9")
     var target2 = document.getElementById("f4")
     var target3 = document.getElementById("f5")
     var target4 = document.getElementById("f6")
@@ -559,9 +698,9 @@ function flash5(){ //下段特殊フラッシュ
     }, 550);
 }
 
-function flash6(){ //上段特殊フラッシュ
+function flash6(){ //小V特殊フラッシュ
     
-    var target1 = document.getElementById("f2")
+    var target1 = document.getElementById("f7")
     var target2 = document.getElementById("f4")
     var target3 = document.getElementById("f5")
     var target4 = document.getElementById("f6")
@@ -696,4 +835,8 @@ function flashreset(){ //フラッシュリセット
     document.getElementById("f4").style.opacity = 0;
     document.getElementById("f5").style.opacity = 0;
     document.getElementById("f6").style.opacity = 0;
+    document.getElementById("f7").style.opacity = 0;
+    document.getElementById("f8").style.opacity = 0;
+    document.getElementById("f9").style.opacity = 0;
+    document.getElementById("f10").style.opacity = 0;
 }

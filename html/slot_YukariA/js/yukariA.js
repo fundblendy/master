@@ -20,7 +20,7 @@
     NON = 0;
     RP = 3;
     BELL = 8;
-    SUIKA = 3;
+    SUIKA = 7;
     CHERRY = 3;
     BELL2 = 15; //ボーナス中ベル
 

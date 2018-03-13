@@ -38,6 +38,8 @@ body { background: #000; }
 	left: 0px;
 	top: 0px;
 	z-index: 4;
+	max-width: 100%;
+
 }	
 #f1 {
 	position: absolute;
@@ -82,6 +84,38 @@ body { background: #000; }
 	opacity:0;
 }	
 
+#f7 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+	opacity:0;
+}	
+
+#f8 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+	opacity:0;
+}	
+
+#f9 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+	opacity:0;
+}	
+
+#f10 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+	opacity:0;
+}	
+
 #reel1 {
 	position: relative;
 	left: 0px;
@@ -102,7 +136,7 @@ body { background: #000; }
 	overflow: hidden;
 	height: 600px;   /* トリミングしたい枠の高さ */
 	position: absolute;
-	left: 319px;
+	left: 105px;
 	top: 100px;
 	z-index: 1;
 }
@@ -110,7 +144,7 @@ body { background: #000; }
 	overflow: hidden;
 	height: 600px;   /* トリミングしたい枠の高さ */
 	position: absolute;
-	left: 540px;
+	left: 326px;
 	top: 100px;
 	z-index: 2;
 	}
@@ -118,42 +152,43 @@ body { background: #000; }
 	overflow: hidden;
 	height: 600px;   /* トリミングしたい枠の高さ */
 	position: absolute;
-	left: 760px;
+	left: 546px;
 	top: 100px;
 	z-index: 3;
 	}
 #debug{
-	font-size : 16px;
+	font-size : 26px;
 	color : #ffffff;
 	z-index:100;
 	}
 .text{
-	font-size : 14px;
+	font-size : 20px;
 	color : #ffffff;
 	z-index:110;
 	}
 #coin{
-	font-size : 20px;
+	font-size : 26px;
 	color : #f9ffa7;
 	z-index:120;
 	}
 #pay{
-	font-size : 20px;
+	font-size : 26px;
 	color : #f9ffa7;
 	z-index:130;
 	}
 #gamecountA{
-	font-size : 20px;
+	font-size : 26px;
 	color : #a1ffa1;
 	z-index:120;
 	}
 #gamecountB{
-	font-size : 20px;
+	font-size : 26px;
 	color : #ffa7a7;
 	z-index:130;
 	}
 
 .display{
+	overflow: hidden;
 	position:relative;
 	margin: auto;
 	width: 100%;
@@ -162,10 +197,11 @@ body { background: #000; }
 
 
 .reel-body{
+	overflow: hidden;
 	position:relative;
 	text-align:center;
 	margin: auto;
-	width:1280px; 
+	width:853px; 
 	height:720px;
 	
 }
@@ -179,4 +215,30 @@ body { background: #000; }
 .box1{
 	display:inline-block;
 	text-align:center;
+}
+
+
+.button{
+	display:block;
+	margin: 0 auto;
+	text-align:center;
+}
+
+#btn1{
+	display:inline-block;
+	height:	100px;
+	width: 250px;
+	text-decoration: none;
+	background: #fdc689;
+	color: #fff;
+	line-height: 37px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px #444444;
+}
+#btn1:active{  /* クリック時の設定 */
+	-ms-transform: translateY(2px);
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	box-shadow:none;
 }
