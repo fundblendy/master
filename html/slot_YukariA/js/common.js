@@ -118,6 +118,7 @@ function touch(){
             case 0: Nomalpot(); break;
             case 1: Bonuskakutei(); break;
             case 2: Bonusmode(); break;
+            case 3: RTpot(); break;
         }
         kaiten1 = setInterval (reel1kaiten,1);
         kaiten2 = setInterval (reel2kaiten,1);
