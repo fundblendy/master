@@ -68,15 +68,15 @@ function Nomalpot(){
     document.getElementById("gamecountA").innerHTML=gamecount;
     document.getElementById("gamecountB").innerHTML=BBgamecount;
 
-    if (a >= 0 && a <=700){
+    if (a >= 0 && a <=730){
         document.getElementById("debug").innerHTML="ハズレ";
         flag = "ハズレ";
     }
-    if (a >= 701 && a <=850){
+    if (a >= 731 && a <=880){
         document.getElementById("debug").innerHTML="リプレイ";
         flag = "リプレイ";
     }
-    if (a >= 851 && a <=950){
+    if (a >= 881 && a <=950){
         document.getElementById("debug").innerHTML="ベル";
         flag = "ベル";
     }
