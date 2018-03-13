@@ -218,15 +218,17 @@ body { background: #000; }
 }
 
 
-.button{
+
+.stopbutton{
 	display:block;
 	margin: 0 auto;
 	text-align:center;
+	
 }
 
 #btn1{
 	display:inline-block;
-	height:	100px;
+	height:	150px;
 	width: 250px;
 	text-decoration: none;
 	background: #fdc689;
@@ -234,9 +236,70 @@ body { background: #000; }
 	line-height: 37px;
 	text-align: center;
 	border-radius: 3px;
-	box-shadow: 1px 2px 4px #444444;
+	box-shadow: 1px 2px 4px #694816;
+	vertical-align: top;
 }
 #btn1:active{  /* クリック時の設定 */
+	-ms-transform: translateY(2px);
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	box-shadow:none;
+}
+
+#btn2{
+	display:inline-block;
+	height:	100px;
+	width: 220px;
+	text-decoration: none;
+	background: #ff3535;
+	color: #fff;
+	line-height: 37px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px #444444;
+	vertical-align: top;
+}
+#btn2:active{  /* クリック時の設定 */
+	-ms-transform: translateY(2px);
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	box-shadow:none;
+}
+
+#btn3{
+	display:inline-block;
+	height:	100px;
+	width: 220px;
+	text-decoration: none;
+	background: #ff3535;
+	color: #fff;
+	line-height: 37px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px #444444;
+	vertical-align: top;
+}
+#btn3:active{  /* クリック時の設定 */
+	-ms-transform: translateY(2px);
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	box-shadow:none;
+}
+
+#btn4{
+	display:inline-block;
+	height:	100px;
+	width: 220px;
+	text-decoration: none;
+	background: #ff3535;
+	color: #fff;
+	line-height: 37px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px #444444;
+	vertical-align: top;
+}
+#btn4:active{  /* クリック時の設定 */
 	-ms-transform: translateY(2px);
 	-webkit-transform: translateY(2px);
 	transform: translateY(2px);

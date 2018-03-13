@@ -35,16 +35,11 @@
     //キー入力フラグ
     var keyflag;
 
-    //所持コイン
-    var mycoin = 500;
 
     //子役フラグ
     var flag;
 
-    //ゲーム数カウンタ
-    var gamecount = 0;
-    //ボーナス間ゲーム数カウンタ
-    var BBgamecount = 0;
+
 
 //---------------------------------------------//
 /////////////////////////////////////////////////
@@ -108,134 +103,15 @@ function reel3kaiten(){
 
 
 
-
-/////////////////////////////////////////////////
-// キー入力
-/////////////////////////////////////////////////
-
-function keyinput(){
-
-    if (event.keyCode == 38){  //「↑」が押されたか確認
-        if (keyflag == 0){
-            keyflag = 1;
-
-            flashreset();            
-            switch(potmode){
-                case 0: Nomalpot(); break;
-                case 1: Bonuskakutei(); break;
-                case 2: Bonusmode(); break;
-            }
-            kaiten1 = setInterval (reel1kaiten,1);
-            kaiten2 = setInterval (reel2kaiten,1);
-            kaiten3 = setInterval (reel3kaiten,1);
-
-            setTimeout(function(){
-                keyflag = 2
-            }, 600);
-        }
-    }
-
-    if (event.keyCode == 37){  //「←」が押されたか確認
-
-        if (keyflag == 2){
-            keyflag = 3
-            
-            flashreset();
-            switch (flag){
-                case "ハズレ": reel1stop(1); break;
-                case "リプレイ": reel1stop(1); break;
-                case "ベル": reel1stop(1); break;
-                case "BBベル": reel1stop(1); break;
-                case "スイカ": reel1stop(2); break;
-                case "チェリー": reel1stop(3); break;
-                case "強チェリー": reel1stop(3); break;
-                case "強チャンス": reel1stop(2); break;
-                case "確定チェリー": reel1stop(4); break;
-                case "BB": reel1stop(5); break;
-                case "RB": reel1stop(5); break;
-                default: reel1stop(0);
-            }
-            
-            setTimeout(function(){
-                keyflag = 4
-            }, 100);
-
-        }
-        
-    }
-
-    if (event.keyCode == 40){  //「↓」が押されたか確認
-        if (keyflag == 4){
-            keyflag = 5
-            flashreset();
-            switch (flag){
-                case "ハズレ": reel2stop(1); break;
-                case "リプレイ": reel2stop(1); break;
-                case "ベル": reel2stop(2); break;
-                case "BBベル": reel2stop(2); break;
-                case "スイカ": reel2stop(3); break;
-                case "チェリー": reel2stop(4); break;
-                case "強チェリー": reel2stop(5); break;
-                case "強チャンス": reel2stop(3); break;
-                case "確定チェリー": reel2stop(4); break;
-                case "BB": reel2stop(6); break;
-                case "RB": reel2stop(6); break;
-                default: reel2stop(0);
-            }
-
-            setTimeout(function(){
-                keyflag = 6
-            }, 100);
-
-        }
-    }
-
-    if (event.keyCode == 39){  //「→」が押されたか確認
-        if (keyflag == 6){
-            keyflag = 7
-            flashreset();
-            switch (flag){
-                case "ハズレ": reel3stop(1); break;
-                case "リプレイ": reel3stop(2); break;
-                case "ベル": reel3stop(3); break;
-                case "BBベル": reel3stop(3); break;
-                case "スイカ": reel3stop(4); break;
-                case "チェリー": reel3stop(3); break;
-                case "強チェリー": reel3stop(4); break;
-                case "強チャンス": reel3stop(5); break;
-                case "確定チェリー": reel3stop(4); break;
-                case "BB": reel3stop(6); break;
-                case "RB": reel3stop(7); break;
-                default: reel3stop(0);
-            }
-            reel3stop();
-            payout1();
-
-
-            document.getElementById("btn1").style.background = "#747474";
-            setTimeout(function(){
-                keyflag = 0
-                document.getElementById("btn1").style.background = "#fdc689";
-            }, 900);
-        }
-    }
-
-}
-
-
-
-
 /////////////////////////////////////////////////
 // クリックorタッチ入力
 /////////////////////////////////////////////////
 
 function touch(){
 
-    
-
     if (keyflag == 0){
         keyflag = 1;
-        
+        document.getElementById("btn1").style.background = "#694816";
         flashreset();
 
         switch(potmode){
@@ -256,6 +132,30 @@ function touch(){
 
     
     if (keyflag == 2){
+        touch1();
+    }
+        
+    
+
+    
+    if (keyflag == 4){
+        touch2();
+
+    }
+
+
+    
+    if (keyflag == 6){
+        touch3();
+    }
+}
+
+/////////////////////////////////////////////////
+// ストップボタン
+/////////////////////////////////////////////////
+
+function touch1(){
+    if (keyflag == 2){
         keyflag = 3
         
         flashreset();
@@ -273,16 +173,16 @@ function touch(){
             case "RB": reel1stop(5); break;
             default: reel1stop(0);
         }
-        
+        document.getElementById("btn2").style.background = "#441010";
         setTimeout(function(){
             keyflag = 4
         }, 100);
         
     }
-        
-    
+}
 
-    
+function touch2(){
+
     if (keyflag == 4){
         keyflag = 5
         
@@ -301,14 +201,16 @@ function touch(){
             case "RB": reel2stop(6); break;
             default: reel2stop(0);
         }
+        document.getElementById("btn3").style.background = "#441010";
         setTimeout(function(){
             keyflag = 6
         }, 100);
 
     }
+}
 
+function touch3(){
 
-    
     if (keyflag == 6){
         keyflag = 7
         
@@ -329,14 +231,15 @@ function touch(){
             }
         reel3stop();
         payout1();
-        document.getElementById("btn1").style.background = "#747474";
+        document.getElementById("btn4").style.background = "#441010";
         setTimeout(function(){
             keyflag = 0
             document.getElementById("btn1").style.background = "#fdc689";
+            document.getElementById("btn2").style.background = "#ff3535";
+            document.getElementById("btn3").style.background = "#ff3535";
+            document.getElementById("btn4").style.background = "#ff3535";
         }, 900);
     }
-    
-
 }
 
 
