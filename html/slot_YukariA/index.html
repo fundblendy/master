@@ -5,6 +5,31 @@
 <script src="js/common.js"></script>
 <script src="js/yukariA.js"></script>
 <link rel="stylesheet" type="text/css" href="main.css">
+
+<script>
+    /* ピッチインピッチアウトによる拡大縮小を禁止 */
+    document.documentElement.addEventListener('touchstart', function (e) {
+    if (e.touches.length >= 2) {e.preventDefault();}
+    }, false);
+  /* ダブルタップによる拡大を禁止 */
+  let lastTouch = 0;
+  document.addEventListener('touchend', event => {
+    const now = window.performance.now();
+    if (now - lastTouch <= 500) {
+      event.preventDefault();
+    }
+    lastTouch = now;
+  }, true);
+  </script>
+  <style>
+    body , input , textarea , select {
+    /* 入力欄にフォーカスが当たっても拡大しない */
+      font-size:17px;
+    }
+  </style>
+
+
+
 </head>
 
 
