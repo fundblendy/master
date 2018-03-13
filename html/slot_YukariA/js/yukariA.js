@@ -56,7 +56,6 @@ function Nomalpot(){
 
     var a = Math.floor( Math.random() * 1000 ) ;
     
-    a = 995
     
     mycoin -= BET;
     payout = 0;
