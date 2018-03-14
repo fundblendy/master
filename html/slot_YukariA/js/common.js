@@ -14,7 +14,8 @@
 //	定数
 /////////////////////////////////////////////////
     //
-
+    BBMAX = 300;
+    RBMAX = 120;
 
 //---------------------------------------------//
 /////////////////////////////////////////////////
@@ -38,6 +39,9 @@
 
     //子役フラグ
     var flag;
+
+    //ボーナス最大枚数
+    var Maxget;
 
 
 
@@ -403,8 +407,8 @@ function payout1(){
         case "強チェリー": payout = CHERRY; flash5(); document.getElementById("sound-Rare2").play(); break;
         case "強チャンス": payout = SUIKA; flash6(); document.getElementById("sound-Rare2").play(); break;
         case "確定チェリー": payout = CHERRY; flash7(); document.getElementById("sound-Rare2").play(); break;
-        case "BB": payout = RP; Bgame = 20; potmode = 2; flash7(); document.getElementById("sound-Bonus").play(); break;
-        case "RB": payout = RP; Bgame = 8; potmode = 2; flash7(); document.getElementById("sound-Bonus").play(); break;
+        case "BB": payout = RP; Bgame = 20; potmode = 2; flash7(); document.getElementById("sound-Bonus").play(); Maxget = BBMAX; break;
+        case "RB": payout = RP; Bgame = 8; potmode = 2; flash7(); document.getElementById("sound-Bonus").play();  Maxget = RBMAX; break;
         default: payout = NON; break;
     }
 
@@ -412,6 +416,18 @@ function payout1(){
 
     document.getElementById("coin").innerHTML=mycoin;
     document.getElementById("pay").innerHTML=payout;
+
+    if (potmode == 0){
+        document.getElementById("getcoin").innerHTML="";
+    }
+
+    if (potmode == 2){
+        document.getElementById("getcoin").innerHTML="GET "+Bget+"/"+Maxget;
+    }
+    
+    if (potmode == 3){
+        document.getElementById("getcoin").innerHTML=RTgame+"/30";
+    }
 
 }
 

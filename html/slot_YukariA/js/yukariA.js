@@ -56,6 +56,7 @@ function Nomalpot(){
 
     var a = Math.floor( Math.random() * 1000 ) ;
     
+    a = 995;
     
     mycoin -= BET;
     payout = 0;
@@ -261,6 +262,7 @@ function Bonusmode(){
     
     mycoin -= BET;
     payout = 0;
+    Bget += 15;
     
 
     document.getElementById("coin").innerHTML=mycoin;
@@ -277,8 +279,10 @@ function Bonusmode(){
 
         document.getElementById("sound-RT").play();
         potmode = 3;
-        BBgamecount =0;
-        RTgame = 30
+        BBgamecount = 0;
+        Bget = 0;
+        RTgame = 30;
+
 
     }
 }
