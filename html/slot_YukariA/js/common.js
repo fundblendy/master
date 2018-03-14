@@ -16,6 +16,7 @@
     //
     BBMAX = 300;
     RBMAX = 120;
+    SBBMAX = 450;
 
 //---------------------------------------------//
 /////////////////////////////////////////////////
@@ -45,6 +46,10 @@
 
     //SpecialBGM再生中判定(0:off/1:on)
     var SBGMflg = 0;
+
+    //autoplay用
+    var autoplay1;
+    var autoplayflg = 0;
 
 
 
@@ -145,25 +150,42 @@ function touch(){
         
     }
 
-    
     if (keyflag == 2){
         touch1();
     }
         
-    
-
-    
     if (keyflag == 4){
         touch2();
-
     }
 
-
-    
     if (keyflag == 6){
         touch3();
     }
 }
+
+
+/////////////////////////////////////////////////
+// オートプレイ
+/////////////////////////////////////////////////
+
+function autoplay(){
+
+    
+    if (autoplayflg == 0){
+        autoplay1 = setInterval (touch,400);
+        autoplayflg = 1;
+    }
+    else{
+        clearInterval(autoplay1);
+        autoplayflg = 0;
+    }
+
+
+}
+
+
+
+
 
 /////////////////////////////////////////////////
 // ストップボタン
@@ -423,14 +445,14 @@ function payout1(){
         case "強チェリー": payout = CHERRY; flash5(); document.getElementById("sound-Rare2").play();  break;
         case "強チャンス": payout = SUIKA; flash6(); document.getElementById("sound-Rare2").play(); break;
         case "確定チェリー": payout = CHERRY; flash7(); document.getElementById("sound-Rare2").play(); break;
-        case "BB": payout = RP; Bgame = 20; potmode = 2; flash7(); Maxget = BBMAX; break;
-        case "青BB": payout = RP; Bgame = 20; potmode = 5; flash8();  Maxget = BBMAX; SBGMflg = 1; break;
-        case "RB": payout = RP; Bgame = 8; potmode = 2; flash7();  Maxget = RBMAX; break;
+        case "BB": payout = RP; Bgame = 20; potmode = 2; flash7(); Maxget = BBMAX; document.getElementById("sound-777").play(); break;
+        case "青BB": payout = RP; Bgame = 30; potmode = 5; flash8();  Maxget = SBBMAX; SBGMflg = 1; document.getElementById("sound-SP").play(); break;
+        case "RB": payout = RP; Bgame = 8; potmode = 2; flash7();  Maxget = RBMAX; document.getElementById("sound-777").play(); break;
         default: payout = NON; break;
     }
 
     //青BB時 BGM処理
-    if(SBGMflg == 1 && Bgame ==20){
+    if(SBGMflg == 1 && Bgame ==30){
         document.getElementById("sound-Bonus2").play();
     }
 
@@ -451,6 +473,17 @@ function payout1(){
             case "強チャンス": potmode =3; RTgame = 3; break;
         }
 
+    }
+
+    //RTゲーム数上乗せ時
+    if(potmode == 6 ){
+        switch (flag){
+            case "チェリー": document.getElementById("sound-uwanose").play(); break;
+            case "SPリプレイ": document.getElementById("sound-uwanose").play(); break;
+            case "強チェリー": document.getElementById("sound-uwanose").play(); break;
+            case "強チャンス": document.getElementById("sound-uwanose").play(); break;
+            case "確定チェリー": document.getElementById("sound-uwanose").play(); break;
+        }
     }
 
     mycoin += payout;

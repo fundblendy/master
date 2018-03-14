@@ -32,7 +32,7 @@
 //	グローバル変数
 /////////////////////////////////////////////////
     //モード関連
-    var potmode = 0; //抽選モード
+    var potmode = 4; //抽選モード
 
     //ゲーム数関連
     var Bgame = 0; //ボーナスゲーム　残りゲーム数
@@ -477,6 +477,7 @@ function Bonusmode2(){
             RTgame += 30;
             SRTgame = 10;
             MAXRTgame = RTgame;
+            document.getElementById("sound-SP2").play();
 
         }
         else{
@@ -487,6 +488,7 @@ function Bonusmode2(){
             RTgame = 50;
             SRTgame = 10;
             MAXRTgame = RTgame;
+            document.getElementById("sound-SP2").play();
 
         }
 

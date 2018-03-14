@@ -73,7 +73,24 @@
       <audio id="sound-RT" preload="auto">
           <source src="./sound/RT.mp3" type="audio/mp3">
       </audio>
-    <!--オーディオファイル-->
+
+      <audio id="sound-777" preload="auto">
+        <source src="./sound/777.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-SP" preload="auto">
+        <source src="./sound/SP.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-SP2" preload="auto">
+        <source src="./sound/SP2.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-uwanose" preload="auto">
+        <source src="./sound/uwanose.mp3" type="audio/mp3">
+      </audio>
+
+      <!--オーディオファイル-->
 
 
 
@@ -81,11 +98,6 @@
 
 
       <div class ="stats">
-        
-        <ul class="box1">
-          <li class="text">成立フラグ</li> 
-          <li id="debug">---</li>
-        </ul>
 
         <ul class="box1">
           <li class="text">所持コイン</li>
@@ -166,11 +178,14 @@
         <a href="#" id="btn2" onClick="touch1();" ></a>
         <a href="#" id="btn3" onClick="touch2();" ></a>
         <a href="#" id="btn4" onClick="touch3();" ></a>
-
         <a href="#" id="btn1" onClick="touch();" ></a>
       </div>
 
+      <div class="autoplaybtn">
+        <a href="#" id="btn5" onClick="autoplay();" >AUTO</a>
+      </div>
 
+      <li id="debug">---</li>
 
 
       <script src="js/init.js"></script>

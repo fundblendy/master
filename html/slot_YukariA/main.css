@@ -175,10 +175,11 @@ body { background: #000; }
 	}
 
 #debug{
+	position: absolute;
 	font-family: sans-serif;
-	font-size : 22px;
-	color : #e0e0e0;
-	z-index:100;
+	font-size : 1px;
+	color : #000000;
+	z-index:0;
 	}
 .text{
 	font-family: sans-serif;
@@ -326,6 +327,26 @@ body { background: #000; }
 	vertical-align: top;
 }
 #btn4:active{  /* クリック時の設定 */
+	-ms-transform: translateY(2px);
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	box-shadow:none;
+}
+
+#btn5{
+	display:inline-block;
+	height:	100px;
+	width: 400px;
+	text-decoration: none;
+	background: #58f372;
+	color: #fff;
+	font-size: 60px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px #444444;
+	vertical-align: auto
+}
+#btn5:active{  /* クリック時の設定 */
 	-ms-transform: translateY(2px);
 	-webkit-transform: translateY(2px);
 	transform: translateY(2px);
