@@ -75,9 +75,9 @@ function reel1kaiten(){
     var target1 = document.getElementById("reel1"); //対象要素をIDで指定
     var reel1;
     
-    reeltop1 += 5
+    reeltop1 += 5;
     if (reeltop1 == 305){
-        reeltop1 = -1180
+        reeltop1 = -1180;
     }   
     reel1 = reeltop1 + "px";
     target1.style.top = reel1;
@@ -92,9 +92,9 @@ function reel2kaiten(){
     var target2 = document.getElementById("reel2"); //対象要素をIDで指定
     var reel2;
     
-    reeltop2 += 5
+    reeltop2 += 5;
     if (reeltop2 == 305){
-        reeltop2 = -1180
+        reeltop2 = -1180;
     }   
     reel2 = reeltop2 + "px";
     target2.style.top = reel2;
@@ -109,9 +109,9 @@ function reel3kaiten(){
     var target3 = document.getElementById("reel3"); //対象要素をIDで指定
     var reel3;
     
-    reeltop3 += 5
+    reeltop3 += 5;
     if (reeltop3 == 305){
-        reeltop3 = -1180
+        reeltop3 = -1180;
     }   
     reel3 = reeltop3 + "px";
     target3.style.top = reel3;
@@ -147,7 +147,7 @@ function touch(){
         document.getElementById("sound-start").play();
             
         setTimeout(function(){
-            keyflag = 2
+            keyflag = 2;
         }, 600);
 
         
@@ -196,7 +196,7 @@ function autoplay(){
 
 function touch1(){
     if (keyflag == 2){
-        keyflag = 3
+        keyflag = 3;
         
         flashreset();
         switch (flag){
@@ -218,7 +218,7 @@ function touch1(){
         document.getElementById("btn2").style.background = "#441010";
         document.getElementById("sound-stop1").play();
         setTimeout(function(){
-            keyflag = 4
+            keyflag = 4;
         }, 100);
         
     }
@@ -227,7 +227,7 @@ function touch1(){
 function touch2(){
 
     if (keyflag == 4){
-        keyflag = 5
+        keyflag = 5;
         
         flashreset();
         switch (flag){
@@ -249,7 +249,7 @@ function touch2(){
         document.getElementById("btn3").style.background = "#441010";
         document.getElementById("sound-stop2").play();
         setTimeout(function(){
-            keyflag = 6
+            keyflag = 6;
         }, 100);
 
     }
@@ -258,7 +258,7 @@ function touch2(){
 function touch3(){
 
     if (keyflag == 6){
-        keyflag = 7
+        keyflag = 7;
         
         flashreset();
             switch (flag){
@@ -282,7 +282,7 @@ function touch3(){
         document.getElementById("btn4").style.background = "#441010";
         document.getElementById("sound-stop3").play();
         setTimeout(function(){
-            keyflag = 0
+            keyflag = 0;
             document.getElementById("btn1").style.background = "#fdc689";
             document.getElementById("btn2").style.background = "#ff3535";
             document.getElementById("btn3").style.background = "#ff3535";
@@ -552,7 +552,7 @@ function payout1(){
 
 function flash1(){ //リプレイ中段3回フラッシュ
     
-    var target1 = document.getElementById("f1")
+    var target1 = document.getElementById("f1");
 
     setTimeout(function(){
         target1.style.opacity = 1;
@@ -574,7 +574,7 @@ function flash1(){ //リプレイ中段3回フラッシュ
 
 function flash2(){ //ベル上段6回フラッシュ
     
-    var target1 = document.getElementById("f2")
+    var target1 = document.getElementById("f2");
 
     setTimeout(function(){
         target1.style.opacity = 1;
@@ -614,10 +614,10 @@ function flash2(){ //ベル上段6回フラッシュ
 
 function flash3(){ //チェリーフラッシュ
     
-    var target1 = document.getElementById("f10")
-    var target2 = document.getElementById("f4")
-    var target3 = document.getElementById("f5")
-    var target4 = document.getElementById("f6")
+    var target1 = document.getElementById("f10");
+    var target2 = document.getElementById("f4");
+    var target3 = document.getElementById("f5");
+    var target4 = document.getElementById("f6");
 
     setTimeout(function(){
         target2.style.opacity = 1;
@@ -656,10 +656,10 @@ function flash3(){ //チェリーフラッシュ
 
 function flash4(){ //スイカフラッシュ
     
-    var target1 = document.getElementById("f8")
-    var target2 = document.getElementById("f4")
-    var target3 = document.getElementById("f5")
-    var target4 = document.getElementById("f6")
+    var target1 = document.getElementById("f8");
+    var target2 = document.getElementById("f4");
+    var target3 = document.getElementById("f5");
+    var target4 = document.getElementById("f6");
 
     setTimeout(function(){
         target2.style.opacity = 1;
@@ -698,10 +698,10 @@ function flash4(){ //スイカフラッシュ
 
 function flash5(){ //右上がり特殊フラッシュ
     
-    var target1 = document.getElementById("f9")
-    var target2 = document.getElementById("f4")
-    var target3 = document.getElementById("f5")
-    var target4 = document.getElementById("f6")
+    var target1 = document.getElementById("f9");
+    var target2 = document.getElementById("f4");
+    var target3 = document.getElementById("f5");
+    var target4 = document.getElementById("f6");
 
     setTimeout(function(){
         target2.style.opacity = 1;
@@ -758,10 +758,10 @@ function flash5(){ //右上がり特殊フラッシュ
 
 function flash6(){ //小V特殊フラッシュ
     
-    var target1 = document.getElementById("f7")
-    var target2 = document.getElementById("f4")
-    var target3 = document.getElementById("f5")
-    var target4 = document.getElementById("f6")
+    var target1 = document.getElementById("f7");
+    var target2 = document.getElementById("f4");
+    var target3 = document.getElementById("f5");
+    var target4 = document.getElementById("f6");
 
     setTimeout(function(){
         target2.style.opacity = 1;
@@ -818,10 +818,10 @@ function flash6(){ //小V特殊フラッシュ
 
 function flash7(){ //中段特殊フラッシュ
     
-    var target1 = document.getElementById("f1")
-    var target2 = document.getElementById("f4")
-    var target3 = document.getElementById("f5")
-    var target4 = document.getElementById("f6")
+    var target1 = document.getElementById("f1");
+    var target2 = document.getElementById("f4");
+    var target3 = document.getElementById("f5");
+    var target4 = document.getElementById("f6");
 
     setTimeout(function(){
         target2.style.opacity = 1;
@@ -878,10 +878,10 @@ function flash7(){ //中段特殊フラッシュ
 
 function flash8(){ //下段特殊フラッシュ
     
-    var target1 = document.getElementById("f3")
-    var target2 = document.getElementById("f4")
-    var target3 = document.getElementById("f5")
-    var target4 = document.getElementById("f6")
+    var target1 = document.getElementById("f3");
+    var target2 = document.getElementById("f4");
+    var target3 = document.getElementById("f5");
+    var target4 = document.getElementById("f6");
 
     setTimeout(function(){
         target2.style.opacity = 1;
