@@ -43,6 +43,11 @@
     //ボーナス最大枚数
     var Maxget;
 
+    //SpecialBGM再生中判定(0:off/1:on)
+    var SBGMflg = 0;
+
+
+
 
 
 //---------------------------------------------//
@@ -123,6 +128,9 @@ function touch(){
             case 1: Bonuskakutei(); break;
             case 2: Bonusmode(); break;
             case 3: RTpot(); break;
+            case 4: Bonuskakutei2(); break;
+            case 5: Bonusmode2(); break;
+            case 6: SRTpot(); break;
         }
         kaiten1 = setInterval (reel1kaiten,1);
         kaiten2 = setInterval (reel2kaiten,1);
@@ -173,10 +181,12 @@ function touch1(){
             case "BBベル": reel1stop(1); break;
             case "スイカ": reel1stop(2); break;
             case "チェリー": reel1stop(3); break;
+            case "SPリプレイ": reel1stop(3); break;
             case "強チェリー": reel1stop(3); break;
             case "強チャンス": reel1stop(2); break;
             case "確定チェリー": reel1stop(4); break;
             case "BB": reel1stop(5); break;
+            case "青BB": reel1stop(5); break;
             case "RB": reel1stop(5); break;
             default: reel1stop(0);
         }
@@ -202,10 +212,12 @@ function touch2(){
             case "BBベル": reel2stop(2); break;
             case "スイカ": reel2stop(3); break;
             case "チェリー": reel2stop(4); break;
+            case "SPリプレイ": reel2stop(4); break;
             case "強チェリー": reel2stop(5); break;
             case "強チャンス": reel2stop(3); break;
             case "確定チェリー": reel2stop(4); break;
             case "BB": reel2stop(6); break;
+            case "青BB": reel2stop(6); break;
             case "RB": reel2stop(6); break;
             default: reel2stop(0);
         }
@@ -230,11 +242,13 @@ function touch3(){
                 case "ベル": reel3stop(3); break;
                 case "BBベル": reel3stop(3); break;
                 case "スイカ": reel3stop(4); break;
-                case "チェリー": reel3stop(3); break;
+                case "チェリー": reel3stop(2); break;
+                case "SPリプレイ": reel3stop(3); break;
                 case "強チェリー": reel3stop(4); break;
                 case "強チャンス": reel3stop(5); break;
                 case "確定チェリー": reel3stop(4); break;
                 case "BB": reel3stop(6); break;
+                case "青BB": reel3stop(8); break;
                 case "RB": reel3stop(7); break;
                 default: reel3stop(0);
             }
@@ -381,6 +395,7 @@ function reel3stop(x){
         case 5: reeltop3 = -365; break;
         case 6: reeltop3 = 300; break;
         case 7: reeltop3 = 155; break;
+        case 8: reeltop3 = 235; break;
     }
     var i = reeloffset(reeltop3);
     clearInterval(kaiten3);
@@ -404,12 +419,38 @@ function payout1(){
         case "BBベル": payout = BELL2; flash2(); document.getElementById("sound-BELL").play(); break;
         case "スイカ": payout = SUIKA; flash4(); document.getElementById("sound-Rare").play(); break;
         case "チェリー": payout = CHERRY; flash3(); document.getElementById("sound-Rare").play(); break;
-        case "強チェリー": payout = CHERRY; flash5(); document.getElementById("sound-Rare2").play(); break;
+        case "SPリプレイ": payout = CHERRY; flash4(); document.getElementById("sound-Rare").play(); break;
+        case "強チェリー": payout = CHERRY; flash5(); document.getElementById("sound-Rare2").play();  break;
         case "強チャンス": payout = SUIKA; flash6(); document.getElementById("sound-Rare2").play(); break;
         case "確定チェリー": payout = CHERRY; flash7(); document.getElementById("sound-Rare2").play(); break;
-        case "BB": payout = RP; Bgame = 20; potmode = 2; flash7(); document.getElementById("sound-Bonus").play(); Maxget = BBMAX; break;
-        case "RB": payout = RP; Bgame = 8; potmode = 2; flash7(); document.getElementById("sound-Bonus").play();  Maxget = RBMAX; break;
+        case "BB": payout = RP; Bgame = 20; potmode = 2; flash7(); Maxget = BBMAX; break;
+        case "青BB": payout = RP; Bgame = 20; potmode = 5; flash8();  Maxget = BBMAX; SBGMflg = 1; break;
+        case "RB": payout = RP; Bgame = 8; potmode = 2; flash7();  Maxget = RBMAX; break;
         default: payout = NON; break;
+    }
+
+    //青BB時 BGM処理
+    if(SBGMflg == 1 && Bgame ==20){
+        document.getElementById("sound-Bonus2").play();
+    }
+
+    //RB時 BGM処理
+    if(SBGMflg == 0 && Bgame ==8){
+        document.getElementById("sound-Bonus").play();
+    }
+
+    //赤BB時 BGM処理
+    if(SBGMflg == 0 && Bgame ==20){
+        document.getElementById("sound-Bonus").play();
+    }
+
+    //通常時ミニRT移行抽選
+    if(potmode == 0){
+        switch (flag){
+            case "強チェリー": potmode = 3; RTgame = 2; break;
+            case "強チャンス": potmode =3; RTgame = 3; break;
+        }
+
     }
 
     mycoin += payout;
@@ -434,8 +475,24 @@ function payout1(){
     }
     
     if (potmode == 3){
-        document.getElementById("getcoin").innerHTML=RTgame+"/30";
+        document.getElementById("getcoin").innerHTML="LAST "+RTgame+"G";
         document.getElementById("mode").innerHTML="Atelier Chance";
+    }
+
+    if (potmode == 4){
+        document.getElementById("holder").style.opacity= 1 ;
+        document.getElementById("mode").innerHTML="Congratulation!!";
+    }
+
+    if (potmode == 5){
+        document.getElementById("holder").style.opacity= 1 ;
+        document.getElementById("getcoin").innerHTML="GET "+Bget+"/"+Maxget;
+        document.getElementById("mode").innerHTML="SUPER BIG BONUS";
+    }
+
+    if (potmode == 6){
+        document.getElementById("getcoin").innerHTML=SRTgame+"/"+RTgame;
+        document.getElementById("mode").innerHTML="SUPER Atelier Chance";
     }
 
 }
@@ -713,6 +770,66 @@ function flash6(){ //小V特殊フラッシュ
 function flash7(){ //中段特殊フラッシュ
     
     var target1 = document.getElementById("f1")
+    var target2 = document.getElementById("f4")
+    var target3 = document.getElementById("f5")
+    var target4 = document.getElementById("f6")
+
+    setTimeout(function(){
+        target2.style.opacity = 1;
+    }, 50);
+    setTimeout(function(){
+        target2.style.opacity = 0;
+    }, 100);
+    setTimeout(function(){
+        target3.style.opacity = 1;
+    }, 100);
+    setTimeout(function(){
+        target3.style.opacity = 0;
+    }, 150);
+    setTimeout(function(){
+        target4.style.opacity = 1;
+    }, 150);
+    setTimeout(function(){
+        target4.style.opacity = 0;
+    }, 200);
+    setTimeout(function(){
+        target2.style.opacity = 1;
+    }, 200);
+    setTimeout(function(){
+        target2.style.opacity = 0;
+    }, 250);
+    setTimeout(function(){
+        target3.style.opacity = 1;
+    }, 250);
+    setTimeout(function(){
+        target3.style.opacity = 0;
+    }, 300);
+    setTimeout(function(){
+        target4.style.opacity = 1;
+    }, 300);
+    setTimeout(function(){
+        target4.style.opacity = 0;
+    }, 350);
+    setTimeout(function(){
+        target1.style.opacity = 1;
+    }, 350);
+    setTimeout(function(){
+        target1.style.opacity = 0;
+    }, 400);
+    setTimeout(function(){
+        target1.style.opacity = 1;
+    }, 450);
+    setTimeout(function(){
+        target1.style.opacity = 0;
+    }, 500);
+    setTimeout(function(){
+        target1.style.opacity = 1;
+    }, 550);
+}
+
+function flash8(){ //下段特殊フラッシュ
+    
+    var target1 = document.getElementById("f3")
     var target2 = document.getElementById("f4")
     var target3 = document.getElementById("f5")
     var target4 = document.getElementById("f6")
