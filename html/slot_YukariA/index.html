@@ -5,17 +5,14 @@
     <script src="js/common.js"></script>
     <script src="js/yukariA.js"></script>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="display.css">
 
     <script>
-        /* ピッチインピッチアウトによる拡大縮小を禁止 */
-        document.documentElement.addEventListener('touchstart', function (e) {
-        if (e.touches.length >= 2) {e.preventDefault();}
-        }, false);
       /* ダブルタップによる拡大を禁止 */
       let lastTouch = 0;
       document.addEventListener('touchend', event => {
         const now = window.performance.now();
-        if (now - lastTouch <= 500) {
+        if (now - lastTouch <= 400) {
           event.preventDefault();
         }
         lastTouch = now;
@@ -32,54 +29,57 @@
 
   <body>
 
+    <!--オーディオファイル-->
+      <audio id="sound-start" preload="auto">
+        <source src="./sound/start.mp3" type="audio/mp3">
+      </audio>
 
-    <audio id="sound-start" preload="auto">
-      <source src="./sound/start.mp3" type="audio/mp3">
-    </audio>
+      <audio id="sound-stop1" preload="auto">
+        <source src="./sound/stop.mp3" type="audio/mp3">
+      </audio>
 
-    <audio id="sound-stop1" preload="auto">
-      <source src="./sound/stop.mp3" type="audio/mp3">
-    </audio>
+      <audio id="sound-stop2" preload="auto">
+        <source src="./sound/stop.mp3" type="audio/mp3">
+      </audio>
 
-    <audio id="sound-stop2" preload="auto">
-      <source src="./sound/stop.mp3" type="audio/mp3">
-    </audio>
+      <audio id="sound-stop3" preload="auto">
+        <source src="./sound/stop.mp3" type="audio/mp3">
+      </audio>
 
-    <audio id="sound-stop3" preload="auto">
-      <source src="./sound/stop.mp3" type="audio/mp3">
-    </audio>
+      <audio id="sound-RP" preload="auto">
+        <source src="./sound/RP.mp3" type="audio/mp3">
+      </audio>
 
-    <audio id="sound-RP" preload="auto">
-      <source src="./sound/RP.mp3" type="audio/mp3">
-    </audio>
+      <audio id="sound-BELL" preload="auto">
+        <source src="./sound/BELL.mp3" type="audio/mp3">
+      </audio>
+    
+      <audio id="sound-Rare" preload="auto">
+        <source src="./sound/Rare.mp3" type="audio/mp3">
+      </audio>
 
-    <audio id="sound-BELL" preload="auto">
-      <source src="./sound/BELL.mp3" type="audio/mp3">
-    </audio>
-  
-    <audio id="sound-Rare" preload="auto">
-      <source src="./sound/Rare.mp3" type="audio/mp3">
-    </audio>
+      <audio id="sound-Rare2" preload="auto">
+        <source src="./sound/Rare2.mp3" type="audio/mp3">
+      </audio>
 
-    <audio id="sound-Rare2" preload="auto">
-      <source src="./sound/Rare2.mp3" type="audio/mp3">
-    </audio>
+      <audio id="sound-Bonus" preload="auto" loop>
+        <source src="./sound/Bonus.mp3" type="audio/mp3">
+      </audio>
 
-    <audio id="sound-Bonus" preload="auto" loop>
-      <source src="./sound/Bonus.mp3" type="audio/mp3">
-    </audio>
+      <audio id="sound-RT" preload="auto">
+          <source src="./sound/RT.mp3" type="audio/mp3">
+      </audio>
+    <!--オーディオファイル-->
 
-    <audio id="sound-RT" preload="auto">
-        <source src="./sound/RT.mp3" type="audio/mp3">
-    </audio>
 
-    <div class ="display">
+
+    <div class ="all">
 
 
       <div class ="stats">
         
         <ul class="box1">
-          <li class="text">成立フラグ</li>
+          <li class="text">成立フラグ</li> 
           <li id="debug">---</li>
         </ul>
 
@@ -108,11 +108,36 @@
       <div class ="reel-body">
 
 
-        <div class="reel1waku"><div id="reel1"><img src="./img/00-reel1.png" alt=""/></div></div>
-        <div class="reel2waku"><div id="reel2"><img src="./img/00-reel2.png" alt=""/></div></div>
-        <div class="reel3waku"><div id="reel3"><img src="./img/00-reel3.png" alt=""/></div></div>
-      
-        <div class="body"><a href="#" onclick="touch();"><img src="./img/main-body.png" alt=""  /></a></div>
+        <div class="reel1waku">
+          <div id="reel1"><img src="./img/00-reel1.png" alt=""/></div>
+        </div>
+        <div class="reel2waku">
+          <div id="reel2"><img src="./img/00-reel2.png" alt=""/></div>
+        </div>
+        <div class="reel3waku">
+          <div id="reel3"><img src="./img/00-reel3.png" alt=""/></div>
+        </div>
+
+        <div class=maindisplay>
+            <div class="holder">
+                <div class="first"></div>
+                <div class="second"></div>
+                <div class="third"></div>
+                <div id="logo"><img src="./img/logo.png" alt=""/></div>
+                <div class="txt1">
+                  <h1>Atelier Yukari ACE</h1>
+                  <p></p>
+                </div>
+              </div>
+        </div>
+        
+        <div class="body2"><img src="./img/body2.png" alt=""  /></div>
+
+
+
+
+        <div class="body"><img src="./img/main-black.png" alt=""  /></div>
+
 
         <div id="f1"><img src="./img/01-f1.png" alt=""/></div>
         <div id="f2"><img src="./img/01-f2.png" alt=""/></div>
