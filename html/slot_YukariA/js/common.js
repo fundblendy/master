@@ -44,6 +44,9 @@
     //ボーナス最大枚数
     var Maxget;
 
+    //BGM再生中判定(0:off/1:on)
+    var BGMflg = 0;
+
     //SpecialBGM再生中判定(0:off/1:on)
     var SBGMflg = 0;
 
@@ -446,7 +449,7 @@ function payout1(){
         case "強チャンス": payout = SUIKA; flash6(); document.getElementById("sound-Rare2").play(); break;
         case "確定チェリー": payout = CHERRY; flash7(); document.getElementById("sound-Rare2").play(); break;
         case "BB": payout = RP; Bgame = 20; potmode = 2; flash7(); Maxget = BBMAX; document.getElementById("sound-777").play(); break;
-        case "青BB": payout = RP; Bgame = 30; potmode = 5; flash8();  Maxget = SBBMAX; SBGMflg = 1; document.getElementById("sound-SP").play(); break;
+        case "青BB": payout = RP; Bgame = 30; potmode = 5; flash8();  Maxget = SBBMAX;  document.getElementById("sound-SP").play(); break;
         case "RB": payout = RP; Bgame = 8; potmode = 2; flash7();  Maxget = RBMAX; document.getElementById("sound-777").play(); break;
         default: payout = NON; break;
     }
@@ -456,14 +459,27 @@ function payout1(){
         document.getElementById("sound-Bonus2").play();
     }
 
+    if(SBGMflg == 0 && Bgame ==30){
+        if(BGMflg == 1){
+            document.getElementById("sound-Bonus").pause();
+            document.getElementById("sound-Bonus").currentTime = 0;
+        }
+        document.getElementById("sound-Bonus2").play();
+        SBGMflg = 1;
+    }
+
+
     //RB時 BGM処理
     if(SBGMflg == 0 && Bgame ==8){
         document.getElementById("sound-Bonus").play();
+        BGMflg = 1;
+
     }
 
     //赤BB時 BGM処理
     if(SBGMflg == 0 && Bgame ==20){
         document.getElementById("sound-Bonus").play();
+        BGMflg = 1;
     }
 
     //通常時ミニRT移行抽選

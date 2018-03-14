@@ -3,9 +3,9 @@
 //////////////////////////////////////////////////
 
 /////////////////////////////////////////////////
-//  バージョン履歴
+//  説明
 /////////////////////////////////////////////////
-    //
+    //子役やボーナス確率等はここで設定します。
 
 //---------------------------------------------//
 /////////////////////////////////////////////////
@@ -32,7 +32,7 @@
 //	グローバル変数
 /////////////////////////////////////////////////
     //モード関連
-    var potmode = 4; //抽選モード
+    var potmode = 0; //抽選モード
 
     //ゲーム数関連
     var Bgame = 0; //ボーナスゲーム　残りゲーム数
@@ -180,11 +180,13 @@ function RTpot(){
         if(SBGMflg == 1){
             document.getElementById("sound-Bonus2").pause();
             document.getElementById("sound-Bonus2").currentTime = 0;
-        SBGMflg = 0
+        SBGMflg = 0;
+        BGMflg = 0;
         }
         else{
             document.getElementById("sound-Bonus").pause();
             document.getElementById("sound-Bonus").currentTime = 0;
+            BGMflg = 0;
         }
 
     
