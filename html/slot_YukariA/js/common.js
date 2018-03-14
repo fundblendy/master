@@ -419,14 +419,23 @@ function payout1(){
 
     if (potmode == 0){
         document.getElementById("getcoin").innerHTML="";
+        document.getElementById("mode").innerHTML="";
+        document.getElementById("holder").style.opacity= 0;
+    }
+
+    if (potmode == 1){
+        document.getElementById("holder").style.opacity= 1 ;
+        document.getElementById("mode").innerHTML="Congratulation!!";
     }
 
     if (potmode == 2){
         document.getElementById("getcoin").innerHTML="GET "+Bget+"/"+Maxget;
+        document.getElementById("mode").innerHTML="BONUS GAME";
     }
     
     if (potmode == 3){
         document.getElementById("getcoin").innerHTML=RTgame+"/30";
+        document.getElementById("mode").innerHTML="Atelier Chance";
     }
 
 }

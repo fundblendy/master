@@ -4,7 +4,7 @@ body {
   font-family: 'Bitter', serif;
   text-align: center;
 }
-.holder,
+#holder,
 .first,
 .second,
 .third {
@@ -20,10 +20,11 @@ body {
 .third {
   opacity: 0;
 }
-.holder {
+#holder {
   height: 331px;
-  position: relative;
+  position: absolute;
   z-index: 1;
+  opacity:0;
 }
 .first {
   animation: first 10s infinite;
@@ -83,21 +84,17 @@ body {
     100% {opacity: 0;}
   }
 
-.txt1 {
-  margin-top: 0px;
+#mode {
+  margin-top: 1px;
   position: absolute;
+  color: #fffece;
   width: 100%;
   z-index: 1000;
-}
-h1 {
   font-size: 20px;
   font-weight: 400;
   margin: 0;
 }
-p {
-  font-size: 20px;
-  margin-top: 26px;
-}
+
 
 #logo{
     margin-top: 0px;
@@ -118,4 +115,15 @@ p {
     color: rgba(0,0,0,0.6);
     text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
                  0px -5px 16px rgba(255,255,255,0.3);
+}
+
+#black{
+    position: absolute;
+    height: 331px ;
+    width: 767px ;
+    background: rgba(0,0,0,0.6);
+    opacity: 1;
+    z-index: 1500;
+
+
 }
