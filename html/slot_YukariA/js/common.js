@@ -242,7 +242,7 @@ function touch2(){
             case "強チャンス": reel2stop(3); break;
             case "確定チェリー": reel2stop(4); break;
             case "BB": reel2stop(6); break;
-            case "青BB": reel2stop(6); break;
+            case "青BB": reel2stop(7); break;
             case "RB": reel2stop(6); break;
             default: reel2stop(0);
         }
@@ -273,7 +273,7 @@ function touch3(){
                 case "強チャンス": reel3stop(5); break;
                 case "確定チェリー": reel3stop(4); break;
                 case "BB": reel3stop(6); break;
-                case "青BB": reel3stop(8); break;
+                case "青BB": reel3stop(7); break;
                 case "RB": reel3stop(7); break;
                 default: reel3stop(0);
             }
@@ -397,6 +397,7 @@ function reel2stop(x){
         case 4: reeltop2 = -515; break;
         case 5: reeltop2 = -365; break;
         case 6: reeltop2 = 300; break;
+        case 7: reeltop2 = 225; break;
     }
     var i = reeloffset(reeltop2);
     clearInterval(kaiten2);
