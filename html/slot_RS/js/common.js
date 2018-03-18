@@ -457,7 +457,7 @@ function payout1(){
         case "強チャンス": payout = SUIKA; flash6(); document.getElementById("sound-Rare2").play(); break;
         case "確定チェリー": payout = CHERRY; flash7(); document.getElementById("sound-Rare2").play(); break;
         case "BB": payout = RP; Bgame = 50; potmode = 2; flash7(); Maxget = BBMAX; document.getElementById("sound-777").play(); break;
-        case "特殊BB": payout = RP; SRTgame += 10; flash7(); document.getElementById("sound-777").play(); break;
+        case "特殊BB": payout = RP; SRTgame += 10; flash8(); document.getElementById("sound-777").play(); break;
         case "青BB": payout = RP; Bgame = 100; SRTgame +=20; potmode = 2; flash8();  Maxget = SBBMAX;  document.getElementById("sound-SP").play(); break;
         case "RB": payout = RP; Bgame = 30; potmode = 2; flash7();  Maxget = RBMAX; document.getElementById("sound-777").play(); break;
         default: payout = NON; break;
