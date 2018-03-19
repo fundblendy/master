@@ -59,7 +59,7 @@ function Nomalpot(){
 
     var a = Math.floor( Math.random() * 1000 ) ;
 
-    
+    a= 999;
     
     
     mycoin -= BET;
@@ -237,11 +237,11 @@ function SRTpot(){
     document.getElementById("gamecountA").innerHTML=gamecount;
     document.getElementById("gamecountB").innerHTML=BBgamecount;
 
-    if (a >= 0 && a <=250){
+    if (a >= 0 && a <=450){
         document.getElementById("debug").innerHTML="リプレイ";
         flag = "リプレイ";
     }
-    if (a >= 251 && a <=500){
+    if (a >= 451 && a <=500){
         document.getElementById("debug").innerHTML="SPリプレイ";
         flag = "SPリプレイ";
         RTgame += 10;
@@ -513,6 +513,7 @@ function Bonusmode(){
             BBgamecount = 0;
             Bget = 0;
             RTgame += SRTgame;
+            RTgame += 20;
             MAXRTgame = RTgame;
 
         }

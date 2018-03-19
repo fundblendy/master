@@ -534,7 +534,7 @@ function payout1(){
     
     if (potmode == 3){
         document.getElementById("getcoin").innerHTML="LAST "+RTgame+"G";
-        document.getElementById("mode").innerHTML="REVERSE TIME";
+        document.getElementById("mode").innerHTML="REVERSE CHANCE";
         if (SRTgame > 0){
             document.getElementById("RSgame").innerHTML=SRTgame;
         } else{
@@ -559,7 +559,7 @@ function payout1(){
 
     if (potmode == 6){
         document.getElementById("getcoin").innerHTML="GET "+RTgame;
-        document.getElementById("mode").innerHTML="REVERSE System Activated";
+        document.getElementById("mode").innerHTML="REVERSE SYSTEM is Activated";
         if (SRTgame > 0){
             document.getElementById("RSgame").innerHTML=SRTgame;
         }
