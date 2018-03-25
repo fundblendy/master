@@ -37,7 +37,7 @@ body { background: #000; }
 	position: absolute;
 	left: 0px;
 	top: 0px;
-	z-index: 4;
+	z-index: 1000;
 	max-width: 100%;
 }
 
@@ -238,7 +238,6 @@ body { background: #000; }
 	margin: auto;
 	width:853px; 
 	height:720px;
-	
 }
 
 .stats{
@@ -371,7 +370,44 @@ body { background: #000; }
 }
 
 #mode{
-	margin-top: 6px;
+	position:absolute;
+	top:30px;
+	right:0px;
+	bottom:0px;
+	left:0px;
+	margin:auto auto;
+	text-shadow: 
+    black 2px 0px,  black -2px 0px,
+    black 0px -2px, black 0px 2px,
+    black 2px 2px , black -2px 2px,
+    black 2px -2px, black -2px -2px,
+    black 1px 2px,  black -1px 2px,
+    black 1px -2px, black -1px -2px,
+    black 2px 1px,  black -2px 1px,
+    black 2px -1px, black -2px -1px;
+	font-size: 20px;
+	color: #ffffff;
+	z-index: 7000;
+}
+#getcoin{
+	position:absolute;
+	top:60px;
+	right:0px;
+	bottom:0px;
+	left:0px;
+	margin:auto auto;
+	text-shadow: 
+    black 2px 0px,  black -2px 0px,
+    black 0px -2px, black 0px 2px,
+    black 2px 2px , black -2px 2px,
+    black 2px -2px, black -2px -2px,
+    black 1px 2px,  black -1px 2px,
+    black 1px -2px, black -1px -2px,
+    black 2px 1px,  black -2px 1px,
+    black 2px -1px, black -2px -1px;
+	font-size: 20px;
+	color: #ffffff;
+	z-index: 7001;
 }
 
 .autoplaybtn{

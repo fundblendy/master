@@ -33,6 +33,7 @@
     var kaiten1;
     var kaiten2;
     var kaiten3;
+    var kaiten4;
 
     //キー入力フラグ
     var keyflag;
@@ -57,6 +58,7 @@
     //ディスプレイフラッシュ用
     var dflash;
 
+    var color1;
 
 
 
@@ -121,6 +123,43 @@ function reel3kaiten(){
     
 }
 
+/////////////////////////////////////////////////
+// リール全逆回転
+/////////////////////////////////////////////////
+function reelgyakukaiten(){
+
+
+    var target1 = document.getElementById("reel1"); //対象要素をIDで指定
+    var target2 = document.getElementById("reel2"); //対象要素をIDで指定
+    var target3 = document.getElementById("reel3"); //対象要素をIDで指定
+    var reel1;
+    var reel2;
+    var reel3;
+
+    reeltop1 -= 5;
+    if (reeltop1 == -1180){
+        reeltop1 = 305;
+    }   
+    reel1 = reeltop1 + "px";
+    target1.style.top = reel1;
+
+    reeltop2 -= 5;
+    if (reeltop2 == -1180){
+        reeltop2 = 305;
+    }   
+    reel2 = reeltop2 + "px";
+    target2.style.top = reel2;
+
+    
+    reeltop3 -= 5;
+    if (reeltop3 == -1180){
+        reeltop3 = 305;
+    }   
+    reel3 = reeltop3 + "px";
+    target3.style.top = reel3;
+    
+}
+
 
 
 /////////////////////////////////////////////////
@@ -136,17 +175,20 @@ function touch(){
 
         switch(potmode){
             case 0: Nomalpot(); potmodesub = 0; break;
-            case 1: Bonuskakutei(); potmodesub = 1; break;
+            case 1: CZ1(); potmodesub = 1; break;
             case 2: Bonusmode(); potmodesub = 2; break;
             case 3: RTpot(); potmodesub = 3; break;
-            case 4: Bonuskakutei2(); potmodesub = 4;break;
-            case 5: Bonusmode2(); potmodesub = 5; break;
+            case 4: Bonuskakutei6(); potmodesub = 4;break;
+            case 5: Bonuskakutei7(); potmodesub = 5; break;
             case 6: SRTpot(); potmodesub = 6; break;
             case 7: Bonuskakutei3(); break;
         }
+
         kaiten1 = setInterval (reel1kaiten,1);
         kaiten2 = setInterval (reel2kaiten,1);
         kaiten3 = setInterval (reel3kaiten,1);
+        
+
 
         document.getElementById("sound-start").play();
             
@@ -203,7 +245,6 @@ function touch1(){
         keyflag = 3;
         
         flashreset();
-        displayflash();
         switch (flag){
             case "ハズレ": reel1stop(1); break;
             case "リプレイ": reel1stop(1); break;
@@ -216,7 +257,7 @@ function touch1(){
             case "強チャンス": reel1stop(2); break;
             case "確定チェリー": reel1stop(4); break;
             case "BB": reel1stop(5); break;
-            case "特殊BB": reel1stop(5); break;
+            case "特殊BB": reel1stop(3); break;
             case "青BB": reel1stop(5); break;
             case "RB": reel1stop(5); break;
             default: reel1stop(0);
@@ -248,8 +289,8 @@ function touch2(){
             case "強チャンス": reel2stop(3); break;
             case "確定チェリー": reel2stop(4); break;
             case "BB": reel2stop(6); break;
-            case "特殊BB": reel2stop(6); break;
-            case "青BB": reel2stop(6); break;
+            case "特殊BB": reel2stop(7); break;
+            case "青BB": reel2stop(8); break;
             case "RB": reel2stop(6); break;
             default: reel2stop(0);
         }
@@ -282,20 +323,288 @@ function touch3(){
                 case "BB": reel3stop(6); break;
                 case "特殊BB": reel3stop(8); break;
                 case "青BB": reel3stop(7); break;
-                case "RB": reel3stop(7); break;
+                case "RB": reel3stop(9); break;
                 default: reel3stop(0);
             }
         reel3stop();
         payout1();
         document.getElementById("btn4").style.background = "#441010";
         document.getElementById("sound-stop3").play();
-        setTimeout(function(){
-            keyflag = 0;
-            document.getElementById("btn1").style.background = "#fdc689";
-            document.getElementById("btn2").style.background = "#ff3535";
-            document.getElementById("btn3").style.background = "#ff3535";
-            document.getElementById("btn4").style.background = "#ff3535";
-        }, 900);
+
+        if (potmode == 1 && CZgame==0){
+
+            document.getElementById("sound-CZ").pause();
+            document.getElementById("sound-CZ").currentTime = 0;
+
+            CZpoint += Math.floor( Math.random() * 5 ) ;
+            if (CZpoint >= 0 && CZpoint <= 20){
+                color1 = document.getElementById("white")
+            }
+            if (CZpoint >= 21 && CZpoint <= 40){
+                color1 = document.getElementById("blue")
+            }
+            if (CZpoint >= 41 && CZpoint <= 1000){
+                color1 = document.getElementById("green")
+            }
+
+            var cmd = setInterval(colormode,1500)
+
+            keyflag = 8;
+            setTimeout(function(){
+                flashreset();
+                kaiten4 = setInterval (reelgyakukaiten,10);
+                document.getElementById("sound-SE1").play();
+            }, 1200);
+
+            setTimeout(function(){
+
+                CZpoint += Math.floor( Math.random() * 5 ) ;
+                color1.style.opacity = 0;
+                if (CZpoint >= 0 && CZpoint <= 21){
+                    color1 = document.getElementById("white")
+                }
+                if (CZpoint >= 20 && CZpoint <= 40){
+                    color1 = document.getElementById("blue")
+                }
+                if (CZpoint >= 41 && CZpoint <= 60){
+                    color1 = document.getElementById("green")
+                }
+                if (CZpoint >= 61 && CZpoint <= 1000){
+                    color1 = document.getElementById("red")
+                }
+
+                var i = reeloffset(reeltop1);
+                clearInterval(kaiten4);
+            
+                var target1 = document.getElementById("reel1"); //対象要素をIDで指定
+                var reel1;
+                reel1 = i + "px";
+                target1.style.top = reel1;
+                flash7();
+            }, 3000);
+
+            setTimeout(function(){
+                CZpoint += Math.floor( Math.random() * 5 ) ;
+                color1.style.opacity = 0;
+                if (CZpoint >= 0 && CZpoint <= 21){
+                    color1 = document.getElementById("white")
+                }
+                if (CZpoint >= 20 && CZpoint <= 40){
+                    color1 = document.getElementById("blue")
+                }
+                if (CZpoint >= 41 && CZpoint <= 60){
+                    color1 = document.getElementById("green")
+                }
+                if (CZpoint >= 61 && CZpoint <= 1000){
+                    color1 = document.getElementById("red")
+                }
+
+                kaiten1 = setInterval (reel1kaiten,1); 
+                document.getElementById("sound-SE2").play();
+                flashreset();
+                flash7();
+            }, 5000);
+
+            setTimeout(function(){
+                CZpoint += Math.floor( Math.random() * 5 ) ;
+                color1.style.opacity = 0;
+                if (CZpoint >= 0 && CZpoint <= 21){
+                    color1 = document.getElementById("white")
+                }
+                if (CZpoint >= 20 && CZpoint <= 40){
+                    color1 = document.getElementById("blue")
+                }
+                if (CZpoint >= 41 && CZpoint <= 60){
+                    color1 = document.getElementById("green")
+                }
+                if (CZpoint >= 61 && CZpoint <= 1000){
+                    color1 = document.getElementById("red")
+                }
+                kaiten2 = setInterval (reel2kaiten,1); 
+                document.getElementById("sound-SE2").play();
+                flashreset();
+                flash7();
+            }, 6000);
+
+            setTimeout(function(){
+                CZpoint += Math.floor( Math.random() * 5 ) ;
+                color1.style.opacity = 0;
+                if (CZpoint >= 0 && CZpoint <= 21){
+                    color1 = document.getElementById("white")
+                }
+                if (CZpoint >= 20 && CZpoint <= 40){
+                    color1 = document.getElementById("blue")
+                }
+                if (CZpoint >= 41 && CZpoint <= 60){
+                    color1 = document.getElementById("green")
+                }
+                if (CZpoint >= 61 && CZpoint <= 99){
+                    color1 = document.getElementById("red")
+                }
+                if (CZpoint >= 100 && CZpoint <= 1000){
+                    
+                }
+                kaiten3 = setInterval (reel3kaiten,1); 
+                document.getElementById("sound-SE2").play();
+                flashreset();
+                flash7();
+            }, 7000);
+
+            setTimeout(function(){
+
+                CZpoint += Math.floor( Math.random() * 15 ) ;
+                color1.style.opacity = 0;
+                if (CZpoint >= 0 && CZpoint <= 21){
+                    color1 = document.getElementById("white")
+                }
+                if (CZpoint >= 20 && CZpoint <= 40){
+                    color1 = document.getElementById("blue")
+                }
+                if (CZpoint >= 41 && CZpoint <= 60){
+                    color1 = document.getElementById("green")
+                }
+                if (CZpoint >= 61 && CZpoint <= 99){
+                    color1 = document.getElementById("red")
+                }
+                if (CZpoint >= 100 && CZpoint <= 1000){
+                    
+                }
+                if (CZpoint >= 0 && CZpoint <= 30){
+                    reeltop1 = 300; 
+                    
+                }
+                if (CZpoint >= 31 && CZpoint <= 50){
+                    reeltop1 = 300; 
+                    
+                }
+                if (CZpoint >= 51 && CZpoint <= 70){
+                    reeltop1 = 300; 
+                    
+                }
+                if (CZpoint >= 71 && CZpoint <= 99){
+                    reeltop1 = 300; 
+                    
+                }
+                if (CZpoint >= 100 && CZpoint <= 1000){
+                    reeltop1 = 300; 
+                    
+                }
+
+                var i = reeloffset(reeltop1);
+                clearInterval(kaiten1);
+            
+                var target1 = document.getElementById("reel1"); //対象要素をIDで指定
+                var reel1;
+                reel1 = i + "px";
+                target1.style.top = reel1;
+                document.getElementById("sound-777").play();
+
+            }, 10000);
+
+            setTimeout(function(){
+                
+                CZpoint += Math.floor( Math.random() * 10 ) ;
+                color1.style.opacity = 0;
+                if (CZpoint >= 0 && CZpoint <= 30){
+                    reeltop2 = 300; 
+                    document.getElementById("sound-RT").play();
+                    flag = "SB";
+                }
+                if (CZpoint >= 31 && CZpoint <= 50){
+                    reeltop2 = 300; 
+                    document.getElementById("sound-RT").play();
+                    flag = "MB";
+                }
+                if (CZpoint >= 51 && CZpoint <= 70){
+                    reeltop2 = 300; 
+                    document.getElementById("sound-RT").play();
+                    flag = "RB";
+                    
+                }
+                if (CZpoint >= 71 && CZpoint <= 99){
+                    reeltop2 = 300; 
+                    document.getElementById("sound-RT").play();
+                    flag = "BB";
+                    
+                }
+                if (CZpoint >= 100 && CZpoint <= 1000){
+                    reeltop2 = -1105; 
+                    document.getElementById("sound-SP2").play();
+                    color1 = document.getElementById("rainbow")
+                    flag = "青BB";
+                }
+
+                var i = reeloffset(reeltop2);
+                clearInterval(kaiten2);
+            
+                var target2 = document.getElementById("reel2"); //対象要素をIDで指定
+                var reel2;
+                reel2 = i + "px";
+                target2.style.top = reel2;
+                
+
+            }, 12000);
+
+            setTimeout(function(){
+                
+                flashreset();
+
+                if (CZpoint >= 0 && CZpoint <= 30){
+                    reeltop3 = -655; 
+                    flash7();
+                }
+                if (CZpoint >= 31 && CZpoint <= 50){
+                    reeltop3 = -440; 
+                    flash7();
+                }
+                if (CZpoint >= 51 && CZpoint <= 70){
+                    reeltop3 = 230; 
+                    flash7();
+                }
+                if (CZpoint >= 71 && CZpoint <= 99){
+                    reeltop3 = 300; 
+                    flash7();
+                }
+                if (CZpoint >= 100 && CZpoint <= 1000){
+                    reeltop3 = 140; 
+                    flash8();
+                }
+
+                var i = reeloffset(reeltop3);
+                clearInterval(kaiten3);
+            
+                var target3 = document.getElementById("reel3"); //対象要素をIDで指定
+                var reel3;
+                reel3 = i + "px";
+                target3.style.top = reel3;
+                payout1();
+            }, 16000);
+
+            setTimeout(function(){
+                
+                CZpoint = 0;
+                keyflag = 0;
+                document.getElementById("btn1").style.background = "#fdc689";
+                document.getElementById("btn2").style.background = "#ff3535";
+                document.getElementById("btn3").style.background = "#ff3535";
+                document.getElementById("btn4").style.background = "#ff3535";
+
+                clearInterval(cmd);
+                color1.style.opacity = 0;
+
+            }, 18000);
+
+        } else {
+
+        
+            setTimeout(function(){
+                keyflag = 0;
+                document.getElementById("btn1").style.background = "#fdc689";
+                document.getElementById("btn2").style.background = "#ff3535";
+                document.getElementById("btn3").style.background = "#ff3535";
+                document.getElementById("btn4").style.background = "#ff3535";
+            }, 900);
+        }
     }
 }
 
@@ -405,6 +714,8 @@ function reel2stop(x){
         case 4: reeltop2 = -515; break;
         case 5: reeltop2 = -365; break;
         case 6: reeltop2 = 300; break;
+        case 7: reeltop2 = -440; break;
+        case 8: reeltop2 = -1150; break;
     }
     var i = reeloffset(reeltop2);
     clearInterval(kaiten2);
@@ -428,7 +739,8 @@ function reel3stop(x){
         case 5: reeltop3 = -365; break;
         case 6: reeltop3 = 300; break;
         case 7: reeltop3 = 155; break;
-        case 8: reeltop3 = 235; break;
+        case 8: reeltop3 = -440; break;
+        case 9: reeltop3 = 230; break;
     }
     var i = reeloffset(reeltop3);
     clearInterval(kaiten3);
@@ -456,19 +768,21 @@ function payout1(){
         case "強チェリー": payout = CHERRY; flash5(); document.getElementById("sound-Rare2").play();  break;
         case "強チャンス": payout = SUIKA; flash6(); document.getElementById("sound-Rare2").play(); break;
         case "確定チェリー": payout = CHERRY; flash7(); document.getElementById("sound-Rare2").play(); break;
-        case "BB": payout = RP; Bgame = 50; potmode = 2; flash7(); Maxget = BBMAX; document.getElementById("sound-777").play(); break;
-        case "特殊BB": payout = RP; SRTgame += 10; flash8(); document.getElementById("sound-777").play(); break;
-        case "青BB": payout = RP; Bgame = 100; SRTgame +=20; potmode = 2; flash8();  Maxget = SBBMAX;  document.getElementById("sound-SP").play(); break;
-        case "RB": payout = RP; Bgame = 30; potmode = 2; flash7();  Maxget = RBMAX; document.getElementById("sound-777").play(); break;
+        case "SB": payout = RP; Bgame = 1; potmode = 2; flash7(); Maxget = 1; document.getElementById("sound-Rare").play(); break;
+        case "MB": payout = RP; Bgame = 2; potmode = 2; flash7(); Maxget = 2; document.getElementById("sound-Rare2").play(); break;
+        case "BB": payout = RP; Bgame = 20; potmode = 2; flash7(); Maxget = 20; document.getElementById("sound-777").play(); bonusgamen(); break;
+        case "特殊BB": payout = RP;  flash7(); document.getElementById("sound-RT").play(); break;
+        case "青BB": payout = RP; Bgame = 30;  potmode = 2; flash8();  Maxget = 30;  document.getElementById("sound-SP").play(); bonusgamen(); break;
+        case "RB": payout = RP; Bgame = 10; potmode = 2; flash7();  Maxget = 10; document.getElementById("sound-777").play(); bonusgamen(); break;
         default: payout = NON; break;
     }
 
     //青BB時 BGM処理
-    if(SBGMflg == 1 && Bgame ==100){
+    if(SBGMflg == 1 && Bgame ==30){
         document.getElementById("sound-Bonus2").play();
     }
 
-    if(SBGMflg == 0 && Bgame ==100){
+    if(SBGMflg == 0 && Bgame ==30){
         if(BGMflg == 1){
             document.getElementById("sound-Bonus").pause();
             document.getElementById("sound-Bonus").currentTime = 0;
@@ -479,34 +793,24 @@ function payout1(){
 
 
     //RB時 BGM処理
-    if(SBGMflg == 0 && Bgame ==30){
+    if(SBGMflg == 0 && Bgame ==10){
         document.getElementById("sound-Bonus").play();
         BGMflg = 1;
 
     }
 
     //赤BB時 BGM処理
-    if(SBGMflg == 0 && Bgame ==50){
+    if(SBGMflg == 0 && Bgame ==20){
         document.getElementById("sound-Bonus").play();
         BGMflg = 1;
     }
 
-    //通常時ミニRT移行抽選
+    //ＢＡＲ揃い成立時
     if(flag == "特殊BB"){
-        potmode = potmodesub;
+        potmode = 5;
     }
 
-    //RTゲーム数上乗せ時
-    if(potmode == 6 ){
-        switch (flag){
-            case "チェリー": document.getElementById("sound-uwanose").play(); break;
-            case "SPリプレイ": document.getElementById("sound-uwanose").play(); break;
-            case "強チェリー": document.getElementById("sound-uwanose").play(); break;
-            case "強チャンス": document.getElementById("sound-uwanose").play(); break;
-            case "確定チェリー": document.getElementById("sound-uwanose").play(); break;
-        }
-        document.getElementById("RSgame").innerHTML=SRTgame;
-    }
+
 
     mycoin += payout;
 
@@ -520,13 +824,13 @@ function payout1(){
     }
 
     if (potmode == 1){
-        
-        document.getElementById("mode").innerHTML="Stand-by………";
+        document.getElementById("mode").innerHTML="ライチョーＣＨＡＮＣＥ";
+        document.getElementById("sound-CZ").play();
     }
 
     if (potmode == 2){
         document.getElementById("getcoin").innerHTML=" "+Bget+"/"+Maxget;
-        document.getElementById("mode").innerHTML="REVERSE BONUS";
+        document.getElementById("mode").innerHTML="BONUS GAME";
         if (SRTgame > 0){
             document.getElementById("RSgame").innerHTML=SRTgame;
         }
@@ -534,11 +838,9 @@ function payout1(){
     
     if (potmode == 3){
         document.getElementById("getcoin").innerHTML="LAST "+RTgame+"G";
-        document.getElementById("mode").innerHTML="REVERSE CHANCE";
-        if (SRTgame > 0){
-            document.getElementById("RSgame").innerHTML=SRTgame;
-        } else{
-            document.getElementById("RSgame").innerHTML=""
+        document.getElementById("mode").innerHTML="曲を聴けＣＨＡＮＣＥ";
+        if (RTgame == 1){
+            bonusgamen2();
         }
         
     }
@@ -550,20 +852,15 @@ function payout1(){
 
     if (potmode == 5){
         
-        document.getElementById("getcoin").innerHTML="GET "+Bget+"/"+Maxget;
-        document.getElementById("mode").innerHTML="SUPER BIG BONUS";
-        if (SRTgame > 0){
-            document.getElementById("RSgame").innerHTML=SRTgame;
-        }
+        document.getElementById("mode").innerHTML="BONUS確定";
+
     }
 
     if (potmode == 6){
-        document.getElementById("getcoin").innerHTML="GET "+RTgame;
-        document.getElementById("mode").innerHTML="REVERSE SYSTEM is Activated";
-        if (SRTgame > 0){
-            document.getElementById("RSgame").innerHTML=SRTgame;
+        document.getElementById("getcoin").innerHTML="LAST ∞ G";
+        document.getElementById("mode").innerHTML="曲を聴けＣＨＡＮＣＥ";
         }
-    }
+    
 
 
 
@@ -913,9 +1210,9 @@ function flash7(){ //中段特殊フラッシュ
     }, 550);
 }
 
-function flash8(){ //下段特殊フラッシュ
+function flash8(){ //右上がり特殊フラッシュ
     
-    var target1 = document.getElementById("f3");
+    var target1 = document.getElementById("f9");
     var target2 = document.getElementById("f4");
     var target3 = document.getElementById("f5");
     var target4 = document.getElementById("f6");
@@ -1048,9 +1345,98 @@ function displayflash(){
         
     }, 500);
 
-    
+}
 
-    
+////////////////////////////////////////////
+// ディスプレイシルエットカラー演出
+////////////////////////////////////////////
+function colormode(){
 
+    var time = 0;
+    var cflash;
+    var cflash2;
+
+    color1.style.opacity = 0;
+
+    function flash2(){
+        time += 0.1;
+        color1.style.opacity = time;
+    }
+
+    function flash3(){
+        time -= 0.1;
+        color1.style.opacity = time;
+    }
+
+    cflash = setInterval(flash2,50);
+
+    setTimeout(function(){
+
+        clearInterval(cflash);
+        color1.style.opacity = 1;
+        
+    }, 500);
+
+    setTimeout(function(){
+
+        
+        color1.style.opacity = 0;
+        
+    }, 1500);
+
+}
+
+
+////////////////////////////////////////////
+// ボーナス＆ＲＴ画面
+////////////////////////////////////////////
+function bonusgamen(){
+
+    var time = 0;
+    var cflash;
+    var target = document.getElementById("bonusdisplay");
+
+    target.style.opacity = 0;
+
+    function flash4(){
+        time += 0.1;
+        target.style.opacity = time;
+    }
+
+    cflash = setInterval(flash4,50);
+
+    setTimeout(function(){
+
+        clearInterval(cflash);
+        target.style.opacity = 1;
+        
+    }, 500);
+
+}
+
+////////////////////////////////////////////
+// ボーナス＆ＲＴ画面　終了
+////////////////////////////////////////////
+function bonusgamen2(){
+
+    var time = 0;
+    var cflash;
+    var target = document.getElementById("bonusdisplay");
+
+    target.style.opacity = 1;
+
+    function flash5(){
+        time -= 0.1;
+        target.style.opacity = time;
+    }
+
+    cflash = setInterval(flash5,200);
+
+    setTimeout(function(){
+
+        clearInterval(cflash);
+        target.style.opacity = 0;
+        
+    }, 2000);
 
 }
