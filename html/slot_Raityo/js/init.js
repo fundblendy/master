@@ -24,12 +24,17 @@
 /////////////////////////////////////////////////
 
         //所持コイン
-        var mycoin = 500;
+        var mycoin;
 
         //ゲーム数カウンタ
         var gamecount = 0;
         //ボーナス間ゲーム数カウンタ
         var BBgamecount = 0;
+
+
+
+        //ローカルストレージを設定
+        var storage = localStorage;
 //---------------------------------------------//
 /////////////////////////////////////////////////
 
@@ -38,9 +43,19 @@
 //                                                               //
 //---------------------------------------------------------------//
 
-keyflag = 0;
+
+    mycoin = storage.getItem('mycoin');
+
+    if (mycoin == null ){
+        storage.setItem('mycoin', '500');
+        mycoin = storage.getItem('mycoin');
+    }
+
+    
+
+    document.getElementById("coin").innerHTML = mycoin;
 
 
-
-
+    
+    keyflag = 0;
 

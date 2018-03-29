@@ -577,6 +577,7 @@ function payout1(){
     }, 100);
 
 
+    storage.setItem('mycoin', mycoin);
 
 
 }

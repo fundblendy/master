@@ -27,9 +27,9 @@
         var mycoin;
 
         //ゲーム数カウンタ
-        var gamecount = 0;
+        var gamecount;
         //ボーナス間ゲーム数カウンタ
-        var BBgamecount = 0;
+        var BBgamecount;
 
         //ローカルストレージを設定
         var storage = localStorage;
@@ -54,6 +54,4 @@
     document.getElementById("coin").innerHTML = mycoin;
 
 
-    
-    keyflag = 0;
 

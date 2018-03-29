@@ -61,6 +61,9 @@
     var color1;
 
 
+    
+
+
 
 
 //---------------------------------------------//
@@ -872,6 +875,9 @@ function payout1(){
         target.style.opacity = 1;
         target.style.backgroundColor = "#000000"
     }, 100);
+
+
+    storage.setItem('mycoin', mycoin);
 
 
 

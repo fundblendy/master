@@ -545,6 +545,9 @@ function payout1(){
         document.getElementById("mode").innerHTML="SUPER Atelier Chance";
     }
 
+    
+    storage.setItem('mycoin', mycoin);
+
 }
 
 ////////////////////////////////////////////////

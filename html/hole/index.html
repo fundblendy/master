@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+        <link rel="stylesheet" type="text/css" href="main.css">
+
+        <script>
+        /* ダブルタップによる拡大を禁止 */
+            let lastTouch = 0;
+            document.addEventListener('touchend', event => {
+                const now = window.performance.now();
+                if (now - lastTouch <= 400) {
+                event.preventDefault();
+                }
+                lastTouch = now;
+            }, true);
+        </script>
+
+        <script>
+            function jump(i){
+                var link;
+                switch (i) {
+                    case 1: link = "../slot_Raityo/index.html"; break;
+                    case 2: link = "../slot_RS/index.html"; break;
+                    case 3: link = "../slot_YukariA/index.html"; break;
+                }
+                location.href = link;
+            }
+        </script>
+
+        <style>
+        body , input , textarea , select {
+        /* 入力欄にフォーカスが当たっても拡大しない */
+            font-size:17px;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class ="stats">
+
+                <ul class="box1">
+                    <li class="text">所持コイン</li>
+                    <li id="coin">---</li>
+                </ul>
+        
+                <ul class="box1">
+                    <li class="text">レベル</li>
+                    <li id="pay">※未実装</li>  
+                </ul>
+        
+                <ul class="box1">
+                    <li class="text">称号</li>
+                    <li id="gamecountA">※未実装</li>
+                </ul>
+        
+                <ul class="box1">
+                    <li class="text">ランキング</li>
+                    <li id="gamecountB">※未実装</li>
+                </ul>
+                
+        </div>
+
+    <div class ="slot">
+        <img src="./img/Raityo.JPG" alt="" class ="slot_img" onclick="jump(1)"/>
+        <img src="./img/RS.JPG" alt="" class ="slot_img" onclick="jump(2)"/>
+        <img src="./img/Yukari.JPG" alt="" class ="slot_img" onclick="jump(3)"/>
+
+    </div>
+
+        <script src="js/init.js"></script>
+
+    </body>
+
+</html>
+
+    
