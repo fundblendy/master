@@ -60,8 +60,15 @@
 
     var color1;
 
-
-    
+    //icon配列
+    var icon = new Array( );
+        icon[1] = 0;
+        icon[2] = 0;
+        icon[3] = 0;
+        icon[4] = 0;
+        icon[5] = 0;
+        icon[6] = 0;
+        icon[7] = 0;
 
 
 
@@ -247,6 +254,7 @@ function touch1(){
     if (keyflag == 2){
         keyflag = 3;
         
+        document.getElementById("uwanose").innerHTML="";
         flashreset();
         switch (flag){
             case "ハズレ": reel1stop(1); break;
@@ -336,8 +344,7 @@ function touch3(){
 
         if (potmode == 1 && CZgame==0){
 
-            document.getElementById("sound-CZ").pause();
-            document.getElementById("sound-CZ").currentTime = 0;
+
 
             CZpoint += Math.floor( Math.random() * 5 ) ;
             if (CZpoint >= 0 && CZpoint <= 20){
@@ -535,6 +542,7 @@ function touch3(){
                     document.getElementById("sound-SP2").play();
                     color1 = document.getElementById("rainbow")
                     flag = "青BB";
+                    RTgame += 100;
                 }
 
                 var i = reeloffset(reeltop2);
@@ -594,6 +602,9 @@ function touch3(){
 
                 clearInterval(cmd);
                 color1.style.opacity = 0;
+                Rpoint = 0;
+                document.getElementById("sound-CZ").pause();
+                document.getElementById("sound-CZ").currentTime = 0;
 
             }, 18000);
 
@@ -771,21 +782,21 @@ function payout1(){
         case "強チェリー": payout = CHERRY; flash5(); document.getElementById("sound-Rare2").play();  break;
         case "強チャンス": payout = SUIKA; flash6(); document.getElementById("sound-Rare2").play(); break;
         case "確定チェリー": payout = CHERRY; flash7(); document.getElementById("sound-Rare2").play(); break;
-        case "SB": payout = RP; Bgame = 1; potmode = 2; flash7(); Maxget = 1; document.getElementById("sound-Rare").play(); break;
-        case "MB": payout = RP; Bgame = 2; potmode = 2; flash7(); Maxget = 2; document.getElementById("sound-Rare2").play(); break;
-        case "BB": payout = RP; Bgame = 20; potmode = 2; flash7(); Maxget = 20; document.getElementById("sound-777").play(); bonusgamen(); break;
-        case "特殊BB": payout = RP;  flash7(); document.getElementById("sound-RT").play(); break;
-        case "青BB": payout = RP; Bgame = 30;  potmode = 2; flash8();  Maxget = 30;  document.getElementById("sound-SP").play(); bonusgamen(); break;
-        case "RB": payout = RP; Bgame = 10; potmode = 2; flash7();  Maxget = 10; document.getElementById("sound-777").play(); bonusgamen(); break;
+        case "SB": payout = RP;  potmode = 0; flash7();  document.getElementById("sound-RP").play(); break;
+        case "MB": payout = RP;  potmode = 0; flash7();  document.getElementById("sound-RP").play(); break;
+        case "BB": payout = RP; uwanose += 100;  flash7(); Maxget = 100; document.getElementById("sound-777").play(); bonusgamen(); break;
+        case "特殊BB": payout = RP;  SRTgame = 10; potmode = 6; flash7(); document.getElementById("sound-SP").play(); break;
+        case "青BB": payout = RP; Bgame = 20;   flash8();  Maxget = 30;  document.getElementById("sound-777").play(); bonusgamen(); break;
+        case "RB": payout = RP; uwanose += 40;  flash7();  Maxget = 40; document.getElementById("sound-777").play(); bonusgamen(); break;
         default: payout = NON; break;
     }
 
     //青BB時 BGM処理
-    if(SBGMflg == 1 && Bgame ==30){
+    if(SBGMflg == 1 && Bgame ==20){
         document.getElementById("sound-Bonus2").play();
     }
 
-    if(SBGMflg == 0 && Bgame ==30){
+    if(SBGMflg == 0 && Bgame ==20){
         if(BGMflg == 1){
             document.getElementById("sound-Bonus").pause();
             document.getElementById("sound-Bonus").currentTime = 0;
@@ -796,21 +807,45 @@ function payout1(){
 
 
     //RB時 BGM処理
-    if(SBGMflg == 0 && Bgame ==10){
+    if(SBGMflg == 0 && uwanose == 40){
         document.getElementById("sound-Bonus").play();
         BGMflg = 1;
 
     }
 
     //赤BB時 BGM処理
-    if(SBGMflg == 0 && Bgame ==20){
+    if(SBGMflg == 0 && uwanose >=100){
         document.getElementById("sound-Bonus").play();
         BGMflg = 1;
     }
 
     //ＢＡＲ揃い成立時
     if(flag == "特殊BB"){
-        potmode = 5;
+        potmode = 6;
+    }
+
+    // SRT中7揃い処理
+    if (potmode == 6){
+        if(flag == "BB"){
+            potmode = 6;
+        }
+        if(flag == "RB"){
+            potmode = 6;
+        }
+        if(flag == "青BB"){
+            potmode = 6;
+            uwanose + 100;
+        }
+    } else {
+        if(flag == "BB"){
+            potmode = 3;
+        }
+        if(flag == "RB"){
+            potmode = 3;
+        }
+        if(flag == "青BB"){
+            potmode = 2;
+        }
     }
 
 
@@ -828,6 +863,7 @@ function payout1(){
 
     if (potmode == 1){
         document.getElementById("mode").innerHTML="Chrono Chance";
+        document.getElementById("getcoin").innerHTML="LAST "+CZgame+"G";
         document.getElementById("sound-CZ").play();
     }
 
@@ -842,9 +878,6 @@ function payout1(){
     if (potmode == 3){
         document.getElementById("getcoin").innerHTML="LAST "+RTgame+"G";
         document.getElementById("mode").innerHTML="Chrono Bonus";
-        if (RTgame == 1){
-            bonusgamen2();
-        }
         
     }
 
@@ -855,14 +888,77 @@ function payout1(){
 
     if (potmode == 5){
         
-        document.getElementById("mode").innerHTML="BONUS確定";
+        document.getElementById("mode").innerHTML="";
 
     }
 
     if (potmode == 6){
-        document.getElementById("getcoin").innerHTML="LAST ∞ G";
-        document.getElementById("mode").innerHTML="曲を聴けＣＨＡＮＣＥ";
+        document.getElementById("getcoin").innerHTML="LAST "+SRTgame+" G  ||  TOTAL "+RTgame+" G";
+        document.getElementById("mode").innerHTML="SEVEN RUSH";
         }
+    
+    if (uwanose >= 1){
+        document.getElementById("sound-uwanose").play();
+        document.getElementById("uwanose").innerHTML="+"+uwanose;
+        RTgame += uwanose;
+        uwanose = 0;
+        
+    }
+
+
+    // 通常時リプレイCZ抽選処理
+    if (potmode == 0 && flag == "リプレイ"){
+        if (icon[Ricon] == 0){
+            Rpoint += 1;
+            var iconname = "icon"+Ricon;
+            document.getElementById(iconname).style.color= "skyblue";
+            icon[Ricon] = 1;
+
+            if (Rpoint >= 7){
+                Rpoint = 0;
+                CZpot(100);
+            }
+        }
+    }
+
+    if (potmode == 0 && flag == "SPリプレイ"){
+        if (icon[Ricon] == 0){
+            Rpoint += 1;
+            CZpoint += 4;
+            var iconname = "icon"+Ricon;
+            document.getElementById(iconname).style.color= "gold";
+            icon[Ricon] = 1;
+
+            if (Rpoint >= 7){
+                Rpoint = 0;
+                CZpot(100);
+            }
+        }
+
+    }
+
+    // ART中SPリプレイポイント抽選
+
+    if (potmode == 3 && flag == "SPリプレイ"){
+        if (icon[Ricon] == 0){
+            Rpoint += 1;
+            CZpoint += 2;
+            var iconname = "icon"+Ricon;
+            document.getElementById(iconname).style.color= "gold";
+            icon[Ricon] = 1;
+
+            if (Rpoint >= 7){
+                Rpoint = 0;
+                potmode = 7;
+            }
+
+        }
+
+    }
+
+
+
+
     
 
 
@@ -1425,24 +1521,11 @@ function bonusgamen(){
 ////////////////////////////////////////////
 function bonusgamen2(){
 
-    var time = 0;
-    var cflash;
+
     var target = document.getElementById("bonusdisplay");
 
-    target.style.opacity = 1;
 
-    function flash5(){
-        time -= 0.1;
-        target.style.opacity = time;
-    }
-
-    cflash = setInterval(flash5,200);
-
-    setTimeout(function(){
-
-        clearInterval(cflash);
-        target.style.opacity = 0;
+     target.style.opacity = 0;
         
-    }, 2000);
 
 }

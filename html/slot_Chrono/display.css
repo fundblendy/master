@@ -119,3 +119,80 @@ html,body{
 		right: 200px;
   }
 }
+
+
+#RPicon{
+  position: absolute;
+  top:250px;
+	right:0px;
+	bottom:0px;
+	left:40px;
+  height: 100px;
+  width: 767px;
+  z-index: 10000;
+  opacity: 1;
+}
+
+#icon1{
+  display: inline-block;
+  height: 110px;
+  width: 100px;
+  text-shadow:	black 0px 0px;
+  font-size: 100px;
+  color: black;
+  z-index: 1000;
+}
+#icon2{
+  display: inline-block;
+  height: 110px;
+  width: 100px;
+  text-shadow: black 0px 0px;
+  font-size: 100px;
+  color: black;
+  z-index: 1000;
+}
+#icon3{
+  display: inline-block;
+  height: 110px;
+  width: 100px;
+  text-shadow: black 0px 0px;
+  font-size: 100px;
+  color: black;
+  z-index: 1000;
+}
+#icon4{
+  display: inline-block;
+  height: 110px;
+  width: 100px;
+  text-shadow: black 0px 0px;
+  font-size: 100px;
+  color: black;
+  z-index: 1000;
+}
+#icon5{
+  display: inline-block;
+  height: 110px;
+  width: 100px;
+  text-shadow: black 0px 0px;
+  font-size: 100px;
+  color: black;
+  z-index: 1000;
+}
+#icon6{
+  display: inline-block;
+  height: 110px;
+  width: 100px;
+  text-shadow: black 0px 0px;
+  font-size: 100px;
+  color: black;
+  z-index: 1000;
+}
+#icon7{
+  display: inline-block;
+  height: 110px;
+  width: 100px;
+  text-shadow: black 0px 0px;
+  font-size: 100px;
+  color: black;
+  z-index: 1000;
+}
