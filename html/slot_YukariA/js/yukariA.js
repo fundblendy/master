@@ -95,12 +95,12 @@ function Nomalpot(){
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        Bonuspot(33);
+        Bonuspot(43);
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        Bonuspot(40);
+        Bonuspot(50);
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";

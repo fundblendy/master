@@ -479,22 +479,22 @@ function Bonusmode(){
     if (a >= 951 && a <=970){
         document.getElementById("debug").innerHTML="チェリー";
         flag = "チェリー";
-        Bonuspot3(14);
+        Bonuspot3(10);
     }
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
-        Bonuspot3(14);
+        Bonuspot3(10);
     }
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        Bonuspot3(70);
+        Bonuspot3(50);
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        Bonuspot3(80);
+        Bonuspot3(60);
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";

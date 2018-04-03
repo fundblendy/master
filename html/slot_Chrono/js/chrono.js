@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////
-////////　本体処理　Raityo.js      ////////////////
+////////　本体処理　Chrono.js      ////////////////
 //////////////////////////////////////////////////
 
 /////////////////////////////////////////////////
@@ -84,7 +84,7 @@ function Nomalpot(){
     if (a >= 681 && a <=700){
         document.getElementById("debug").innerHTML="SPリプレイ";
         flag = "SPリプレイ";
-        CZpot(10);
+        CZpot(15);
         CZpoint = 5;
     }
     if (a >= 701 && a <=880){
@@ -99,25 +99,25 @@ function Nomalpot(){
         document.getElementById("debug").innerHTML="チェリー";
         flag = "チェリー";
         CZpot(20);
-        CZpoint = 5;
+        CZpoint = 7;
     }
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
         CZpot(20);
-        CZpoint = 5;
+        CZpoint = 7;
     }
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        CZpot(50);
-        CZpoint = 10;
+        CZpot(60);
+        CZpoint = 15;
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        CZpot(50);
-        CZpoint = 10;
+        CZpot(70);
+        CZpoint = 15;
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";

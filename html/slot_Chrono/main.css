@@ -1,0 +1,415 @@
+body { background: #000; }
+#content img {
+	width: 100%;
+	}
+#loader {
+	font-family: 'Marvel', sans-serif;
+	margin: 0 auto;
+	width: 300px;
+	text-align: center;
+	font-size: 25px;
+	color: #efefef;
+	margin-top: 300px;
+	}
+#bar {
+	width: 300px;
+	height: 2px;
+	border:1px solid #efefef;
+	padding: 1px;
+	margin-top: 10px;
+	font-size: 1px;
+	}
+#bar span {
+	display: block;
+	width: 0px;
+	height: 2px;
+	background: #efefef;
+	}
+
+#main {
+	margin: 0 auto;
+	text-align: center;
+	font-size: 25px;
+	color: #efefef;
+}
+
+.body {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 1000;
+	max-width: 100%;
+}
+
+#yakumonoL {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 2000;
+	max-width: 100%;
+}	
+
+#yakumonoR {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 2000;
+	max-width: 100%;
+}
+
+#f1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 5;
+	opacity:0;
+}	
+#f2 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 6;
+	opacity:0;
+}	
+#f3 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 7;
+	opacity:0;
+}	
+#f4 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 8;
+	opacity:0;
+}	
+#f5 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 9;
+	opacity:0;
+}	
+#f6 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+	opacity:0;
+}	
+
+#f7 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+	opacity:0;
+}	
+
+#f8 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+	opacity:0;
+}	
+
+#f9 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+	opacity:0;
+}	
+
+#f10 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	z-index: 10;
+	opacity:0;
+}	
+
+#reel1 {
+	position: relative;
+	left: 0px;
+	top: -730px;
+	}
+#reel2 {
+	position: relative;
+	left: 0px;
+	top: -730px;
+	}
+#reel3 {
+	position: relative;
+	left: 0px;
+	top: -730px;
+	}
+
+.reel1waku{
+	overflow: hidden;
+	height: 600px;   /* トリミングしたい枠の高さ */
+	position: absolute;
+	left: 105px;
+	top: 100px;
+	z-index: 1;
+}
+.reel2waku {
+	overflow: hidden;
+	height: 600px;   /* トリミングしたい枠の高さ */
+	position: absolute;
+	left: 326px;
+	top: 100px;
+	z-index: 2;
+	}
+.reel3waku {
+	overflow: hidden;
+	height: 600px;   /* トリミングしたい枠の高さ */
+	position: absolute;
+	left: 543px;
+	top: 100px;
+	z-index: 3;
+	}
+
+#maindisplay {
+	overflow: hidden;
+	height: 331px;   /* トリミングしたい枠の高さ */
+	width: 767px;
+	position: absolute;
+	left: 43px;
+	top: 31px;
+	z-index: 13;
+	background-color: #000000;
+	}
+
+#debug{
+	position: absolute;
+	font-family: sans-serif;
+	font-size : 1px;
+	color : #000000;
+	z-index:0;
+	}
+.text{
+	font-family: sans-serif;
+	font-size : 20px;
+	color : #ffffff;
+	z-index:110;
+	}
+#coin{
+	font-family: sans-serif;
+	font-size : 26px;
+	color : #f9ffa7;
+	z-index:120;
+	}
+#pay{
+	font-family: sans-serif;
+	font-size : 26px;
+	color : #f9ffa7;
+	z-index:130;
+	}
+#gamecountA{
+	font-family: sans-serif;
+	font-size : 26px;
+	color : #a1ffa1;
+	z-index:120;
+	}
+#gamecountB{
+	font-family: sans-serif;
+	font-size : 26px;
+	color : #ffa7a7;
+	z-index:130;
+	}
+
+.all{
+	overflow: hidden;
+	position:relative;
+	margin: auto;
+	width: 100%;
+	
+}
+
+
+.reel-body{
+	overflow: hidden;
+	position:relative;
+	text-align:center;
+	margin: auto;
+	width:853px; 
+	height:720px;
+}
+
+.stats{
+	display:block;
+	margin: 0 auto;
+	text-align:center;
+}
+
+.box1{
+	display:inline-block;
+	text-align:center;
+	height: 64px;
+	width: 140px;
+}
+
+
+
+.stopbutton{
+	display:block;
+	margin: 0 auto;
+	text-align:center;
+	
+}
+
+#btn1{
+	display:inline-block;
+	height:	150px;
+	width: 250px;
+	text-decoration: none;
+	background: #fdc689;
+	color: #fff;
+	line-height: 37px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px #694816;
+	vertical-align: top;
+}
+#btn1:active{  /* クリック時の設定 */
+	-ms-transform: translateY(2px);
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	box-shadow:none;
+}
+
+#btn2{
+	display:inline-block;
+	height:	100px;
+	width: 220px;
+	text-decoration: none;
+	background: #ff3535;
+	color: #fff;
+	line-height: 37px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px #444444;
+	vertical-align: top;
+}
+#btn2:active{  /* クリック時の設定 */
+	-ms-transform: translateY(2px);
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	box-shadow:none;
+}
+
+#btn3{
+	display:inline-block;
+	height:	100px;
+	width: 220px;
+	text-decoration: none;
+	background: #ff3535;
+	color: #fff;
+	line-height: 37px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px #444444;
+	vertical-align: top;
+}
+#btn3:active{  /* クリック時の設定 */
+	-ms-transform: translateY(2px);
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	box-shadow:none;
+}
+
+#btn4{
+	display:inline-block;
+	height:	100px;
+	width: 220px;
+	text-decoration: none;
+	background: #ff3535;
+	color: #fff;
+	line-height: 37px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px #444444;
+	vertical-align: top;
+}
+#btn4:active{  /* クリック時の設定 */
+	-ms-transform: translateY(2px);
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	box-shadow:none;
+}
+
+#btn5{
+	display:inline-block;
+	height:	100px;
+	width: 400px;
+	text-decoration: none;
+	background: #58f372;
+	color: #fff;
+	font-size: 60px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px #444444;
+	vertical-align: auto
+}
+#btn5:active{  /* クリック時の設定 */
+	-ms-transform: translateY(2px);
+	-webkit-transform: translateY(2px);
+	transform: translateY(2px);
+	box-shadow:none;
+}
+
+#RSgame{
+	display:inline-block;
+	text-align: center;
+	margin-top: 20px;
+	font-size: 40px;
+}
+
+#mode{
+	position:absolute;
+	top:30px;
+	right:0px;
+	bottom:0px;
+	left:0px;
+	margin:auto auto;
+	text-shadow: 
+    black 2px 0px,  black -2px 0px,
+    black 0px -2px, black 0px 2px,
+    black 2px 2px , black -2px 2px,
+    black 2px -2px, black -2px -2px,
+    black 1px 2px,  black -1px 2px,
+    black 1px -2px, black -1px -2px,
+    black 2px 1px,  black -2px 1px,
+    black 2px -1px, black -2px -1px;
+	font-size: 20px;
+	color: #ffffff;
+	z-index: 7000;
+}
+#getcoin{
+	position:absolute;
+	top:60px;
+	right:0px;
+	bottom:0px;
+	left:0px;
+	margin:auto auto;
+	text-shadow: 
+    black 2px 0px,  black -2px 0px,
+    black 0px -2px, black 0px 2px,
+    black 2px 2px , black -2px 2px,
+    black 2px -2px, black -2px -2px,
+    black 1px 2px,  black -1px 2px,
+    black 1px -2px, black -1px -2px,
+    black 2px 1px,  black -2px 1px,
+    black 2px -1px, black -2px -1px;
+	font-size: 20px;
+	color: #ffffff;
+	z-index: 7001;
+}
+
+.autoplaybtn{
+	text-align: center;
+}
