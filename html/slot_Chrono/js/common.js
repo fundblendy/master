@@ -542,7 +542,7 @@ function touch3(){
                     document.getElementById("sound-SP2").play();
                     color1 = document.getElementById("rainbow")
                     flag = "青BB";
-                    RTgame += 100;
+                    uwanose += 100;
                 }
 
                 var i = reeloffset(reeltop2);
@@ -773,30 +773,30 @@ function payout1(){
     var payout;
     switch (flag){
         case "ハズレ": payout = NON; break;
-        case "リプレイ": payout = RP; flash1(); document.getElementById("sound-RP").play();　break;
-        case "ベル": payout = BELL; flash2(); document.getElementById("sound-BELL").play(); break;
-        case "BBベル": payout = BELL2; flash2(); document.getElementById("sound-BELL").play(); break;
-        case "スイカ": payout = SUIKA; flash4(); document.getElementById("sound-Rare").play(); break;
-        case "チェリー": payout = CHERRY; flash3(); document.getElementById("sound-Rare").play(); break;
-        case "SPリプレイ": payout = CHERRY; flash4(); document.getElementById("sound-Rare").play(); break;
-        case "強チェリー": payout = CHERRY; flash5(); document.getElementById("sound-Rare2").play();  break;
-        case "強チャンス": payout = SUIKA; flash6(); document.getElementById("sound-Rare2").play(); break;
-        case "確定チェリー": payout = CHERRY; flash7(); document.getElementById("sound-Rare2").play(); break;
-        case "SB": payout = RP;  potmode = 0; flash7();  document.getElementById("sound-RP").play(); break;
-        case "MB": payout = RP;  potmode = 0; flash7();  document.getElementById("sound-RP").play(); break;
-        case "BB": payout = RP; uwanose += 100;  flash7(); Maxget = 100; document.getElementById("sound-777").play(); bonusgamen(); break;
-        case "特殊BB": payout = RP;  SRTgame = 10; potmode = 6; flash7(); document.getElementById("sound-SP").play(); break;
-        case "青BB": payout = RP; Bgame = 20;   flash8();  Maxget = 30;  document.getElementById("sound-777").play(); bonusgamen(); break;
-        case "RB": payout = RP; uwanose += 40;  flash7();  Maxget = 40; document.getElementById("sound-777").play(); bonusgamen(); break;
+        case "リプレイ": payout = RP; flash1(); document.getElementById("sound-RP").play();　getcoin += RP; break;
+        case "ベル": payout = BELL; flash2(); document.getElementById("sound-BELL").play(); getcoin += BELL; break;
+        case "BBベル": payout = BELL2; flash2(); document.getElementById("sound-BELL").play(); getcoin += BELL2; break;
+        case "スイカ": payout = SUIKA; flash4(); document.getElementById("sound-Rare").play(); getcoin += SUIKA; break;
+        case "チェリー": payout = CHERRY; flash3(); document.getElementById("sound-Rare").play(); getcoin += CHERRY; break;
+        case "SPリプレイ": payout = CHERRY; flash4(); document.getElementById("sound-Rare").play(); getcoin += CHERRY; break;
+        case "強チェリー": payout = CHERRY; flash5(); document.getElementById("sound-Rare2").play(); getcoin += CHERRY; break;
+        case "強チャンス": payout = SUIKA; flash6(); document.getElementById("sound-Rare2").play(); getcoin += SUIKA; break;
+        case "確定チェリー": payout = CHERRY; flash7(); document.getElementById("sound-Rare2").play(); getcoin += CHERRY; break;
+        case "SB": payout = RP;  potmode = 0; flash7();  document.getElementById("sound-RP").play(); getcoin += RP; break;
+        case "MB": payout = RP;  potmode = 0; flash7();  document.getElementById("sound-RP").play(); getcoin += RP; break;
+        case "BB": payout = RP; uwanose += 100;  flash7(); Maxget = 100; document.getElementById("sound-777").play(); getcoin += RP; bonusgamen(); break;
+        case "特殊BB": payout = RP;  SRTgame = 10; potmode = 6; flash7(); document.getElementById("sound-SP").play(); getcoin += RP; break;
+        case "青BB": payout = RP; Bgame = 15;   flash8();  Maxget = 15;  document.getElementById("sound-777").play(); getcoin += RP; bonusgamen(); break;
+        case "RB": payout = RP; uwanose += 40;  flash7();  Maxget = 40; document.getElementById("sound-777").play(); getcoin += RP; bonusgamen(); break;
         default: payout = NON; break;
     }
 
     //青BB時 BGM処理
-    if(SBGMflg == 1 && Bgame ==20){
+    if(SBGMflg == 1 && Bgame ==15){
         document.getElementById("sound-Bonus2").play();
     }
 
-    if(SBGMflg == 0 && Bgame ==20){
+    if(SBGMflg == 0 && Bgame ==15){
         if(BGMflg == 1){
             document.getElementById("sound-Bonus").pause();
             document.getElementById("sound-Bonus").currentTime = 0;
@@ -863,7 +863,7 @@ function payout1(){
 
     if (potmode == 1){
         document.getElementById("mode").innerHTML="Chrono Chance";
-        document.getElementById("getcoin").innerHTML="LAST "+CZgame+"G";
+        document.getElementById("getcoin").innerHTML="LAST "+CZgame+" G";
         document.getElementById("sound-CZ").play();
     }
 
@@ -873,12 +873,15 @@ function payout1(){
         if (SRTgame > 0){
             document.getElementById("RSgame").innerHTML=SRTgame;
         }
+        document.getElementById("totalcoin1").innerHTML="GET";
+        document.getElementById("totalcoin2").innerHTML=getcoin;
     }
     
     if (potmode == 3){
-        document.getElementById("getcoin").innerHTML="LAST "+RTgame+"G";
+        document.getElementById("getcoin").innerHTML="LAST "+RTgame+" G";
         document.getElementById("mode").innerHTML="Chrono Bonus";
-        
+        document.getElementById("totalcoin1").innerHTML="GET";
+        document.getElementById("totalcoin2").innerHTML=getcoin;
     }
 
     if (potmode == 4){
@@ -895,6 +898,8 @@ function payout1(){
     if (potmode == 6){
         document.getElementById("getcoin").innerHTML="LAST "+SRTgame+" G  ||  TOTAL "+RTgame+" G";
         document.getElementById("mode").innerHTML="SEVEN RUSH";
+        document.getElementById("totalcoin1").innerHTML="GET";
+        document.getElementById("totalcoin2").innerHTML=getcoin;
         }
     
     if (uwanose >= 1){

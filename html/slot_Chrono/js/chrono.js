@@ -19,10 +19,10 @@
     //子役払い出し枚数
     NON = 0;
     RP = 3;
-    BELL = 13;
+    BELL = 8;
     SUIKA = 7;
     CHERRY = 3;
-    BELL2 = 8; //ボーナス中ベル
+    BELL2 = 13; //ボーナス中ベル
 
 
 //---------------------------------------------//
@@ -41,11 +41,14 @@
     var RTgame = 0; //RTゲーム　残りゲーム数
     var SRTgame = 0; //SRTゲーム数        
     var MaxRTgame = 0; //最大RTゲーム数
-    var CZgame = 10;
+    var CZgame = 0;
     var CZpoint = 10;
     var Rpoint = 0;
     var uwanose = 0;
     var Ricon = 7;
+    var SPstock = 0;
+    var getcoin = 0;
+    var getgame = 0;
 
 
 //---------------------------------------------//
@@ -73,6 +76,16 @@ function Nomalpot(){
     payout = 0;
     gamecount += 1;
     BBgamecount += 1;
+    
+    getcoin = 0;
+    getgame = 0;
+
+    document.getElementById("totalgame1").innerHTML="";
+    document.getElementById("totalgame2").innerHTML="";
+    document.getElementById("totalcoin1").innerHTML="";
+    document.getElementById("totalcoin2").innerHTML="";
+
+
     
     var iconname = "icon"+Ricon;
 
@@ -110,12 +123,12 @@ function Nomalpot(){
     if (a >= 951 && a <=970){
         document.getElementById("debug").innerHTML="チェリー";
         flag = "チェリー";
-        Bonuspot3(5);
+        Bonuspot3(2);
     }
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
-        Bonuspot3(5);
+        Bonuspot3(3);
     }
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
@@ -154,6 +167,15 @@ function RTpot(){
     gamecount += 1;
     BBgamecount += 1;
 
+    getcoin -= 3;
+    getgame += 1;
+    RTgame -= 1;
+
+    document.getElementById("totalgame1").innerHTML="TOTAL";
+    document.getElementById("totalgame2").innerHTML=getgame+" G";
+    document.getElementById("totalcoin1").innerHTML="GET";
+    document.getElementById("totalcoin2").innerHTML=getcoin;
+
     var iconname = "icon"+Ricon;
     
     document.getElementById("RPicon").style.opacity="1";
@@ -169,17 +191,17 @@ function RTpot(){
 
 
 
-    document.getElementById("getcoin").innerHTML="LAST "+RTgame+"G";
+    document.getElementById("getcoin").innerHTML="LAST "+RTgame+" G";
     document.getElementById("coin").innerHTML=mycoin;
     document.getElementById("pay").innerHTML=payout;
     document.getElementById("gamecountA").innerHTML=gamecount;
     document.getElementById("gamecountB").innerHTML=BBgamecount;
 
-    if (a >= 0 && a <=620){
+    if (a >= 0 && a <=600){
         document.getElementById("debug").innerHTML="リプレイ";
         flag = "リプレイ";
     }
-    if (a >= 621 && a <=900){
+    if (a >= 601 && a <=900){
         document.getElementById("debug").innerHTML="ベル";
         flag = "ベル";
     }
@@ -191,13 +213,13 @@ function RTpot(){
     if (a >= 951 && a <=970){
         document.getElementById("debug").innerHTML="チェリー";
         flag = "チェリー";
-        Bonuspot3(5);
+        Bonuspot3(2);
         uwanosepot(5);
     }
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
-        Bonuspot3(5);
+        Bonuspot3(3);
         uwanosepot(5);
     }
     if (a >= 991 && a <=995){
@@ -219,7 +241,6 @@ function RTpot(){
         Bonuspot3(100);
     }
 
-    RTgame -= 1;
 
     if (RTgame == 0){
 
@@ -252,7 +273,16 @@ function RTpot(){
         
             
             potmode = 0;
-                
+            document.getElementById("RPicon").style.opacity="1";
+            document.getElementById("icon1").style.color= "black";
+            document.getElementById("icon2").style.color= "black";
+            document.getElementById("icon3").style.color= "black";
+            document.getElementById("icon4").style.color= "black";
+            document.getElementById("icon5").style.color= "black";
+            document.getElementById("icon6").style.color= "black";
+            document.getElementById("icon7").style.color= "black";
+            icon.fill(0);
+            Rpoint = 0;
          }     
             
 
@@ -274,17 +304,34 @@ function SRTpot(){
     payout = 0;
     BBgamecount += 1;
 
+    document.getElementById("RPicon").style.opacity="0";
+    document.getElementById("icon1").style.color= "black";
+    document.getElementById("icon2").style.color= "black";
+    document.getElementById("icon3").style.color= "black";
+    document.getElementById("icon4").style.color= "black";
+    document.getElementById("icon5").style.color= "black";
+    document.getElementById("icon6").style.color= "black";
+    document.getElementById("icon7").style.color= "black";
+    icon.fill(0);
+    Rpoint = 0;
 
+    getcoin -= 3;
+
+
+    document.getElementById("totalcoin1").innerHTML="GET";
+    document.getElementById("totalcoin2").innerHTML=getcoin;
+
+    document.getElementById("getcoin").innerHTML="LAST "+SRTgame+" G  ||  TOTAL "+RTgame+" G";
     document.getElementById("coin").innerHTML=mycoin;
     document.getElementById("pay").innerHTML=payout;
     document.getElementById("gamecountA").innerHTML=gamecount;
     document.getElementById("gamecountB").innerHTML=BBgamecount;
 
-    if (a >= 0 && a <=250){
+    if (a >= 0 && a <=270){
         document.getElementById("debug").innerHTML="RB";
         flag = "RB";
     }
-    if (a >= 251 && a <=300){
+    if (a >= 271 && a <=300){
         document.getElementById("debug").innerHTML="BB";
         flag = "BB";
     }
@@ -326,6 +373,7 @@ function CZ1(){
     gamecount += 1;
     BBgamecount += 1;
     CZgame -= 1;
+    getcoin = 0;
 
     document.getElementById("RPicon").style.opacity="0";
     document.getElementById("icon1").style.color= "black";
@@ -350,22 +398,22 @@ function CZ1(){
         document.getElementById("sound-CZ").currentTime = 0;
         RTgame += 100;
     }
-    if (a >= 3 && a <=400){
+    if (a >= 3 && a <=650){
         document.getElementById("debug").innerHTML="ハズレ";
         flag = "ハズレ";
         
     }
-    if (a >= 401 && a <=700){
+    if (a >= 651 && a <=750){
         document.getElementById("debug").innerHTML="リプレイ";
         flag = "リプレイ";
         CZpoint += 1;
     }
-    if (a >= 701 && a <=800){
+    if (a >= 751 && a <=850){
         document.getElementById("debug").innerHTML="SPリプレイ";
         flag = "SPリプレイ";
         CZpoint += 5;
     }
-    if (a >= 801 && a <=950){
+    if (a >= 851 && a <=950){
         document.getElementById("debug").innerHTML="ベル";
         flag = "ベル";
         CZpoint += 2;
@@ -572,6 +620,11 @@ function Bonusmode(){
     gamecount += 1;
     payout = 0;
     Bget += 1;
+
+    getcoin -= 3;
+
+    document.getElementById("totalcoin1").innerHTML="GET";
+    document.getElementById("totalcoin2").innerHTML=getcoin;
     
     document.getElementById("RPicon").style.opacity="0";
     document.getElementById("getcoin").innerHTML=" "+Bget+"/"+Maxget;
@@ -580,10 +633,17 @@ function Bonusmode(){
     document.getElementById("pay").innerHTML=payout;
 
 
-    if (a >= 0 && a <=1000){
+    if (a >= 0 && a <=990){
         document.getElementById("debug").innerHTML="BBベル";
         flag = "BBベル";
     }
+
+    if (a >= 995 && a <=1000){
+        document.getElementById("debug").innerHTML="BBベル";
+        flag = "BBベル";
+        SPstock = 1;
+    }
+
 
     Bgame -= 1;
 
@@ -593,6 +653,7 @@ function Bonusmode(){
 
         if (RTgame >= 1){
             potmode = 3;
+            uwanose = 10;
         } else{
             potmode = 0;
             if(SBGMflg == 1){
@@ -609,7 +670,11 @@ function Bonusmode(){
 
         }
 
-        
+        if (SPstock == 1){
+            document.getElementById("debug").innerHTML="特殊BB";
+            flag = "特殊BB";
+            SPstock = 0;
+        }
   
 
         
