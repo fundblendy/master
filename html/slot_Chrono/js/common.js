@@ -462,7 +462,7 @@ function touch3(){
 
             setTimeout(function(){
 
-                CZpoint += Math.floor( Math.random() * 22 ) ;
+                CZpoint += Math.floor( Math.random() * 15 ) ;
                 color1.style.opacity = 0;
                 if (CZpoint >= 0 && CZpoint <= 21){
                     color1 = document.getElementById("white")

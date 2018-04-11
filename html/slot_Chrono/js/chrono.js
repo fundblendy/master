@@ -103,16 +103,16 @@ function Nomalpot(){
     iconname = "icon"+Ricon;
     document.getElementById(iconname).style.backgroundColor="rgba(255,255,255,0.5)";
 
-    if (a >= 0 && a <=650){
+    if (a >= 0 && a <=700){
         document.getElementById("debug").innerHTML="ハズレ";
         flag = "ハズレ";
         
     }
-    if (a >= 651 && a <=680){
+    if (a >= 701 && a <=720){
         document.getElementById("debug").innerHTML="SPリプレイ";
         flag = "SPリプレイ";
     }
-    if (a >= 681 && a <=880){
+    if (a >= 721 && a <=880){
         document.getElementById("debug").innerHTML="リプレイ";
         flag = "リプレイ";
     }
@@ -128,17 +128,17 @@ function Nomalpot(){
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
-        Bonuspot3(3);
+        Bonuspot3(2);
     }
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        Bonuspot3(25);
+        Bonuspot3(22);
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        Bonuspot3(33);
+        Bonuspot3(30);
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";
@@ -398,12 +398,12 @@ function CZ1(){
         document.getElementById("sound-CZ").currentTime = 0;
         RTgame += 100;
     }
-    if (a >= 3 && a <=650){
+    if (a >= 3 && a <=670){
         document.getElementById("debug").innerHTML="ハズレ";
         flag = "ハズレ";
         
     }
-    if (a >= 651 && a <=750){
+    if (a >= 671 && a <=750){
         document.getElementById("debug").innerHTML="リプレイ";
         flag = "リプレイ";
         CZpoint += 1;
@@ -411,7 +411,7 @@ function CZ1(){
     if (a >= 751 && a <=850){
         document.getElementById("debug").innerHTML="SPリプレイ";
         flag = "SPリプレイ";
-        CZpoint += 5;
+        CZpoint += 4;
     }
     if (a >= 851 && a <=950){
         document.getElementById("debug").innerHTML="ベル";
@@ -421,12 +421,12 @@ function CZ1(){
     if (a >= 951 && a <=970){
         document.getElementById("debug").innerHTML="チェリー";
         flag = "チェリー";
-        CZpoint += 5;
+        CZpoint += 4;
     }
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
-        CZpoint += 5;
+        CZpoint += 4;
     }
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";

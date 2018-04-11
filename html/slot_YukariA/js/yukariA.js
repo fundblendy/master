@@ -85,22 +85,22 @@ function Nomalpot(){
     if (a >= 951 && a <=970){
         document.getElementById("debug").innerHTML="チェリー";
         flag = "チェリー";
-        Bonuspot(7);
+        Bonuspot(5);
     }
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
-        Bonuspot(7);
+        Bonuspot(5);
     }
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        Bonuspot(43);
+        Bonuspot(33);
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        Bonuspot(50);
+        Bonuspot(33);
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";
@@ -150,12 +150,12 @@ function RTpot(){
     if (a >= 951 && a <=970){
         document.getElementById("debug").innerHTML="チェリー";
         flag = "チェリー";
-        Bonuspot(7);
+        Bonuspot(5);
     }
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
-        Bonuspot(7);
+        Bonuspot(5);
     }
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
@@ -165,7 +165,7 @@ function RTpot(){
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        Bonuspot(40);
+        Bonuspot(33);
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";

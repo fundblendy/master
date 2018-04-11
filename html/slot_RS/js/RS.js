@@ -89,22 +89,22 @@ function Nomalpot(){
     if (a >= 951 && a <=970){
         document.getElementById("debug").innerHTML="チェリー";
         flag = "チェリー";
-        Bonuspot(7);
+        Bonuspot(3);
     }
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
-        Bonuspot(7);
+        Bonuspot(4);
     }
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        Bonuspot(33);
+        Bonuspot(20);
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        Bonuspot(40);
+        Bonuspot(25);
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";
@@ -154,22 +154,22 @@ function RTpot(){
     if (a >= 951 && a <=970){
         document.getElementById("debug").innerHTML="チェリー";
         flag = "チェリー";
-        Bonuspot3(10);
+        Bonuspot3(5);
     }
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
-        Bonuspot3(10);
+        Bonuspot3(5);
     }
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        Bonuspot3(50);
+        Bonuspot3(25);
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        Bonuspot3(50);
+        Bonuspot3(25);
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";
@@ -489,12 +489,12 @@ function Bonusmode(){
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        Bonuspot3(50);
+        Bonuspot3(30);
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        Bonuspot3(60);
+        Bonuspot3(40);
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";

@@ -33,6 +33,9 @@
 
         //ローカルストレージを設定
         var storage = localStorage;
+
+        var Lv = 1;
+        var oldLv = 1;
 //---------------------------------------------//
 /////////////////////////////////////////////////
 
@@ -43,15 +46,42 @@
 
 
     mycoin = storage.getItem('mycoin');
+    oldLv = storage.getItem('Lv');
 
     if (mycoin == null ){
-        storage.setItem('mycoin', '500');
+        storage.setItem('mycoin', 0);
         mycoin = storage.getItem('mycoin');
     }
+
+    if (oldLv == null ){
+        storage.setItem('Lv', 1);
+        Lv = storage.getItem('Lv');
+    }
+
+    
+    Lv = parseInt(oldLv);
+    oldLv = Lv;
+    mycoin = parseInt(mycoin);
+
+
+
+    for(var i = Lv*100; i < mycoin; i += 100){
+        Lv += 1;
+        storage.setItem('Lv', Lv);
+        mycoin -= i;
+        storage.setItem('mycoin', mycoin);
+    }
+
+    if (Lv > oldLv){
+        mycoin = 0;
+        storage.setItem('mycoin', mycoin);
+    }
+    
 
     
 
     document.getElementById("coin").innerHTML = mycoin;
+    document.getElementById("pay").innerHTML = Lv;
 
 
 
