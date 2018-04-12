@@ -99,12 +99,12 @@ function Nomalpot(){
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        Bonuspot(20);
+        Bonuspot(30);
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        Bonuspot(25);
+        Bonuspot(35);
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";
@@ -237,11 +237,11 @@ function SRTpot(){
     document.getElementById("gamecountA").innerHTML=gamecount;
     document.getElementById("gamecountB").innerHTML=BBgamecount;
 
-    if (a >= 0 && a <=450){
+    if (a >= 0 && a <=400){
         document.getElementById("debug").innerHTML="リプレイ";
         flag = "リプレイ";
     }
-    if (a >= 451 && a <=500){
+    if (a >= 401 && a <=500){
         document.getElementById("debug").innerHTML="SPリプレイ";
         flag = "SPリプレイ";
         RTgame += 10;
@@ -489,7 +489,7 @@ function Bonusmode(){
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        Bonuspot3(30);
+        Bonuspot3(40);
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";

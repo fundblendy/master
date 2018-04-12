@@ -110,13 +110,13 @@ function Nomalpot(){
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        CZpot(30);
+        CZpot(40);
         CZpoint = 10;
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        CZpot(30);
+        CZpot(50);
         CZpoint = 10;
     }
     if (a == 1000){

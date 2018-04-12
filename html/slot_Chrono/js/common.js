@@ -513,7 +513,7 @@ function touch3(){
 
             setTimeout(function(){
                 
-                CZpoint += Math.floor( Math.random() * 10 ) ;
+                CZpoint += Math.floor( Math.random() * 15 ) ;
                 color1.style.opacity = 0;
                 if (CZpoint >= 0 && CZpoint <= 30){
                     reeltop2 = 300; 

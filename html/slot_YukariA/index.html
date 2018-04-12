@@ -19,6 +19,17 @@
       }, true);
     </script>
 
+    <script>
+      function jump(i){
+          var link;
+          switch (i) {
+              case 1: link = "../hole/index.html"; break;
+          }
+          location.href = link;
+      }
+    </script>    
+
+
     <style>
       body , input , textarea , select {
       /* 入力欄にフォーカスが当たっても拡大しない */
@@ -183,6 +194,10 @@
 
       <div class="autoplaybtn">
         <a href="#" id="btn5" onClick="autoplay();" >AUTO</a>
+      </div>
+
+      <div class="back">
+        <a href="#" id="btn6" onClick="jump(1)" >Back</a>
       </div>
 
       <li id="debug">---</li>
