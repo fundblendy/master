@@ -24,6 +24,165 @@
     CHERRY = 3;
     BELL2 = 9; //ボーナス中ベル
 
+    var setting = Math.floor( Math.random() * 5 ) + 1 ;
+
+    if (setting == 1){
+        //通常時チェリー当選確率
+        CH1 = 3;
+        //ART中チェリー当選確率
+        CH2 = 5;
+
+        //通常時スイカ当選確率
+        SU1 = 4;
+        //ART中スイカ当選確率
+        SU2 = 5;
+
+        //通常時強チェ当選確率
+        RCH1 = 30;
+        //ART中強チェ当選確率
+        RCH2 = 25;
+
+        //通常時強スイカ当選確率
+        RSU1 = 35;
+        //ART中強スイカ当選確率
+        RSU2 = 25;
+
+        //通常時中段チェリー当選確率
+        CCH1 = 100;
+        //ART中中段チェリー当選確率
+        CCH2 = 100;
+    }
+    if (setting == 2){
+        //通常時チェリー当選確率
+        CH1 = 4;
+        //ART中チェリー当選確率
+        CH2 = 6;
+
+        //通常時スイカ当選確率
+        SU1 = 4;
+        //ART中スイカ当選確率
+        SU2 = 6;
+
+        //通常時強チェ当選確率
+        RCH1 = 32;
+        //ART中強チェ当選確率
+        RCH2 = 25;
+
+        //通常時強スイカ当選確率
+        RSU1 = 35;
+        //ART中強スイカ当選確率
+        RSU2 = 25;
+
+        //通常時中段チェリー当選確率
+        CCH1 = 100;
+        //ART中中段チェリー当選確率
+        CCH2 = 100;
+    }
+    if (setting == 3){
+        //通常時チェリー当選確率
+        CH1 = 4;
+        //ART中チェリー当選確率
+        CH2 = 6;
+
+        //通常時スイカ当選確率
+        SU1 = 4;
+        //ART中スイカ当選確率
+        SU2 = 6;
+
+        //通常時強チェ当選確率
+        RCH1 = 35;
+        //ART中強チェ当選確率
+        RCH2 = 28;
+
+        //通常時強スイカ当選確率
+        RSU1 = 37;
+        //ART中強スイカ当選確率
+        RSU2 = 28;
+
+        //通常時中段チェリー当選確率
+        CCH1 = 100;
+        //ART中中段チェリー当選確率
+        CCH2 = 100;
+    }
+    if (setting == 4){
+        //通常時チェリー当選確率
+        CH1 = 5;
+        //ART中チェリー当選確率
+        CH2 = 6;
+
+        //通常時スイカ当選確率
+        SU1 = 5;
+        //ART中スイカ当選確率
+        SU2 = 6;
+
+        //通常時強チェ当選確率
+        RCH1 = 35;
+        //ART中強チェ当選確率
+        RCH2 = 28;
+
+        //通常時強スイカ当選確率
+        RSU1 = 37;
+        //ART中強スイカ当選確率
+        RSU2 = 28;
+
+        //通常時中段チェリー当選確率
+        CCH1 = 100;
+        //ART中中段チェリー当選確率
+        CCH2 = 100;
+    }
+    if (setting == 5){
+        //通常時チェリー当選確率
+        CH1 = 5;
+        //ART中チェリー当選確率
+        CH2 = 6;
+
+        //通常時スイカ当選確率
+        SU1 = 5;
+        //ART中スイカ当選確率
+        SU2 = 6;
+
+        //通常時強チェ当選確率
+        RCH1 = 40;
+        //ART中強チェ当選確率
+        RCH2 = 30;
+
+        //通常時強スイカ当選確率
+        RSU1 = 40;
+        //ART中強スイカ当選確率
+        RSU2 = 30;
+
+        //通常時中段チェリー当選確率
+        CCH1 = 100;
+        //ART中中段チェリー当選確率
+        CCH2 = 100;
+    }
+    if (setting == 6){
+        //通常時チェリー当選確率
+        CH1 = 5;
+        //ART中チェリー当選確率
+        CH2 = 7;
+
+        //通常時スイカ当選確率
+        SU1 = 5;
+        //ART中スイカ当選確率
+        SU2 = 7;
+
+        //通常時強チェ当選確率
+        RCH1 = 42;
+        //ART中強チェ当選確率
+        RCH2 = 33;
+
+        //通常時強スイカ当選確率
+        RSU1 = 42;
+        //ART中強スイカ当選確率
+        RSU2 = 33;
+
+        //通常時中段チェリー当選確率
+        CCH1 = 100;
+        //ART中中段チェリー当選確率
+        CCH2 = 100;
+    }
+
 
 //---------------------------------------------//
 /////////////////////////////////////////////////
@@ -89,27 +248,27 @@ function Nomalpot(){
     if (a >= 951 && a <=970){
         document.getElementById("debug").innerHTML="チェリー";
         flag = "チェリー";
-        Bonuspot(3);
+        Bonuspot(CH1);
     }
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
-        Bonuspot(4);
+        Bonuspot(SU1);
     }
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        Bonuspot(30);
+        Bonuspot(RCH1);
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        Bonuspot(35);
+        Bonuspot(RSU1);
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";
         flag = "確定チェリー";
-        Bonuspot2(100);
+        Bonuspot2(CCH1);
     }
 
 
@@ -154,27 +313,27 @@ function RTpot(){
     if (a >= 951 && a <=970){
         document.getElementById("debug").innerHTML="チェリー";
         flag = "チェリー";
-        Bonuspot3(5);
+        Bonuspot3(CH2);
     }
     if (a >= 971 && a <=990){
         document.getElementById("debug").innerHTML="スイカ";
         flag = "スイカ";
-        Bonuspot3(5);
+        Bonuspot3(SU2);
     }
     if (a >= 991 && a <=995){
         document.getElementById("debug").innerHTML="強チェリー";
         flag = "強チェリー";
-        Bonuspot3(25);
+        Bonuspot3(RCH2);
     }
     if (a >= 995 && a <=999){
         document.getElementById("debug").innerHTML="強チャンス";
         flag = "強チャンス";
-        Bonuspot3(25);
+        Bonuspot3(RCH2);
     }
     if (a == 1000){
         document.getElementById("debug").innerHTML="確定チェリー";
         flag = "確定チェリー";
-        Bonuspot3(100);
+        Bonuspot3(CCH2);
     }
 
     RTgame -= 1;
@@ -613,7 +772,7 @@ function Bonusmode2(){
 ////////////////////////////////////////////////////////////
 function Bonuspot(i){
 
-    var a = Math.floor( Math.random() * 100 ) ;
+    var a = Math.floor( Math.random() * 99 )+1 ;
     if (a <= i){
         potmode = 1;
     }
@@ -625,7 +784,7 @@ function Bonuspot(i){
 
 function Bonuspot2(i){
 
-    var a = Math.floor( Math.random() * 100 ) ;
+    var a = Math.floor( Math.random() * 99 )+1 ;
     if (a <= i){
         potmode = 4;
     }
@@ -637,7 +796,7 @@ function Bonuspot2(i){
 
 function Bonuspot3(i){
 
-    var a = Math.floor( Math.random() * 100 ) ;
+    var a = Math.floor( Math.random() * 99 )+1 ;
     if (a <= i){
         potmode = 7;
     }
