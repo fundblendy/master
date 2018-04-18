@@ -39,6 +39,7 @@ function jump(i){
         case 2: link = "../slot_RS/index.html"; break;
         case 3: link = "../slot_YukariA/index.html"; break;
         case 4: link = "../slot_Chrono/index.html"; break;
+        case 5: link = "../slot_Yukari2/index.html"; break;
     }
     location.href = link;
 }

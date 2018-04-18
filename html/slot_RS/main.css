@@ -370,7 +370,7 @@ body { background: #000; }
 }
 
 .back{
-	text-align: left;
+	text-align: center;
 }
 
 #btn6{
@@ -379,6 +379,20 @@ body { background: #000; }
 	width: 400px;
 	text-decoration: none;
 	background: #004768;
+	color: #fff;
+	font-size: 60px;
+	text-align: center;
+	border-radius: 3px;
+	box-shadow: 1px 2px 4px #444444;
+	vertical-align: auto
+}
+
+#btn7{
+	display:inline-block;
+	height:	100px;
+	width: 100px;
+	text-decoration: none;
+	background: #3e3f00;
 	color: #fff;
 	font-size: 60px;
 	text-align: center;

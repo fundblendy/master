@@ -1,0 +1,144 @@
+
+video#bgvid1 {
+  position: absolute; right: 0; bottom: 0;
+  min-width: 100%; min-height: 100%;
+  width: 700px; height: auto; z-index: -100;
+  background-size: cover;
+}
+
+#color{
+  position: absolute;
+  width: 1000px;
+  height: 400px;
+  background-color:rgb(0, 0, 0);  
+  z-index: 100;
+  opacity: 1;
+}
+
+#white{
+	position: absolute;
+	text-align:center;
+	margin: auto;
+  z-index: 20;
+  top: -50px;
+  Opacity: 0;
+}
+#blue{
+	position: absolute;
+	text-align:center;
+	margin: auto;
+  z-index: 20;
+  top: -50px;
+  Opacity: 0;
+}
+#green{
+	position: absolute;
+	text-align:center;
+	margin: auto;
+  z-index: 20;
+  top: -50px;
+  Opacity: 0;
+}
+#red{
+	position: absolute;
+	text-align:center;
+	margin: auto;
+  z-index: 20;
+  top: -50px;
+  Opacity: 0;
+}
+#rainbow{
+	position: absolute;
+	text-align:center;
+	margin: auto;
+  z-index: 20;
+  top: -50px;
+  Opacity: 0;
+}
+
+#logo{
+  position: absolute;
+	text-align:center;
+	margin: auto;
+  z-index: 120;
+  top: -50px;
+  Opacity: 0;
+}
+
+#countpot{
+  position:absolute;
+	top:210px;
+	right:615px;
+	bottom:0px;
+  left:0px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin:auto auto;
+  font-size: 34px;
+	color: indianred;
+	z-index: 7001;
+}
+
+#gensan{
+  position:absolute;
+	top:250px;
+	right:615px;
+	bottom:0px;
+  left:0px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin:auto auto;
+  font-size: 27px;
+	color: whitesmoke;
+	z-index: 7001;
+}
+
+#balloon {
+  position: absolute;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  top:180px;
+  left:150px;
+  opacity: 0;
+}
+
+#balloon #faceicon {
+  float: left;
+  margin-right: 0px;
+  width: 80px;
+}
+
+#balloon #faceicon img{
+  width: 100%;
+  height: auto;
+  border: solid 3px lightgray;
+  border-radius: 50%;
+}
+
+#balloon #chatting {
+  width: 100%;
+}
+
+#says {
+  display: inline-block;
+  position: absolute; 
+  margin: 15px 0 0 -320px;
+  padding: 17px 13px;
+  border-radius: 12px;
+  background: lightgray;
+  font-size: 15px;
+}
+
+#says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 18px; 
+  left: -24px;
+  border: 12px solid transparent;
+  border-right: 12px solid lightgray;
+}
+
+#says p {
+  margin: 0;
+  padding: 0;
+}

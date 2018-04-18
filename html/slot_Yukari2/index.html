@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="js/load.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/flash.js"></script>
+    <script src="js/mode.js"></script>
+    <script src="js/act.js"></script>
+    <script src="js/yukari2.js"></script>
+    <script src="js/volume.js"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="display.css">
+
+    <script>
+      /* ダブルタップによる拡大を禁止 */
+      let lastTouch = 0;
+      document.addEventListener('touchend', event => {
+        const now = window.performance.now();
+        if (now - lastTouch <= 400) {
+          event.preventDefault();
+        }
+        lastTouch = now;
+      }, true);
+    </script>
+
+    <script>
+      function jump(i){
+          var link;
+          switch (i) {
+              case 1: link = "../hole/index.html"; break;
+          }
+          location.href = link;
+      }
+    </script>
+    <style>
+      body , input , textarea , select {
+      /* 入力欄にフォーカスが当たっても拡大しない */
+        font-size:17px;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!--オーディオファイル-->
+      <audio id="sound-start" preload="auto">
+        <source src="./sound/start.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-stop1" preload="auto">
+        <source src="./sound/stop.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-stop2" preload="auto">
+        <source src="./sound/stop.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-stop3" preload="auto">
+        <source src="./sound/stop.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-RP" preload="auto">
+        <source src="./sound/RP.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-BELL" preload="auto">
+        <source src="./sound/BELL.mp3" type="audio/mp3">
+      </audio>
+    
+      <audio id="sound-Rare" preload="auto">
+        <source src="./sound/Rare.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-Rare2" preload="auto">
+        <source src="./sound/Rare2.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-Rare3" preload="auto">
+        <source src="./sound/Rare3.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-Bonus" preload="auto" loop>
+        <source src="./sound/Bonus.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-Bonus2" preload="auto" loop>
+        <source src="./sound/Bonus2.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-RT" preload="auto">
+          <source src="./sound/777.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-777" preload="auto">
+        <source src="./sound/777.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-SP" preload="auto">
+        <source src="./sound/SP.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-SP2" preload="auto">
+        <source src="./sound/SP2.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-uwanose" preload="auto">
+        <source src="./sound/uwanose.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-SE1" preload="auto">
+        <source src="./sound/SE01.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-SE2" preload="auto">
+        <source src="./sound/SE02.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-CZ" preload="auto" loop>
+          <source src="./sound/CZ.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-CRT" preload="auto" >
+        <source src="./sound/CRT.mp3" type="audio/mp3">
+      </audio>
+
+      <audio id="sound-serif" preload="auto" >
+        <source src="./sound/serif.mp3" type="audio/mp3">
+      </audio>
+      <!--オーディオファイル-->
+
+
+
+    <div class ="all">
+
+
+      <div class ="stats">
+
+        <ul class="box1">
+          <li class="text">所持コイン</li>
+          <li id="coin">---</li>
+        </ul>
+
+        <ul class="box1">
+          <li class="text">払い出し枚数</li>
+          <li id="pay">---</li>  
+        </ul>
+
+        <ul class="box1">
+          <li class="text">総ゲーム数</li>
+          <li id="gamecountA">---</li>
+        </ul>
+
+        <ul class="box1">
+          <li class="text">ボーナス後</li>
+          <li id="gamecountB">---</li>
+        </ul>
+        
+      </div>
+
+      
+
+
+
+      <div class ="reel-body">
+
+
+        <div id="white"><img src="./img/02-white.png" alt=""  /></div>
+        <div id="blue"><img src="./img/02-blue.png" alt=""  /></div>
+        <div id="green"><img src="./img/02-green.png" alt=""  /></div>
+        <div id="red"><img src="./img/02-red.png" alt=""  /></div>
+        <div id="rainbow"><img src="./img/02-rainbow.png" alt=""  /></div>
+
+
+        <div id="bonusdisplay"><img src="./img/01-bonus.png" alt=""  /></div>
+
+
+
+        <div class="body"><img src="./img/main-black.png" alt=""  /></div>
+
+        
+
+        <div class="reel1waku">
+          <div id="reel1"><img src="./img/00-reel1.png" alt=""/></div>
+        </div>
+        <div class="reel2waku">
+          <div id="reel2"><img src="./img/00-reel2.png" alt=""/></div>
+        </div>
+        <div class="reel3waku">
+          <div id="reel3"><img src="./img/00-reel3.png" alt=""/></div>
+        </div>
+
+        <div id="f1"><img src="./img/01-f1.png" alt=""/></div>
+        <div id="f2"><img src="./img/01-f2.png" alt=""/></div>
+        <div id="f3"><img src="./img/01-f3.png" alt=""/></div>
+        <div id="f4"><img src="./img/01-f4.png" alt=""/></div>
+        <div id="f5"><img src="./img/01-f5.png" alt=""/></div>
+        <div id="f6"><img src="./img/01-f6.png" alt=""/></div>
+        <div id="f7"><img src="./img/01-f7.png" alt=""/></div>
+        <div id="f8"><img src="./img/01-f8.png" alt=""/></div>
+        <div id="f9"><img src="./img/01-f9.png" alt=""/></div>
+        <div id="f10"><img src="./img/01-f10.png" alt=""/></div>
+
+
+
+
+
+        <div id="maindisplay">
+          <div>
+            <video autoplay loop id="bgvid1">
+              <source src="./img/bcg.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div id="color">Now Loading...</div>
+          <div id="white"><img src="./img/02-white.png" alt=""  /></div>
+          <div id="blue"><img src="./img/02-blue.png" alt=""  /></div>
+          <div id="green"><img src="./img/02-green.png" alt=""  /></div>
+          <div id="red"><img src="./img/02-red.png" alt=""  /></div>
+          <div id="rainbow"><img src="./img/02-rainbow.png" alt=""  /></div>
+          <div id="logo"><img src="./img/logo.png" alt=""  /></div>
+          <div id="RSgame"></div>
+          <!--吹き出しはじまり-->
+          <div id="balloon">
+              <div id="faceicon">
+                <img id="face" src="./img/yukari1.png" alt="" />
+              </div>
+              <div id="chatting">
+                <div id="says">ここに文章を入力</div>
+              </div>
+          </div>
+          <!--吹き出し終わり-->
+        </div>
+
+        <div id="mode"></div>
+        <div id="getcoin"></div>
+        <div id="totalgame1"></div>
+        <div id="totalgame2"></div>
+        <div id="totalcoin1"></div>
+        <div id="totalcoin2"></div>
+        <div id="uwanose"></div>
+        <div id="gensan"></div>
+        <div id="countpot"></div>
+        
+
+      </div>
+    
+
+
+
+
+
+
+      <div class="stopbutton">
+        <a href="#" id="btn2" onClick="touch1();" ></a>
+        <a href="#" id="btn3" onClick="touch2();" ></a>
+        <a href="#" id="btn4" onClick="touch3();" ></a>
+        <a href="#" id="btn1" onClick="touch();" ></a>
+      </div>
+
+      <div class="autoplaybtn">
+        <a href="#" id="btn5" onClick="autoplay();" >AUTO</a>
+      </div>
+
+      <div class="back">
+        <a href="#" id="btn6" onClick="jump(1)" >Back</a>
+        <a href="#" id="btn7" onClick="volume(0)" >0</a>
+        <a href="#" id="btn7" onClick="volume(0.2)" >1</a>
+        <a href="#" id="btn7" onClick="volume(0.4)" >2</a>
+        <a href="#" id="btn7" onClick="volume(0.6)" >3</a>
+        <a href="#" id="btn7" onClick="volume(0.8)" >4</a>
+        <a href="#" id="btn7" onClick="volume(1.0)" >5</a>
+      </div>
+
+  
+
+
+      <li id="debug">---</li>
+        
+
+
+      <script src="js/init.js"></script>
+
+    </div>
+
+
+  </body>
+</html>
