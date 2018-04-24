@@ -233,7 +233,6 @@
 function Nomalpot(){
 
     var a = Math.floor( Math.random() * 1000 ) ;
-
     bonusgamen2();
 
     
@@ -990,6 +989,8 @@ function CZpot(i){
 function Bonuspot2(i){
 
     var a = Math.floor( Math.random() * 99 ) + 1 ;
+
+
     if (a <= i){
         potmode = 4;
     }
@@ -1002,6 +1003,15 @@ function Bonuspot2(i){
 function Bonuspot3(i){
 
     var a = Math.floor( Math.random() * 99 ) + 1 ;
+
+    if (a <= 50 && a >= 20){
+        yakumonoaction1();
+    }
+
+    if (a <= 19 && a >= 1 ){
+        yakumonoaction3();
+    }
+
     if (a <= i){
         potmode = 5;
     }

@@ -216,7 +216,7 @@ function touch(){
             
         setTimeout(function(){
             keyflag = 2;
-        }, 600);
+        }, 800);
 
         
     }
@@ -243,7 +243,7 @@ function autoplay(){
 
     
     if (autoplayflg == 0){
-        autoplay1 = setInterval (touch,400);
+        autoplay1 = setInterval (touch,600);
         autoplayflg = 1;
     }
     else{
@@ -309,8 +309,8 @@ function touch2(){
             case "スイカ": reel2stop(3); break;
             case "チェリー": reel2stop(4); break;
             case "SPリプレイ": reel2stop(4); break;
-            case "強チェリー": reel2stop(5); break;
-            case "強チャンス": reel2stop(3); break;
+            case "強チェリー": reel2stop(5); yakumonoaction2(); break;
+            case "強チャンス": reel2stop(3); yakumonoaction2(); break;
             case "確定チェリー": reel2stop(4); break;
             case "BB": reel2stop(6); break;
             case "特殊BB": reel2stop(7); break;
@@ -320,6 +320,10 @@ function touch2(){
         }
         document.getElementById("btn3").style.background = "#441010";
         document.getElementById("sound-stop2").play();
+
+
+
+
         setTimeout(function(){
             keyflag = 6;
         }, 100);
@@ -346,7 +350,7 @@ function touch3(){
                 case "確定チェリー": reel3stop(4); break;
                 case "BB": reel3stop(6); break;
                 case "特殊BB": reel3stop(8); break;
-                case "青BB": reel3stop(7); break;
+                case "青BB": reel3stop(7); yakumonoup(); break;
                 case "RB": reel3stop(9); break;
                 default: reel3stop(0);
             }
@@ -557,7 +561,6 @@ function touch3(){
                     document.getElementById("sound-SP2").play();
                     color1 = document.getElementById("rainbow")
                     flag = "青BB";
-                    uwanose += 200;
                 }
 
                 var i = reeloffset(reeltop2);
@@ -586,7 +589,7 @@ function touch3(){
                 if (CZpoint >= 51 && CZpoint <= 70){
                     reeltop3 = 230; 
                     document.getElementById("bgvid1").src="./img/bcg2.mp4";
-                    document.getElementById("logo").style.opacity=1;
+                    yakumonodown();
                     
                     RTmodechange();
                     RTmodecount();
@@ -595,7 +598,7 @@ function touch3(){
                 if (CZpoint >= 71 && CZpoint <= 99){
                     reeltop3 = 300; 
                     document.getElementById("bgvid1").src="./img/bcg2.mp4";
-                    document.getElementById("logo").style.opacity=1;
+                    yakumonodown();
                     
                     RTmodechange();
                     RTmodecount();
@@ -604,7 +607,7 @@ function touch3(){
                 if (CZpoint >= 100 && CZpoint <= 1000){
                     reeltop3 = 140; 
                     document.getElementById("bgvid1").src="./img/bcg2.mp4";
-                    document.getElementById("logo").style.opacity=1;
+                    yakumonodown();
                     RTmode = "天国A";
                     RTmodecount();
                     flash8();
@@ -637,7 +640,7 @@ function touch3(){
                 clearInterval(cmd);
                 Rpoint = 0;
 
-                document.getElementById("logo").style.opacity=0;
+                yakumonoup();
 
             }, 20000);
 
@@ -651,6 +654,10 @@ function touch3(){
                 }
                 Rpoint = 0;
                 countpot = 50;
+            }
+
+            if (potmode == 5){
+                yakumonodown();
             }
 
 
