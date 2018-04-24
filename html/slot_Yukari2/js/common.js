@@ -557,7 +557,7 @@ function touch3(){
                     document.getElementById("sound-SP2").play();
                     color1 = document.getElementById("rainbow")
                     flag = "ê¬BB";
-                    uwanose += 100;
+                    uwanose += 200;
                 }
 
                 var i = reeloffset(reeltop2);

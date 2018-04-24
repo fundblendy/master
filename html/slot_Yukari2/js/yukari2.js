@@ -558,12 +558,12 @@ function CRTpot(){
     document.getElementById("gamecountA").innerHTML=gamecount;
     document.getElementById("gamecountB").innerHTML=BBgamecount;
 
-    if (a >= 0 && a <=5){
+    if (a >= 0 && a <=1){
         document.getElementById("debug").innerHTML="特殊BB";
         flag = "特殊BB";
     }
 
-    if (a >= 6 && a <=600){
+    if (a >= 2 && a <=600){
         document.getElementById("debug").innerHTML="リプレイ";
         flag = "リプレイ";
     }
@@ -895,16 +895,11 @@ function Bonusmode(){
     document.getElementById("pay").innerHTML=payout;
 
 
-    if (a >= 0 && a <=997){
+    if (a >= 0 && a <=1000){
         document.getElementById("debug").innerHTML="BBベル";
         flag = "BBベル";
     }
 
-    if (a >= 998 && a <=1000){
-        document.getElementById("debug").innerHTML="BBベル";
-        flag = "BBベル";
-        SPstock = 1;
-    }
 
 
     Bgame -= 1;
@@ -920,11 +915,6 @@ function Bonusmode(){
         uwanose = 5;
         potmode = 8;
 
-        if (SPstock == 1){
-            document.getElementById("debug").innerHTML="特殊BB";
-            flag = "特殊BB";
-            SPstock = 0;
-        }
 
 
     }

@@ -49,49 +49,34 @@ function RTmodechange(){
     }
 
     if (RTmode == "通常A"){
-        if (a >= 1 && a <=50){
-            RTmodesub = "通常A";
-        }
-        if (a >= 51 && a <=100){
+        if (a >= 1 && a <=100){
             RTmodesub = "通常B";
         }
     }
 
     if (RTmode == "通常B"){
-        if (a >= 1 && a <=25){
-            RTmodesub = "通常A";
-        }
-        if (a >= 26 && a <=50){
+        if (a >= 1 && a <=20){
             RTmodesub = "通常B";
         }
-        if (a >= 51 && a <=100){
+        if (a >= 21 && a <=100){
             RTmodesub = "通常C";
         }
     }
 
     if (RTmode == "通常C"){
-        if (a >= 1 && a <=25){
-            RTmodesub = "通常B";
-        }
-        if (a >= 26 && a <=50){
+        if (a >= 1 && a <=20){
             RTmodesub = "通常C";
         }
-        if (a >= 51 && a <=100){
+        if (a >= 21 && a <=100){
             RTmodesub = "天国準備A";
         }
     }
 
-        if (RTmode == "天国準備A"){
-        if (a >= 1 && a <=25){
-            RTmodesub = "通常C";
-        }
-        if (a >= 26 && a <=50){
-            RTmodesub = "天国準備A";
-        }
-        if (a >= 51 && a <=75){
+    if (RTmode == "天国準備A"){
+        if (a >= 1 && a <=50){
             RTmodesub = "天国準備B";
         }
-        if (a >= 76 && a <=100){
+        if (a >= 51 && a <=100){
             RTmodesub = "天国A";
         }
     }
@@ -176,7 +161,7 @@ function RTmodecount(){
 
     if (RTmode == "通常B"){
         if (a >= 1 && a <=25){
-            countpot2 = 250;
+            countpot2 = 500;
         }
         if (a >= 26 && a <=50){
             countpot2 = 300;
@@ -230,7 +215,7 @@ function RTmodecount(){
             countpot2 = 77;
         }
         if (a >= 26 && a <=50){
-            countpot2 = 100;
+            countpot2 = 77;
         }
         if (a >= 51 && a <=100){
             countpot2 = 100;
@@ -242,7 +227,7 @@ function RTmodecount(){
             countpot2 = 77;
         }
         if (a >= 41 && a <=80){
-            countpot2 = 100;
+            countpot2 = 77;
         }
         if (a >= 81 && a <=100){
             countpot2 = 100;
