@@ -193,7 +193,8 @@ function touch(){
             case 5: Bonuskakutei7(); potmodesub = 5; break;
             case 6: SRTpot(); potmodesub = 6; break;
             case 7: Bonuskakutei3(); break;
-            case 8: CRTpot();break;
+            case 8: CRTpot(); break;
+            case 9: CRT2pot(); break;
         }
 
         if (Rpoint >= 5){
@@ -640,7 +641,10 @@ function touch3(){
                 clearInterval(cmd);
                 Rpoint = 0;
 
-                yakumonoup();
+                if(CZpoint >=51 ){
+                    yakumonoup();
+                }
+                
 
             }, 20000);
 
@@ -658,6 +662,7 @@ function touch3(){
 
             if (potmode == 5){
                 yakumonodown();
+                document.getElementById("bgvid1").src="./img/bcg2.mp4";
             }
 
 
@@ -855,7 +860,15 @@ function payout1(){
 
         }
         if (countpot2 <= 0){
-            potmode = 8;
+
+            var a = Math.floor( Math.random() * 99 )+1;
+            if (a >= 91){
+                potmode = 9;
+            } else{
+                potmode = 8;
+            }
+            
+
             CRTgame =10;
             document.getElementById("sound-CRT").play();
             RTmodechange();
@@ -978,6 +991,13 @@ function payout1(){
     if (potmode == 8){
         document.getElementById("getcoin").innerHTML="LAST "+CRTgame+" G  ||  TOTAL "+RTgame+" –‡";
         document.getElementById("mode").innerHTML="˜B‹àƒ`ƒƒƒ“ƒX";
+        document.getElementById("totalcoin1").innerHTML="GET";
+        document.getElementById("totalcoin2").innerHTML=getcoin;
+        }
+
+    if (potmode == 9){
+        document.getElementById("getcoin").innerHTML="LAST "+CRTgame+" G  ||  TOTAL "+RTgame+" –‡";
+        document.getElementById("mode").innerHTML="˜B‹àƒ`ƒƒƒ“ƒX(”{)";
         document.getElementById("totalcoin1").innerHTML="GET";
         document.getElementById("totalcoin2").innerHTML=getcoin;
         }

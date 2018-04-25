@@ -528,6 +528,10 @@ function SRTpot(){
 
 }
 
+
+///////////////////////////
+// 上乗せゾーン
+///////////////////////////
 function CRTpot(){
 
     var a = Math.floor( Math.random() * 1000 ) ;
@@ -618,6 +622,100 @@ function CRTpot(){
 
 }
 
+///////////////////////////
+// 上乗せゾーン２
+//////////////////////////
+
+function CRT2pot(){
+
+    var a = Math.floor( Math.random() * 1000 ) ;
+
+
+    if (bcgflg != 5){
+        document.getElementById("bgvid1").src="./img/bcg5.mp4";
+        bcgflg = 5;
+    }
+    
+    gamecount += 1;
+    mycoin -= BET;
+    payout = 0;
+    BBgamecount += 1;
+
+
+
+    getcoin -= 3;
+
+
+    document.getElementById("totalcoin1").innerHTML="GET";
+    document.getElementById("totalcoin2").innerHTML=getcoin;
+
+    document.getElementById("getcoin").innerHTML="LAST "+CRTgame+" G  ||  TOTAL "+RTgame+" 枚";
+    document.getElementById("coin").innerHTML=mycoin;
+    document.getElementById("pay").innerHTML=payout;
+    document.getElementById("gamecountA").innerHTML=gamecount;
+    document.getElementById("gamecountB").innerHTML=BBgamecount;
+
+    if (a >= 0 && a <=1){
+        document.getElementById("debug").innerHTML="特殊BB";
+        flag = "特殊BB";
+    }
+
+    if (a >= 2 && a <=600){
+        document.getElementById("debug").innerHTML="リプレイ";
+        flag = "リプレイ";
+    }
+    if (a >= 601 && a <=900){
+        document.getElementById("debug").innerHTML="ベル";
+        flag = "ベル";
+        uwanose = 10;
+    }
+    if (a >= 901 && a <=950){
+        document.getElementById("debug").innerHTML="SPリプレイ";
+        flag = "SPリプレイ";
+        uwanose = 20;
+    }
+    if (a >= 951 && a <=970){
+        document.getElementById("debug").innerHTML="チェリー";
+        flag = "チェリー";
+        Bonuspot3(CH2);
+        uwanose = 30;
+    }
+    if (a >= 971 && a <=990){
+        document.getElementById("debug").innerHTML="スイカ";
+        flag = "スイカ";
+        Bonuspot3(SU2);
+        uwanose = 30;
+    }
+    if (a >= 991 && a <=995){
+        document.getElementById("debug").innerHTML="強チェリー";
+        flag = "強チェリー";
+        Bonuspot3(RCH2);
+        uwanose = 100;
+    }
+    if (a >= 995 && a <=999){
+        document.getElementById("debug").innerHTML="強チャンス";
+        flag = "強チャンス";
+        Bonuspot3(RSU2);
+        uwanose = 100;
+        
+    }
+    if (a == 1000){
+        document.getElementById("debug").innerHTML="確定チェリー";
+        flag = "確定チェリー";
+        Bonuspot3(CCH2);
+        uwanosepot(200);
+    }
+
+    CRTgame -= 1;
+
+    if (CRTgame == 0){
+        
+        potmode = 3;
+
+    }
+
+}
+
 
 /////////////////////////////
 //　CZ抽選
@@ -647,14 +745,14 @@ function CZ1(){
     document.getElementById("gamecountB").innerHTML=BBgamecount;
 
 
-    if (a >= 0 && a <=1){
+    if (a == 0){
         document.getElementById("debug").innerHTML="特殊BB";
         flag = "特殊BB";
         document.getElementById("sound-CZ").pause();
         document.getElementById("sound-CZ").currentTime = 0;
         RTgame += 100;
     }
-    if (a >= 2 && a <=670){
+    if (a >= 1 && a <=670){
         document.getElementById("debug").innerHTML="ハズレ";
         flag = "ハズレ";
         
