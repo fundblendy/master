@@ -21,5 +21,9 @@ function volume(v){
     document.getElementById("sound-CZ").volume = v;
     document.getElementById("sound-CRT").volume = v;
     document.getElementById("sound-serif").volume = v;
+    document.getElementById("sound-logo1").volume = v;
+    document.getElementById("sound-logo2").volume = v;
+    document.getElementById("sound-logo3").volume = v;
+    document.getElementById("sound-logoSP").volume = v;
     
 }

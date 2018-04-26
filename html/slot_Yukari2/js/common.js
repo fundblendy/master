@@ -631,6 +631,10 @@ function touch3(){
 
             setTimeout(function(){
                 
+                if(CZpoint >=51 ){
+                    yakumonoup();
+                }
+                
                 CZpoint = 0;
                 keyflag = 0;
                 document.getElementById("btn1").style.background = "#fdc689";
@@ -641,9 +645,7 @@ function touch3(){
                 clearInterval(cmd);
                 Rpoint = 0;
 
-                if(CZpoint >=51 ){
-                    yakumonoup();
-                }
+
                 
 
             }, 20000);
