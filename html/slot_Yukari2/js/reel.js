@@ -824,28 +824,28 @@ function reel3flag(){
             }
             break;
         case "ÉXÉCÉJ":
-            if (a <= -875){
-                wait = -875 - a;
+            if (a <= -730){
+                wait = -730 - a;
                 setTimeout(function(){
-                    reel3stop(17);
+                    reel3stop(15);
                 }, wait/5);
             }
-            if (a >= -870 && a <= -360){
-                wait = -360 - a;
+            if (a >= -725 && a <= -210){
+                wait = -210 - a;
                 setTimeout(function(){
-                    reel3stop(10);
+                    reel3stop(8);
                 }, wait/5);
             }
-            if (a >= -355 && a <= 90){
-                wait = 90 - a;
+            if (a >= -205 && a <= 235){
+                wait = 235 - a;
                 setTimeout(function(){
-                    reel3stop(4);
+                    reel3stop(2);
                 }, wait/5);
             }
-            if (a >= 95){
-                wait = 300 - a + 250;
+            if (a >= 240){
+                wait = 300 - a + 350;
                 setTimeout(function(){
-                    reel3stop(17);
+                    reel3stop(15);
                 }, wait/5);
             }
             break;
