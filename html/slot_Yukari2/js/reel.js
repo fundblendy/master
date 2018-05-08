@@ -115,278 +115,277 @@ function reel1flag(){
 
     var target1 = document.getElementById("reel1").style.top;
     var a = target1.slice( 0, -2 );
-    var wait;
     switch (flag){
         case "ハズレ": 
             if (a <= -950){
-                wait = -950 - a;
+                wait1 = -950 - a;
                 setTimeout(function(){
                     reel1stop(18);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -945 && a <= -730){
-                wait = -730 - a;
+                wait1 = -730 - a;
                 setTimeout(function(){
                     reel1stop(15);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -725 && a <= -360){
-                wait = -360 - a;
+                wait1 = -360 - a;
                 setTimeout(function(){
                     reel1stop(10);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -355 && a <= 15){
-                wait = 15 - a;
+                wait1 = 15 - a;
                 setTimeout(function(){
                     reel1stop(5);
-                }, wait/5);
+                }, wait1/5);
             }
-            if (a >= 20 && a <= 300){
-                wait = 300 - a;
+            if (a >= 20){
+                wait1 = 300 - a;
                 setTimeout(function(){
                     reel1stop(20);
-                }, wait/5);
+                }, wait1/5);
             } 
         break;
         case "リプレイ": 
             if (a <= -950){
-                wait = -950 - a;
+                wait1 = -950 - a;
                 setTimeout(function(){
                     reel1stop(18);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -945 && a <= -730){
-                wait = -730 - a;
+                wait1 = -730 - a;
                 setTimeout(function(){
                     reel1stop(15);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -725 && a <= -360){
-                wait = -360 - a;
+                wait1 = -360 - a;
                 setTimeout(function(){
                     reel1stop(10);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -355 && a <= 15){
-                wait = 15 - a;
+                wait1 = 15 - a;
                 setTimeout(function(){
                     reel1stop(5);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= 20){
-                wait = 300 - a;
+                wait1 = 300 - a;
                 setTimeout(function(){
                     reel1stop(20);
-                }, wait/5);
+                }, wait1/5);
             }  
 
         break;
         case "ベル": 
             if (a <= -950){
-                wait = -950 - a;
+                wait1 = -950 - a;
                 setTimeout(function(){
                     reel1stop(18);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -945 && a <= -730){
-                wait = -730 - a;
+                wait1 = -730 - a;
                 setTimeout(function(){
                     reel1stop(15);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -725 && a <= -360){
-                wait = -360 - a;
+                wait1 = -360 - a;
                 setTimeout(function(){
                     reel1stop(10);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -355 && a <= 15){
-                wait = 15 - a;
+                wait1 = 15 - a;
                 setTimeout(function(){
                     reel1stop(5);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= 20){
-                wait = 300 - a;
+                wait1 = 300 - a;
                 setTimeout(function(){
-                    reel1stop(20);
-                }, wait/5);
+                    reel1stop(18);
+                }, wait1/5);
             } 
         
         break;
         case "BBベル": 
             if (a <= -950){
-                wait = -950 - a;
+                wait1 = -950 - a;
                 setTimeout(function(){
                     reel1stop(18);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -945 && a <= -730){
-                wait = -730 - a;
+                wait1 = -730 - a;
                 setTimeout(function(){
                     reel1stop(15);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -725 && a <= -360){
-                wait = -360 - a;
+                wait1 = -360 - a;
                 setTimeout(function(){
                     reel1stop(10);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -355 && a <= 15){
-                wait = 15 - a;
+                wait1 = 15 - a;
                 setTimeout(function(){
                     reel1stop(5);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= 20){
-                wait = 300 - a;
+                wait1 = 300 - a;
                 setTimeout(function(){
                     reel1stop(20);
-                }, wait/5);
+                }, wait1/5);
             } 
         break;
         case "スイカ": 
             if (a <= -875){
-                wait = -875 - a;
+                wait1 = -875 - a;
                 setTimeout(function(){
                     reel1stop(17);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -870 && a <= -655){
-                wait = -655 - a;
+                wait1 = -655 - a;
                 setTimeout(function(){
                     reel1stop(14);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -650 && a <= -285){
-                wait = -285 - a;
+                wait1 = -285 - a;
                 setTimeout(function(){
                     reel1stop(9);
-                }, wait/5);
+                }, wait1/5);
             }
-            if (a >= -210 && a <= 15){
-                wait = 15 - a;
+            if (a >= -280 && a <= 15){
+                wait1 = 15 - a;
                 setTimeout(function(){
                     reel1stop(5);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= 20){
-                wait = 300 - a;
+                wait1 = 300 - a;
                 setTimeout(function(){
                     reel1stop(20);
-                }, wait/5);
+                }, wait1/5);
             } 
         break;
         case "チェリー": 
            if (a <= -430){
-                wait = -430 - a;
+                wait1 = -430 - a;
                 setTimeout(function(){
                     reel1stop(11);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -425 && a <= -60){
-                wait = 60 - a;
+                wait1 = 60 - a;
                 setTimeout(function(){
                     reel1stop(6);
-                }, wait/5);
+                }, wait1/5);
             }
-            if (a >= -60 && a <= 235){
-                wait = 235 - a;
+            if (a >= -55 && a <= 235){
+                wait1 = 235 - a;
                 setTimeout(function(){
                     reel1stop(2);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= 240){
-                wait = 300 - a;
+                wait1 = 300 - a;
                 setTimeout(function(){
                     reel1stop(20);
-                }, wait/5);
+                }, wait1/5);
             }
         break;
         case "SPリプレイ": 
             if (a <= -430){
-                wait = -430 - a;
+                wait1 = -430 - a;
                 setTimeout(function(){
                     reel1stop(11);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -425 && a <= -60){
-                wait = 60 - a;
+                wait1 = 60 - a;
                 setTimeout(function(){
                     reel1stop(6);
-                }, wait/5);
+                }, wait1/5);
             }
-            if (a >= -60 && a <= 235){
-                wait = 235 - a;
+            if (a >= -55 && a <= 235){
+                wait1 = 235 - a;
                 setTimeout(function(){
                     reel1stop(2);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= 240){
-                wait = 300 - a;
+                wait1 = 300 - a;
                 setTimeout(function(){
                     reel1stop(20);
-                }, wait/5);
+                }, wait1/5);
             }
         break;
         case "強チェリー":
            if (a <= -430){
-                wait = -430 - a;
+                wait1 = -430 - a;
                 setTimeout(function(){
                     reel1stop(11);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -425 && a <= -60){
-                wait = 60 - a;
+                wait1 = 60 - a;
                 setTimeout(function(){
                     reel1stop(6);
-                }, wait/5);
+                }, wait1/5);
             }
-            if (a >= -60 && a <= 235){
-                wait = 235 - a;
+            if (a >= -55 && a <= 235){
+                wait1 = 235 - a;
                 setTimeout(function(){
                     reel1stop(2);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= 240){
-                wait = 300 - a;
+                wait1 = 300 - a;
                 setTimeout(function(){
                     reel1stop(20);
-                }, wait/5);
+                }, wait1/5);
             }
         break;
         case "強チャンス": 
            if (a <= -875){
-                wait = -875 - a;
+                wait1 = -875 - a;
                 setTimeout(function(){
                     reel1stop(17);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -870 && a <= -655){
-                wait = -655 - a;
+                wait1 = -655 - a;
                 setTimeout(function(){
                     reel1stop(14);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= -650 && a <= -285){
-                wait = -285 - a;
+                wait1 = -285 - a;
                 setTimeout(function(){
                     reel1stop(9);
-                }, wait/5);
+                }, wait1/5);
             }
-            if (a >= -210 && a <= 15){
-                wait = 15 - a;
+            if (a >= -280 && a <= 15){
+                wait1 = 15 - a;
                 setTimeout(function(){
                     reel1stop(5);
-                }, wait/5);
+                }, wait1/5);
             }
             if (a >= 20){
-                wait = 300 - a;
+                wait1 = 300 - a;
                 setTimeout(function(){
                     reel1stop(20);
-                }, wait/5);
+                }, wait1/5);
             } 
         break;
         case "確定チェリー": reel1stop(4); break;
@@ -404,263 +403,262 @@ function reel2flag(){
 
     var target2 = document.getElementById("reel2").style.top;
     var a = target2.slice( 0, -2 );
-    var wait;
     switch (flag){
         case "ハズレ":
             if (a <= -950){
-                wait = -950 - a;
+                wait2 = -950 - a;
                 setTimeout(function(){
                     reel2stop(18);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -945 && a <= -655){
-                wait = -655 - a;
+                wait2 = -655 - a;
                 setTimeout(function(){
                     reel2stop(14);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -650 && a <= -505){
-                wait = -505 - a;
+                wait2 = -505 - a;
                 setTimeout(function(){
                     reel2stop(12);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -500 && a <= 15){
-                wait = 15 - a;
+                wait2 = 15 - a;
                 setTimeout(function(){
                     reel2stop(5);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= 20 && a <= 235){
-                wait = 235 - a;
+                wait2 = 235 - a;
                 setTimeout(function(){
                     reel2stop(2);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= 240){
-                wait = 300 - a + 250;
+                wait2 = 300 - a + 250;
                 setTimeout(function(){
                     reel2stop(18);
-                }, wait/5);
+                }, wait2/5);
             }
         break;
         case "リプレイ":
             if (a <= -950){
-                wait = -950 - a;
+                wait2 = -950 - a;
                 setTimeout(function(){
                     reel2stop(18);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -945 && a <= -655){
-                wait = -655 - a;
+                wait2 = -655 - a;
                 setTimeout(function(){
                     reel2stop(14);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -650 && a <= -505){
-                wait = -505 - a;
+                wait2 = -505 - a;
                 setTimeout(function(){
                     reel2stop(12);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -500 && a <= 15){
-                wait = 15 - a;
+                wait2 = 15 - a;
                 setTimeout(function(){
                     reel2stop(5);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= 20 && a <= 235){
-                wait = 235 - a;
+                wait2 = 235 - a;
                 setTimeout(function(){
                     reel2stop(2);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= 240){
-                wait = 300 - a + 250;
+                wait2 = 300 - a + 250;
                 setTimeout(function(){
                     reel2stop(18);
-                }, wait/5);
+                }, wait2/5);
             }
         break;
         case "ベル": 
             if (a <= -805){
-                wait = -805 - a;
+                wait2 = -805 - a;
                 setTimeout(function(){
                     reel2stop(16);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -800 && a <= -135){
-                wait = -135 - a;
+                wait2 = -135 - a;
                 setTimeout(function(){
                     reel2stop(7);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -130){
-                wait = 300 - a;
+                wait2 = 300 - a;
                 setTimeout(function(){
                     reel2stop(20);
-                }, wait/5);
+                }, wait2/5);
             }
         break;
         case "BBベル":
                     if (a <= -805){
-                wait = -805 - a;
+                wait2 = -805 - a;
                 setTimeout(function(){
                     reel2stop(16);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -800 && a <= -135){
-                wait = -135 - a;
+                wait2 = -135 - a;
                 setTimeout(function(){
                     reel2stop(7);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -130){
-                wait = 300 - a;
+                wait2 = 300 - a;
                 setTimeout(function(){
                     reel2stop(20);
-                }, wait/5);
+                }, wait2/5);
             }
         break;
         case "スイカ":
             if (a <= -875){
-                wait = -875 - a;
+                wait2 = -875 - a;
                 setTimeout(function(){
                     reel2stop(17);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -870 && a <= -580){
-                wait = -580 - a;
+                wait2 = -580 - a;
                 setTimeout(function(){
                     reel2stop(13);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -575 && a <= -285){
-                wait = -285 - a;
+                wait2 = -285 - a;
                 setTimeout(function(){
                     reel2stop(9);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -280 && a <= 90){
-                wait = 90 - a;
+                wait2 = 90 - a;
                 setTimeout(function(){
                     reel2stop(4);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= 95){
-                wait = 300 - a + 250;
+                wait2 = 300 - a + 250;
                 setTimeout(function(){
                     reel2stop(17);
-                }, wait/5);
+                }, wait2/5);
             }
         break;
         case "チェリー":
                     if (a <= -950){
-                wait = -950 - a;
+                wait2 = -950 - a;
                 setTimeout(function(){
                     reel2stop(18);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -945 && a <= -655){
-                wait = -655 - a;
+                wait2 = -655 - a;
                 setTimeout(function(){
                     reel2stop(14);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -650 && a <= -505){
-                wait = -505 - a;
+                wait2 = -505 - a;
                 setTimeout(function(){
                     reel2stop(12);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -500 && a <= 15){
-                wait = 15 - a;
+                wait2 = 15 - a;
                 setTimeout(function(){
                     reel2stop(5);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= 20 && a <= 235){
-                wait = 235 - a;
+                wait2 = 235 - a;
                 setTimeout(function(){
                     reel2stop(2);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= 240){
-                wait = 300 - a + 250;
+                wait2 = 300 - a + 250;
                 setTimeout(function(){
                     reel2stop(18);
-                }, wait/5);
+                }, wait2/5);
             }
         break;
         case "SPリプレイ":
             if (a <= -950){
-                wait = -950 - a;
+                wait2 = -950 - a;
                 setTimeout(function(){
                     reel2stop(18);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -945 && a <= -655){
-                wait = -655 - a;
+                wait2 = -655 - a;
                 setTimeout(function(){
                     reel2stop(14);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -650 && a <= -505){
-                wait = -505 - a;
+                wait2 = -505 - a;
                 setTimeout(function(){
                     reel2stop(12);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= -500 && a <= 15){
-                wait = 15 - a;
+                wait2 = 15 - a;
                 setTimeout(function(){
                     reel2stop(5);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= 20 && a <= 235){
-                wait = 235 - a;
+                wait2 = 235 - a;
                 setTimeout(function(){
                     reel2stop(2);
-                }, wait/5);
+                }, wait2/5);
             }
             if (a >= 240){
-                wait = 300 - a + 250;
+                wait2 = 300 - a + 250;
                 setTimeout(function(){
                     reel2stop(18);
-                }, wait/5);
+                }, wait2/5);
             }
         break;
         case "強チェリー": reel2stop(10); yakumonoaction2(); break;
         case "強チャンス":
         if (a <= -875){
-            wait = -875 - a;
+            wait2 = -875 - a;
             setTimeout(function(){
                 reel2stop(17);
-            }, wait/5);
+            }, wait2/5);
         }
         if (a >= -870 && a <= -580){
-            wait = -580 - a;
+            wait2 = -580 - a;
             setTimeout(function(){
                 reel2stop(13);
-            }, wait/5);
+            }, wait2/5);
         }
         if (a >= -575 && a <= -285){
-            wait = -285 - a;
+            wait2 = -285 - a;
             setTimeout(function(){
                 reel2stop(9);
-            }, wait/5);
+            }, wait2/5);
         }
         if (a >= -280 && a <= 90){
-            wait = 90 - a;
+            wait2 = 90 - a;
             setTimeout(function(){
                 reel2stop(4);
-            }, wait/5);
+            }, wait2/5);
         }
         if (a >= 95){
-            wait = 300 - a + 250;
+            wait2 = 300 - a + 250;
             setTimeout(function(){
                 reel2stop(17);
-            }, wait/5);
+            }, wait2/5);
         }
         yakumonoaction2(); break;
         case "確定チェリー": reel2stop(10); break;
@@ -672,272 +670,273 @@ function reel2flag(){
     }
 }
 
+
 function reel3flag(){
     var target3 = document.getElementById("reel3").style.top;
     var a = target3.slice( 0, -2 );
-    var wait;
+    var wait3;
     switch (flag){
         case "ハズレ":
             if (a <= -1025){
-                wait = -1025 - a;
+                wait3 = -1025 - a;
                 setTimeout(function(){
                     reel3stop(19);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -1020 && a <= -730){
-                wait = -730 - a;
+                wait3 = -730 - a;
                 setTimeout(function(){
                     reel3stop(15);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -725 && a <= -580){
-                wait = -580 - a;
+                wait3 = -580 - a;
                 setTimeout(function(){
                     reel3stop(13);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -575 && a <= -430){
-                wait = -430 - a;
+                wait3 = -430 - a;
                 setTimeout(function(){
                     reel3stop(11);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -425 && a <= -285){
-                wait = -285 - a;
+                wait3 = -285 - a;
                 setTimeout(function(){
                     reel3stop(9);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -280 && a <= 15){
-                wait = 15 - a;
+                wait3 = 15 - a;
                 setTimeout(function(){
                     reel3stop(5);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= 20 && a <= 160){
-                wait = 160 - a;
+                wait3 = 160 - a;
                 setTimeout(function(){
                     reel3stop(3);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= 165){
-                wait = 300 - a + 75;
+                wait3 = 300 - a + 75;
                 setTimeout(function(){
                     reel3stop(19);
-                }, wait/5);
+                }, wait3/5);
             }
             break;
         case "リプレイ":
             if (a <= -950){
-                wait = -950 - a;
+                wait3 = -950 - a;
                 setTimeout(function(){
                     reel3stop(18);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -945 && a <= -655){
-                wait = -655 - a;
+                wait3 = -655 - a;
                 setTimeout(function(){
                     reel3stop(14);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -650 && a <= -60){
-                wait = -60 - a;
+                wait3 = -60 - a;
                 setTimeout(function(){
                     reel3stop(6);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -55 && a <= 90){
-                wait = 90 - a;
+                wait3 = 90 - a;
                 setTimeout(function(){
                     reel3stop(4);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= 95){
-                wait = 300 - a + 250;
+                wait3 = 300 - a + 250;
                 setTimeout(function(){
                     reel3stop(18);
-                }, wait/5);
+                }, wait3/5);
             }
             break;
         case "ベル":
             if (a <= -950){
-                wait = -950 - a;
+                wait3 = -950 - a;
                 setTimeout(function(){
                     reel3stop(18);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -945 && a <= -580){
-                wait = -580 - a;
+                wait3 = -580 - a;
                 setTimeout(function(){
                     reel3stop(13);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -575 && a <= -285){
-                wait = -285 - a;
+                wait3 = -285 - a;
                 setTimeout(function(){
                     reel3stop(9);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -280 && a <= -60){
-                wait = -60 - a;
+                wait3 = -60 - a;
                 setTimeout(function(){
                     reel3stop(6);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -55){
-                wait = 300 - a;
+                wait3 = 300 - a;
                 setTimeout(function(){
                     reel3stop(1);
-                }, wait/5);
+                }, wait3/5);
             }
             break;
         case "BBベル":
             if (a <= -950){
-                wait = -950 - a;
+                wait3 = -950 - a;
                 setTimeout(function(){
                     reel3stop(18);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -945 && a <= -580){
-                wait = -580 - a;
+                wait3 = -580 - a;
                 setTimeout(function(){
                     reel3stop(13);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -575 && a <= -285){
-                wait = -285 - a;
+                wait3 = -285 - a;
                 setTimeout(function(){
                     reel3stop(9);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -280 && a <= -60){
-                wait = -60 - a;
+                wait3 = -60 - a;
                 setTimeout(function(){
                     reel3stop(6);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -55){
-                wait = 300 - a;
+                wait3 = 300 - a;
                 setTimeout(function(){
                     reel3stop(1);
-                }, wait/5);
+                }, wait3/5);
             }
             break;
         case "スイカ":
             if (a <= -730){
-                wait = -730 - a;
+                wait3 = -730 - a;
                 setTimeout(function(){
                     reel3stop(15);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -725 && a <= -210){
-                wait = -210 - a;
+                wait3 = -210 - a;
                 setTimeout(function(){
                     reel3stop(8);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -205 && a <= 235){
-                wait = 235 - a;
+                wait3 = 235 - a;
                 setTimeout(function(){
                     reel3stop(2);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= 240){
-                wait = 300 - a + 350;
+                wait3 = 300 - a + 350;
                 setTimeout(function(){
                     reel3stop(15);
-                }, wait/5);
+                }, wait3/5);
             }
             break;
         case "チェリー":
             if (a <= -950){
-                wait = -950 - a;
+                wait3 = -950 - a;
                 setTimeout(function(){
                     reel3stop(18);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -945 && a <= -655){
-                wait = -655 - a;
+                wait3 = -655 - a;
                 setTimeout(function(){
                     reel3stop(14);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -650 && a <= -60){
-                wait = -60 - a;
+                wait3 = -60 - a;
                 setTimeout(function(){
                     reel3stop(6);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -55 && a <= 90){
-                wait = 90 - a;
+                wait3 = 90 - a;
                 setTimeout(function(){
                     reel3stop(4);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= 95){
-                wait = 300 - a + 250;
+                wait3 = 300 - a + 250;
                 setTimeout(function(){
                     reel3stop(18);
-                }, wait/5);
+                }, wait3/5);
             }
             break;
         case "SPリプレイ":
             if (a <= -875){
-                wait = -875 - a;
+                wait3 = -875 - a;
                 setTimeout(function(){
                     reel3stop(17);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -870 && a <= -580){
-                wait = -580 - a;
+                wait3 = -580 - a;
                 setTimeout(function(){
                     reel3stop(13);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -575 && a <= 15){
-                wait = 90 - a;
+                wait3 = 90 - a;
                 setTimeout(function(){
                     reel3stop(5);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= 20 && a <= 160){
-                wait = 160 - a;
+                wait3 = 160 - a;
                 setTimeout(function(){
                     reel3stop(3);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= 165){
-                wait = 300 - a + 250;
+                wait3 = 300 - a + 250;
                 setTimeout(function(){
                     reel3stop(17);
-                }, wait/5);
+                }, wait3/5);
             }
             break;
         case "強チェリー": reel3stop(11); break;
         case "強チャンス":
             if (a <= -875){
-                wait = -875 - a;
+                wait3 = -875 - a;
                 setTimeout(function(){
                     reel3stop(17);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -870 && a <= -360){
-                wait = -360 - a;
+                wait3 = -360 - a;
                 setTimeout(function(){
                     reel3stop(10);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= -355 && a <= 90){
-                wait = 90 - a;
+                wait3 = 90 - a;
                 setTimeout(function(){
                     reel3stop(4);
-                }, wait/5);
+                }, wait3/5);
             }
             if (a >= 95){
-                wait = 300 - a + 250;
+                wait3 = 300 - a + 250;
                 setTimeout(function(){
                     reel3stop(17);
-                }, wait/5);
+                }, wait3/5);
             }
         case "確定チェリー": reel3stop(10); break;
         case "BB": reel3stop(1); break;

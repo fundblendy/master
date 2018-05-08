@@ -1,0 +1,33 @@
+#p1{
+	position: absolute;
+	top: 38%;
+	left: 68%;
+	z-index:100;
+}
+#p2{
+	position: absolute;
+	top: 48%;
+	left: 68%;
+	z-index:100;
+}
+#p3{
+	position: absolute;
+	top: 58%;
+	left: 68%;
+	z-index:100;
+}
+
+#e1{
+	position: absolute;
+	top: 35%;
+	left: 25%;
+	z-index:100;
+}
+
+#e2{
+	position: absolute;
+	top: 45%;
+	left: 25%;
+	z-index:100;
+}
+

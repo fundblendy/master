@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"></script>
+        <script src="js/SVanime.js"></script>
+        <script src="js/CTB.js"></script>
+        <script src="js/damage.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <link rel="stylesheet" type="text/css" href="./css/SV.css">
+        <link rel="stylesheet" type="text/css" href="./css/CTB.css">
+        <link rel="stylesheet" type="text/css" href="./css/HUD.css">
+        <link rel="stylesheet" type="text/css" href="./css/status.css">
+        
+
+        <script>
+        /* ダブルタップによる拡大を禁止 */
+            let lastTouch = 0;
+            document.addEventListener('touchend', event => {
+                const now = window.performance.now();
+                if (now - lastTouch <= 400) {
+                event.preventDefault();
+                }
+                lastTouch = now;
+            }, true);
+        </script>
+
+        <style>
+        body , input , textarea , select {
+        /* 入力欄にフォーカスが当たっても拡大しない */
+            font-size:17px;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class ="main">
+
+            <img id="bgA" src="./img/BG/SampleA.png" alt=""/>
+            <img id="bgB" src="./img/BG/SampleB.png" alt=""/>
+
+            <div id="p1"><img src="./img/SV/yukari_10.png" alt=""/></div>
+            <div id="p2"><img src="./img/SV/akane_10.png" alt=""/></div>
+            <div id="p3"><img src="./img/SV/aoi_10.png" alt=""/></div>
+
+            <div id="e1"><img src="./img/Enemy/s_bat.png" alt=""/></div>
+            <div id="e2"><img src="./img/Enemy/s_caterpillar.png" alt=""/></div>
+
+            <div class="battlehud">
+
+                <div id="card1" onclick="atack1(1)">
+                    <div class="iconbox" ><img class= "icon" id="icon1" src="./img/Card/Axe.ico"/></div>
+                    <p class="cardname" id="card1name" >バトルアクス</p>
+                    <p class="cardname" id="card1main" >敵単体にダメージ</p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card1sub1" >固定ダメージ[10]</p>
+                    <p class="cardsub" id="card1sub2" >対象の防御力[-1]</p>
+                </div>
+
+                <div id="card2" onclick="atack1(2)">
+                    <div class="iconbox" ><img class= "icon" id="icon2" src="./img/Card/Potion_2.ico"/></div>
+                    <p class="cardname" id="card2name" >ヒーリングポーション</p>
+                    <p class="cardname" id="card2main" >味方単体を回復</p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card2sub1" >固定回復[15]</p>
+                    <p class="cardsub" id="card2sub2" >追加回復[+1~5]</p>
+                </div>
+
+                <div id="card3" onclick="atack1(3)">
+                    <div class="iconbox" ><img class= "icon" id="icon3" src="./img/Card/ele_thunder.ico"/></div>
+                    <p class="cardname" id="card2name" >ライトニングボルト</p>
+                    <p class="cardname" id="card2main" >敵単体にダメージ</p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card2sub1" >固定ダメージ[10]</p>
+                    <p class="cardsub" id="card2sub2" >対象の行動順[-1]</p>
+                </div>
+
+                <div id="card4" onclick="atack1(4)">
+                    <div class="iconbox" ><img class= "icon" id="icon3" src="./img/Card/Art of Chemistry.ico"/></div>
+                    <p class="cardname" id="card2name" >レイズポーション</p>
+                    <p class="cardname" id="card2main" >味方単体を回復</p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card2sub1" >戦闘不能回復</p>
+                    <p class="cardsub" id="card2sub2" >追加回復[+1~10]</p>
+                </div>
+
+                <div id="card5" onclick="atack1(5)">
+                    <div class="iconbox" ><img class= "icon" id="icon3" src="./img/Card/Shield (Security).ico"/></div>
+                    <p class="cardname" id="card2name" >エンゼルシールド</p>
+                    <p class="cardname" id="card2main" >味方全体の能力上昇</p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card2sub1" >対象の防御力[+1~2]</p>
+                    <p class="cardsub" id="card2sub2" >対象の行動順[+1~2]</p>
+                </div>
+
+
+            </div>
+
+            <div class="CTBhud">
+                <div class="Bigsquare" id="w0">
+                    <p class="skill">~Skill~</p>
+                    <p id="skill">回復効果1.2倍</p>
+                    <img class="Act" id="CTBicon" src="./img/SV/yukari_14.png"/>
+                </div>
+                <div class="square" id="w1"><img class="wait" id="CTBicon" src="./img/SV/aoi_14.png"/></div>
+                <div class="square" id="w2"><img class="wait" id="CTBicon" src="./img/SV/akane_14.png"/></div>
+                <div class="square" id="w3"><img class="wait" id="CTBicon" src="./img/Enemy/s_caterpillar.png"/></div>
+                <div class="square" id="w4"><img class="wait" id="CTBicon" src="./img/Enemy/s_bat.png"/></div>
+                <div class="square" id="w5"><img class="wait" id="CTBicon" src="./img/Enemy/s_caterpillar.png"/></div>
+                <div class="square" id="w6"><img class="wait" id="CTBicon" src="./img/SV/aoi_14.png"/></div>
+                <div class="square" id="w7"><img class="wait" id="CTBicon" src="./img/SV/yukari_14.png"/></div>
+                <div class="square" id="w8"><img class="wait" id="CTBicon" src="./img/SV/aoi_14.png"/></div>
+                <div class="square" id="w9"><img class="wait" id="CTBicon" src="./img/Enemy/s_bat.png"/></div>
+            </div>
+
+
+            <div class="StatusA">
+                <div id="HPbox_p1">
+                    <p class="Statustext" id="Actor1">ゆかりさん</p>
+                    <p class="Statustext" id="HP_1">HP 28/28</p>
+                </div>
+                <div id="HPbox_p2">
+                        <p class="Statustext" id="Actor2">あかねさん</p>
+                        <p class="Statustext" id="HP_2">HP 35/35</p>
+                </div>
+                <div id="HPbox_p3">
+                        <p class="Statustext" id="Actor3">あおいさん</p>
+                        <p class="Statustext" id="HP_3">HP 31/31</p>
+                </div>
+            </div>
+
+            <div class="StatusB">
+                    <div id="HPbox_e1">
+                        <p class="Statustext" id="Enemy1">アンブレラバット</p>
+                        <p class="Statustext" id="EHP_1">HP 30/30</p>
+                    </div>
+                    <div id="HPbox_e2">
+                            <p class="Statustext" id="Enemy2">グリーンキャタピラ</p>
+                            <p class="Statustext" id="EHP_2">HP 20/20</p>
+                    </div>
+                    <div id="HPbox_e3">
+                            <p class="Statustext" id="Ememy3"></p>
+                            <p class="Statustext" id="EHP_3"></p>
+                    </div>
+                </div>
+
+        </div>  
+
+    </body>
+
+</html>
+
+    

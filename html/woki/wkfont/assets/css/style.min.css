@@ -1,0 +1,4 @@
+@charset "utf-8";body{text-align:center}.panel{width:auto;display:inline-table}#panel>dt{width:450px;border-bottom:solid 1px white;background-color:#000;color:white;cursor:pointer;padding:15px 30px;margin:;font-size:18px;font-weight:bold;text-align:center}
+#panel>dt:hover:first-child{background-color:#ff6347;transition:.3s}#panel>dt:hover{background-color:#ffa500;transition:.3s}#panel>dt:hover:last-child{background-color:#20b2aa;transition:.3s}
+#panel>dd{width:448px;border:solid 1px #959595;margin:0;padding:30px;font-size:18px;text-align:center}.button{background-color:#000;padding:10px 50px;color:#fff;margin:20px 0}
+dd a{text-decoration:none;color:#fff}.button:hover{background-color:#959595;transition:.2s;opacity:1}

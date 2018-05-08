@@ -1,0 +1,91 @@
+.StatusA{
+	position: absolute;
+    top: 35%;
+    left: 78%;
+	width: 20%;
+	height: 50%;
+    z-index:250;
+}
+
+#HPbox_p1{
+    display: block;
+    text-align: center;
+	width: 180px;
+	height: 60px;
+    background: rgb(0, 0, 0);
+    border-color: rgb(44, 21, 0);
+    border-width: 3px;
+    border-style: solid; 
+    margin:15px;
+}
+#HPbox_p2{
+    display: block;
+    text-align: center;
+	width: 180px;
+	height: 60px;
+    background: rgb(0, 0, 0);
+    border-color: rgb(44, 21, 0);
+    border-width: 3px;
+    border-style: solid; 
+    margin:15px;
+}
+#HPbox_p3{
+    display: block;
+    text-align: center;
+	width: 180px;
+	height: 60px;
+    background: rgb(0, 0, 0);
+    border-color: rgb(44, 21, 0);
+    border-width: 3px;
+    border-style: solid; 
+    margin:15px;
+}
+
+#HPbox_e1{
+    display: block;
+    text-align: center;
+	width: 180px;
+	height: 60px;
+    background: rgb(0, 0, 0);
+    border-color: rgb(44, 21, 0);
+    border-width: 3px;
+    border-style: solid; 
+    margin:15px;
+}
+#HPbox_e2{
+    display: block;
+    text-align: center;
+	width: 180px;
+	height: 60px;
+    background: rgb(0, 0, 0);
+    border-color: rgb(44, 21, 0);
+    border-width: 3px;
+    border-style: solid; 
+    margin:15px;
+}
+#HPbox_e3{
+    display: block;
+    text-align: center;
+	width: 180px;
+	height: 60px;
+    background: rgb(0, 0, 0);
+    border-color: rgb(44, 21, 0);
+    border-width: 3px;
+    border-style: solid; 
+    margin:15px;
+}
+
+.Statustext{
+    color:white;
+    margin: 1px;
+    font-size: 14px;
+}
+
+.StatusB{
+	position: absolute;
+    top: 35%;
+    left: 0%;
+	width: 20%;
+	height: 50%;
+    z-index:250;
+}

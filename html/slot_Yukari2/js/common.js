@@ -34,6 +34,9 @@
     var kaiten2;
     var kaiten3;
     var kaiten4;
+    var wait1;
+    var wait2;
+    var wait3;
 
     //キー入力フラグ
     var keyflag;
@@ -275,7 +278,7 @@ function touch1(){
         document.getElementById("sound-stop1").play();
         setTimeout(function(){
             keyflag = 4;
-        }, 100);
+        }, wait1);
         
     }
 }
@@ -291,7 +294,7 @@ function touch2(){
         document.getElementById("sound-stop2").play();
         setTimeout(function(){
             keyflag = 6;
-        }, 100);
+        }, wait2);
 
     }
 }
