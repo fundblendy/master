@@ -4,7 +4,7 @@ var CTB_p2 = "./img/SV/akane_14.png";
 var CTB_p3 = "./img/SV/aoi_14.png";
 var CTB_e1 = "./img/Enemy/s_bat.png";
 var CTB_e2 = "./img/Enemy/s_caterpillar.png";
-var CTB_e3 = "./img/Enemy/s_caterpillar.png";
+var CTB_e3 = "./img/Enemy/s_ghost.png";
 
 
 var CTBwait = [CTB_p1,CTB_p2,CTB_p3,CTB_e1,CTB_e2,CTB_e3,CTB_p1,CTB_p2,CTB_p3,CTB_e1,CTB_e2,CTB_e3];

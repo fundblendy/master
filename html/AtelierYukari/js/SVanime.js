@@ -11,6 +11,7 @@ var keyflag = 1;
 
 $(function(){
     turninit();
+    initdraw();
     anime = setInterval(changeImg, 200);//間隔
     i = 10;
     function changeImg(){
@@ -26,11 +27,13 @@ $(function(){
     }
 });
 
-function atack1(card,no){
+function atack1(card){
     
+    //アニメーション中の操作ロック
     if (keyflag == 1){return;}
     keyflag = 1;
 
+    //次回プレイヤーターンの場合、1.8秒後に操作ロック解除
     if (CTBwait[1] == CTB_p1 || CTBwait[1] == CTB_p2 || CTBwait[1] == CTB_p3){
         setTimeout(function(){
             keyflag = 0;
@@ -52,11 +55,6 @@ function atack1(card,no){
             marginLeft: "430px"
         }, 300)
         damagecore(card);
-        if (heal >= 1){
-            actorheal(no);
-        }  else{
-            actoratk(no);
-        }
 
         function act1(){
             $(turn).children("img").attr("src","./img/SV/"+ activeactor +"_" + i + ".png");
@@ -77,6 +75,7 @@ function atack1(card,no){
                     marginLeft: pos,
                     opacity: "0"
                 }, 0)
+                draw(card);
                 $("#card"+card).animate({
                     opacity: "1"
                 }, 300)

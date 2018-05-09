@@ -4,11 +4,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"></script>
+        <script src="js/cmn.js"></script>
         <script src="js/SVanime.js"></script>
         <script src="js/CTB.js"></script>
         <script src="js/damage.js"></script>
         <script src="js/result.js"></script>
         <script src="js/enemy.js"></script>
+        <script src="js/card.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/main.css">
         <link rel="stylesheet" type="text/css" href="./css/SV.css">
         <link rel="stylesheet" type="text/css" href="./css/CTB.css">
@@ -49,53 +51,58 @@
 
             <div id="e1"><img src="./img/Enemy/s_bat.png" alt=""/></div>
             <div id="e2"><img src="./img/Enemy/s_caterpillar.png" alt=""/></div>
-            <div id="e3"><img src="./img/Enemy/s_caterpillar.png" alt=""/></div>
+            <div id="e3"><img src="./img/Enemy/s_ghost.png" alt=""/></div>
 
             <div class="battlehud">
 
-                <div id="card1" onclick="atack1(1,0)">
-                    <div class="iconbox" ><img class= "icon" id="icon1" src="./img/Card/Axe.ico"/></div>
+                <div id="card1" onclick="atack1(1)">
+                    <div class="iconbox" id="icon1"><img class= "icon"  src="./img/Card/Axe.ico"/></div>
                     <p class="cardname" id="card1name" >バトルアクス</p>
                     <p class="cardname" id="card1main" >ランダム単体にダメージ</p>
                     <p class="line" >~効果~</p>
                     <p class="cardsub" id="card1sub1" >固定ダメージ[10]</p>
                     <p class="cardsub" id="card1sub2" >追加ダメージ[+1~2]</p>
+                    <p class="cardsub" id="card1sub3" ></p>
                 </div>
 
-                <div id="card2" onclick="atack1(2,0)">
-                    <div class="iconbox" ><img class= "icon" id="icon2" src="./img/Card/Potion_2.ico"/></div>
+                <div id="card2" onclick="atack1(2)">
+                    <div class="iconbox" id="icon2"><img class= "icon"  src="./img/Card/Potion_2.ico"/></div>
                     <p class="cardname" id="card2name" >ヒーリングポーション</p>
                     <p class="cardname" id="card2main" >ランダム単体を回復</p>
                     <p class="line" >~効果~</p>
                     <p class="cardsub" id="card2sub1" >固定回復[10]</p>
                     <p class="cardsub" id="card2sub2" >追加回復[+1~5]</p>
+                    <p class="cardsub" id="card2sub3" ></p>
                 </div>
 
-                <div id="card3" onclick="atack1(3,4)">
-                    <div class="iconbox" ><img class= "icon" id="icon3" src="./img/Card/ele_thunder.ico"/></div>
-                    <p class="cardname" id="card2name" >ライトニングボルト</p>
-                    <p class="cardname" id="card2main" >敵全体にダメージ</p>
+                <div id="card3" onclick="atack1(3)">
+                    <div class="iconbox" id="icon3"><img class= "icon"  src="./img/Card/ele_thunder.ico"/></div>
+                    <p class="cardname" id="card3name" >ライトニングボルト</p>
+                    <p class="cardname" id="card3main" >敵全体にダメージ</p>
                     <p class="line" >~効果~</p>
-                    <p class="cardsub" id="card2sub1" >固定ダメージ[5]</p>
-                    <p class="cardsub" id="card2sub2" ></p>
+                    <p class="cardsub" id="card3sub1" >固定ダメージ[5]</p>
+                    <p class="cardsub" id="card3sub2" ></p>
+                    <p class="cardsub" id="card3sub3" ></p>
                 </div>
 
-                <div id="card4" onclick="atack1(4,4)">
-                    <div class="iconbox" ><img class= "icon" id="icon4" src="./img/Card/Art of Chemistry.ico"/></div>
-                    <p class="cardname" id="card2name" >レアポーション</p>
-                    <p class="cardname" id="card2main" >味方全体を回復</p>
+                <div id="card4" onclick="atack1(4)">
+                    <div class="iconbox" id="icon4"><img class= "icon"  src="./img/Card/Art of Chemistry.ico"/></div>
+                    <p class="cardname" id="card4name" >レアポーション</p>
+                    <p class="cardname" id="card4main" >味方全体を回復</p>
                     <p class="line" >~効果~</p>
-                    <p class="cardsub" id="card2sub1" >固定回復[2]</p>
-                    <p class="cardsub" id="card2sub2" >追加回復[+1~4]</p>
+                    <p class="cardsub" id="card4sub1" >固定回復[2]</p>
+                    <p class="cardsub" id="card4sub2" >追加回復[+1~4]</p>
+                    <p class="cardsub" id="card4sub3" ></p>
                 </div>
 
-                <div id="card5" onclick="atack1(5,1)">
-                    <div class="iconbox" ><img class= "icon" id="icon5" src="./img/Card/sword.ico"/></div>
-                    <p class="cardname" id="card2name" >アイアンソード</p>
-                    <p class="cardname" id="card2main" >敵①にダメージ</p>
+                <div id="card5" onclick="atack1(5)">
+                    <div class="iconbox" id="icon5"><img class= "icon"  src="./img/Card/sword.ico"/></div>
+                    <p class="cardname" id="card5name" >アイアンソード</p>
+                    <p class="cardname" id="card5main" >敵[1]にダメージ</p>
                     <p class="line" >~効果~</p>
-                    <p class="cardsub" id="card2sub1" >固定ダメージ[6]</p>
-                    <p class="cardsub" id="card2sub2" >追加ダメージ[+1~5]</p>
+                    <p class="cardsub" id="card5sub1" >固定ダメージ[6]</p>
+                    <p class="cardsub" id="card5sub2" >追加ダメージ[+1~5]</p>
+                    <p class="cardsub" id="card5sub3" ></p>
                 </div>
 
 
@@ -144,7 +151,7 @@
                             <p class="Statustext" id="EHP_2">HP 20/20</p>
                     </div>
                     <div id="HPbox_e3">
-                            <p class="Statustext" id="Ememy3">グリーンキャタピラ</p>
+                            <p class="Statustext" id="Ememy3">グラスゴースト</p>
                             <p class="Statustext" id="EHP_3"></p>
                     </div>
                 </div>

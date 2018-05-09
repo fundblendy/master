@@ -21,7 +21,6 @@
     border-style: solid; 
     float:left;
 }
-
 #card1:hover{
     border-color: rgb(255, 254, 210);
     border-width: 3px;

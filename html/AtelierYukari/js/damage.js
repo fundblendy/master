@@ -7,10 +7,10 @@ var AHP_3 =31;
 
 var MAXEHP_1 =50;
 var MAXEHP_2 =60;
-var MAXEHP_3 =60;
+var MAXEHP_3 =45;
 var EHP_1 =50;
 var EHP_2 =60;
-var EHP_3 =60;
+var EHP_3 =45;
 
 var sta_p1 = 1; //ステート　0:戦闘不能/1:通常
 var sta_p2 = 1;
@@ -24,16 +24,99 @@ var heal = 0;
 
 
 
-// ダメージ計算
+// ダメージ計算(カード内容読み取り)
 function damagecore(card){
-    //仮処理
-    switch(card){
-        case 1:damage = 10 + Math.floor( Math.random() * 2 ) + 1; break;
-        case 2:heal = 10 + Math.floor( Math.random() * 5 ) + 1; break;
-        case 3:damage = 5; break;
-        case 4:heal = 2 + Math.floor( Math.random() * 4 ) + 1; break;
-        case 5:damage = 6 + Math.floor( Math.random() * 5 ) + 1; break;
+
+    damage = 0;
+    heal = 0;
+
+    var target; //対象
+    var dhflag; //攻撃回復フラグ 0:攻撃/1:回復
+
+    var name = $("#card"+card+"name").html();
+    var main = $("#card"+card+"main").html();
+    var s1 = $("#card"+card+"sub1").html();
+    var s2 = $("#card"+card+"sub2").html();
+    var s3 = $("#card"+card+"sub3").html();
+
+    // 効果
+    var sub1 = s1.split(" ");
+    var sub2 = s2.split(" ");
+    var sub3 = s3.split(" ");
+
+    // 効果量
+    if (sub1[1] != undefined){var d1 = sub1[1].slice(1,-1);}
+    if (sub2[1] != undefined){var d2 = sub2[1].slice(1,-1);}
+    if (sub3[1] != undefined){var d3 = sub3[1].slice(1,-1);}
+
+    //alert(sub1[0]+","+sub1[1]);
+
+    // 対象の指定、攻撃回復判定
+    switch (main){
+        case "ランダム単体にダメージ": target = 0; dhflag = 0; break;
+        case "ランダム単体を回復": target = 0; dhflag = 1; break;
+        case "敵単体[1]にダメージ": target = 1; dhflag = 0; break;
+        case "味方単体[1]を回復": target = 1; dhflag = 1; break;
+        case "敵単体[2]にダメージ": target = 2; dhflag = 0; break;
+        case "味方単体[2]を回復": target = 2; dhflag = 1; break;
+        case "敵単体[3]にダメージ": target = 3;dhflag = 0; break;
+        case "味方単体[3]を回復": target = 3; dhflag = 1; break;
+        case "敵全体にダメージ": target = 4; dhflag = 0; break;
+        case "味方全体を回復": target = 4; dhflag = 1; break;
+        case "使用者を回復": target = parseInt(turn.slice(2)); dhflag = 1; break;
+        case "行動順を全てシャッフル": shuffle(CTBwait); dhflag = 1; break;
     }
+
+    // 効果判定1
+    switch (sub1[0]){
+        case "固定ダメージ": damage += parseInt(d1); break;
+        case "固定回復": heal += parseInt(d1); break;
+        case "追加ダメージ": 
+            var d = d1.split("~");
+            damage += Math.floor( Math.random() * parseInt(d[1]) ) + parseInt(d[0]);
+            break;
+        case "追加回復": 
+            var d = d1.split("~");
+            heal += Math.floor( Math.random() * parseInt(d[1]) ) + parseInt(d[0]);
+            break;
+    }
+
+    switch (sub2[0]){
+        case "固定ダメージ": damage += parseInt(d2); break;
+        case "固定回復": heal += parseInt(d2); break;
+        case "追加ダメージ": 
+            var d = d2.split("~");
+            damage += Math.floor( Math.random() * parseInt(d[1]) ) + parseInt(d[0]);
+            break;
+        case "追加回復": 
+            var d = d2.split("~");
+            heal += Math.floor( Math.random() * parseInt(d[1]) ) + parseInt(d[0]);
+            break;
+    }
+
+    switch (sub3[0]){
+        case "固定ダメージ": damage += parseInt(d3); break;
+        case "固定回復": heal += parseInt(d3); break;
+        case "追加ダメージ": 
+            var d = d3.split("~");
+            damage += Math.floor( Math.random() * parseInt(d[1]) ) + parseInt(d[0]);
+            break;
+        case "追加回復": 
+            var d = d3.split("~");
+            heal += Math.floor( Math.random() * parseInt(d[1]) ) + parseInt(d[0]);
+            break;
+    }
+    
+
+
+    switch(dhflag){
+        case 0:actoratk(target);break;
+        case 1:actorheal(target);break;
+    }
+
+
+
+
 }
 
 
@@ -227,7 +310,7 @@ function actorheal(no){
         var a = no;
     }
 
-    if (AHP_1 == MAXHP_1 && AHP_2 == MAXHP_2 && AHP_3 == MAXHP_3){return;}
+    if (AHP_1 == MAXHP_1 && AHP_2 == MAXHP_2 && AHP_3 == MAXHP_3){ heal =0; return;}
 
 
     switch(a){
