@@ -7,6 +7,8 @@
         <script src="js/SVanime.js"></script>
         <script src="js/CTB.js"></script>
         <script src="js/damage.js"></script>
+        <script src="js/result.js"></script>
+        <script src="js/enemy.js"></script>
         <link rel="stylesheet" type="text/css" href="./css/main.css">
         <link rel="stylesheet" type="text/css" href="./css/SV.css">
         <link rel="stylesheet" type="text/css" href="./css/CTB.css">
@@ -47,52 +49,53 @@
 
             <div id="e1"><img src="./img/Enemy/s_bat.png" alt=""/></div>
             <div id="e2"><img src="./img/Enemy/s_caterpillar.png" alt=""/></div>
+            <div id="e3"><img src="./img/Enemy/s_caterpillar.png" alt=""/></div>
 
             <div class="battlehud">
 
-                <div id="card1" onclick="atack1(1)">
+                <div id="card1" onclick="atack1(1,0)">
                     <div class="iconbox" ><img class= "icon" id="icon1" src="./img/Card/Axe.ico"/></div>
                     <p class="cardname" id="card1name" >バトルアクス</p>
-                    <p class="cardname" id="card1main" >敵単体にダメージ</p>
+                    <p class="cardname" id="card1main" >ランダム単体にダメージ</p>
                     <p class="line" >~効果~</p>
                     <p class="cardsub" id="card1sub1" >固定ダメージ[10]</p>
-                    <p class="cardsub" id="card1sub2" >対象の防御力[-1]</p>
+                    <p class="cardsub" id="card1sub2" >追加ダメージ[+1~2]</p>
                 </div>
 
-                <div id="card2" onclick="atack1(2)">
+                <div id="card2" onclick="atack1(2,0)">
                     <div class="iconbox" ><img class= "icon" id="icon2" src="./img/Card/Potion_2.ico"/></div>
                     <p class="cardname" id="card2name" >ヒーリングポーション</p>
-                    <p class="cardname" id="card2main" >味方単体を回復</p>
+                    <p class="cardname" id="card2main" >ランダム単体を回復</p>
                     <p class="line" >~効果~</p>
-                    <p class="cardsub" id="card2sub1" >固定回復[15]</p>
+                    <p class="cardsub" id="card2sub1" >固定回復[10]</p>
                     <p class="cardsub" id="card2sub2" >追加回復[+1~5]</p>
                 </div>
 
-                <div id="card3" onclick="atack1(3)">
+                <div id="card3" onclick="atack1(3,4)">
                     <div class="iconbox" ><img class= "icon" id="icon3" src="./img/Card/ele_thunder.ico"/></div>
                     <p class="cardname" id="card2name" >ライトニングボルト</p>
-                    <p class="cardname" id="card2main" >敵単体にダメージ</p>
+                    <p class="cardname" id="card2main" >敵全体にダメージ</p>
                     <p class="line" >~効果~</p>
-                    <p class="cardsub" id="card2sub1" >固定ダメージ[10]</p>
-                    <p class="cardsub" id="card2sub2" >対象の行動順[-1]</p>
+                    <p class="cardsub" id="card2sub1" >固定ダメージ[5]</p>
+                    <p class="cardsub" id="card2sub2" ></p>
                 </div>
 
-                <div id="card4" onclick="atack1(4)">
-                    <div class="iconbox" ><img class= "icon" id="icon3" src="./img/Card/Art of Chemistry.ico"/></div>
-                    <p class="cardname" id="card2name" >レイズポーション</p>
-                    <p class="cardname" id="card2main" >味方単体を回復</p>
+                <div id="card4" onclick="atack1(4,4)">
+                    <div class="iconbox" ><img class= "icon" id="icon4" src="./img/Card/Art of Chemistry.ico"/></div>
+                    <p class="cardname" id="card2name" >レアポーション</p>
+                    <p class="cardname" id="card2main" >味方全体を回復</p>
                     <p class="line" >~効果~</p>
-                    <p class="cardsub" id="card2sub1" >戦闘不能回復</p>
-                    <p class="cardsub" id="card2sub2" >追加回復[+1~10]</p>
+                    <p class="cardsub" id="card2sub1" >固定回復[2]</p>
+                    <p class="cardsub" id="card2sub2" >追加回復[+1~4]</p>
                 </div>
 
-                <div id="card5" onclick="atack1(5)">
-                    <div class="iconbox" ><img class= "icon" id="icon3" src="./img/Card/Shield (Security).ico"/></div>
-                    <p class="cardname" id="card2name" >エンゼルシールド</p>
-                    <p class="cardname" id="card2main" >味方全体の能力上昇</p>
+                <div id="card5" onclick="atack1(5,1)">
+                    <div class="iconbox" ><img class= "icon" id="icon5" src="./img/Card/sword.ico"/></div>
+                    <p class="cardname" id="card2name" >アイアンソード</p>
+                    <p class="cardname" id="card2main" >敵①にダメージ</p>
                     <p class="line" >~効果~</p>
-                    <p class="cardsub" id="card2sub1" >対象の防御力[+1~2]</p>
-                    <p class="cardsub" id="card2sub2" >対象の行動順[+1~2]</p>
+                    <p class="cardsub" id="card2sub1" >固定ダメージ[6]</p>
+                    <p class="cardsub" id="card2sub2" >追加ダメージ[+1~5]</p>
                 </div>
 
 
@@ -100,8 +103,8 @@
 
             <div class="CTBhud">
                 <div class="Bigsquare" id="w0">
-                    <p class="skill">~Skill~</p>
-                    <p id="skill">回復効果1.2倍</p>
+                    <p class="skill">-CTB SYSTEM-</p>
+                    <p id="skill">現在のターン</p>
                     <img class="Act" id="CTBicon" src="./img/SV/yukari_14.png"/>
                 </div>
                 <div class="square" id="w1"><img class="wait" id="CTBicon" src="./img/SV/aoi_14.png"/></div>
@@ -141,7 +144,7 @@
                             <p class="Statustext" id="EHP_2">HP 20/20</p>
                     </div>
                     <div id="HPbox_e3">
-                            <p class="Statustext" id="Ememy3"></p>
+                            <p class="Statustext" id="Ememy3">グリーンキャタピラ</p>
                             <p class="Statustext" id="EHP_3"></p>
                     </div>
                 </div>

@@ -7,6 +7,7 @@ var enemy2 = "";
 var enemy3 = "";
 var turn = "#p1";
 var activeactor;
+var keyflag = 1;
 
 $(function(){
     turninit();
@@ -25,21 +26,38 @@ $(function(){
     }
 });
 
-function atack1(no){
+function atack1(card,no){
+    
+    if (keyflag == 1){return;}
+    keyflag = 1;
+
+    if (CTBwait[1] == CTB_p1 || CTBwait[1] == CTB_p2 || CTBwait[1] == CTB_p3){
+        setTimeout(function(){
+            keyflag = 0;
+        }, 1800);
+    }
+
+
     clearInterval(anime);
 
     $(function(){
         var count = setInterval(act1, 200);//ŠÔŠu
-        var pos = $("#card"+no).css("marginLeft");
+        var pos = $("#card"+card).css("marginLeft");
         i = 19;
         $(turn).animate({
             left: "63%" 
         }, 600)
-        $("#card"+no).animate({
+        $("#card"+card).animate({
             marginTop: "-=250px", 
             marginLeft: "430px"
         }, 300)
-        actoratk();
+        damagecore(card);
+        if (heal >= 1){
+            actorheal(no);
+        }  else{
+            actoratk(no);
+        }
+
         function act1(){
             $(turn).children("img").attr("src","./img/SV/"+ activeactor +"_" + i + ".png");
             if(i <= 22){
@@ -50,16 +68,16 @@ function atack1(no){
                 $(turn).animate({
                     left: "68%" 
                 }, 400)
-                $("#card"+no).animate({
+                $("#card"+card).animate({
                     marginTop: "-=550px", 
                     opacity: "0"
                 }, 500)
-                $("#card"+no).animate({
+                $("#card"+card).animate({
                     marginTop: "250px", 
                     marginLeft: pos,
                     opacity: "0"
                 }, 0)
-                $("#card"+no).animate({
+                $("#card"+card).animate({
                     opacity: "1"
                 }, 300)
                 clearInterval(count);
@@ -82,6 +100,14 @@ function atack1(no){
 }
 
 function eatack(no){
+
+    keyflag = 1;
+
+    if (CTBwait[1] == CTB_p1 || CTBwait[1] == CTB_p2 || CTBwait[1] == CTB_p3){
+        setTimeout(function(){
+            keyflag = 0;
+        }, 1800);
+    }
 
     var i = 0;
 

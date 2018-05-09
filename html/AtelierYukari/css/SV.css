@@ -26,8 +26,14 @@
 
 #e2{
 	position: absolute;
-	top: 45%;
+	top: 42%;
 	left: 25%;
 	z-index:100;
 }
 
+#e3{
+	position: absolute;
+	top: 51%;
+	left: 25%;
+	z-index:100;
+}

@@ -4,10 +4,10 @@ var CTB_p2 = "./img/SV/akane_14.png";
 var CTB_p3 = "./img/SV/aoi_14.png";
 var CTB_e1 = "./img/Enemy/s_bat.png";
 var CTB_e2 = "./img/Enemy/s_caterpillar.png";
-var CTB_e3 = ""
+var CTB_e3 = "./img/Enemy/s_caterpillar.png";
 
 
-var CTBwait = [CTB_p1,CTB_p2,CTB_p3,CTB_e1,CTB_e2,CTB_p1,CTB_p2,CTB_p3,CTB_e1,CTB_e2];
+var CTBwait = [CTB_p1,CTB_p2,CTB_p3,CTB_e1,CTB_e2,CTB_e3,CTB_p1,CTB_p2,CTB_p3,CTB_e1,CTB_e2,CTB_e3];
 
 
 function turninit(){
@@ -55,11 +55,20 @@ function turninit(){
         borderColor: "rgb(255, 254, 210)"
     }, 0)
 
+    keyflag = 0;
 }
 
 
 
 function turnnext(){
+
+    if(sta_p1 == 0 && sta_p2 == 0 && sta_p3 == 0){
+        defeat();
+    }
+    if(sta_e1 == 0 && sta_e2 == 0 && sta_e3 == 0){
+        result();
+    }
+    
 
     var select = "#HPbox_"+turn.slice(1);
 
