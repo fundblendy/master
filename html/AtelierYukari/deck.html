@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"></script>
+        <script src="js/cmn.js"></script>
+        <script src="js/CTB.js"></script>
+        <script src="js/damage.js"></script>
+        <script src="js/result.js"></script>
+        <script src="js/enemy.js"></script>
+        <script src="js/d_card.js"></script>
+        <script src="js/d_init.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <link rel="stylesheet" type="text/css" href="./css/SV.css">
+        <link rel="stylesheet" type="text/css" href="./css/CTB.css">
+        <link rel="stylesheet" type="text/css" href="./css/HUD.css">
+        <link rel="stylesheet" type="text/css" href="./css/status.css">
+        <link rel="stylesheet" type="text/css" href="./css/deck.css">
+        
+
+        <script>
+        /* ダブルタップによる拡大を禁止 */
+            let lastTouch = 0;
+            document.addEventListener('touchend', event => {
+                const now = window.performance.now();
+                if (now - lastTouch <= 400) {
+                event.preventDefault();
+                }
+                lastTouch = now;
+            }, true);
+        </script>
+
+        <style>
+        body , input , textarea , select {
+        /* 入力欄にフォーカスが当たっても拡大しない */
+            font-size:17px;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class ="deck_main">
+            <div class = "deck_title">デッキ構築</div>
+
+            <div class="deck_top">
+
+                <div id="d_card1" onclick="card_select(0)">
+                    <div class="iconbox" id="icon1"><img class= "icon"  src=""/></div>
+                    <p class="cardname" id="card1name" ></p>
+                    <p class="cardname" id="card1main" ></p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card1sub1" ></p>
+                    <p class="cardsub" id="card1sub2" ></p>
+                    <p class="cardsub" id="card1sub3" ></p>
+                </div>
+
+                <div id="d_card2" onclick="card_select(1)">
+                    <div class="iconbox" id="icon2"><img class= "icon"  src=""/></div>
+                    <p class="cardname" id="card2name" ></p>
+                    <p class="cardname" id="card2main" ></p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card2sub1" ></p>
+                    <p class="cardsub" id="card2sub2" ></p>
+                    <p class="cardsub" id="card2sub3" ></p>
+                </div>
+
+                <div id="d_card3" onclick="card_select(2)">
+                    <div class="iconbox" id="icon3"><img class= "icon"  src=""/></div>
+                    <p class="cardname" id="card3name" >ライトニングボルト</p>
+                    <p class="cardname" id="card3main" >敵全体にダメージ</p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card3sub1" >固定ダメージ[5]</p>
+                    <p class="cardsub" id="card3sub2" ></p>
+                    <p class="cardsub" id="card3sub3" ></p>
+                </div>
+
+                <div id="d_card4" onclick="card_select(3)">
+                    <div class="iconbox" id="icon4"><img class= "icon"  src=""/></div>
+                    <p class="cardname" id="card4name" >レアポーション</p>
+                    <p class="cardname" id="card4main" >味方全体を回復</p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card4sub1" >固定回復[2]</p>
+                    <p class="cardsub" id="card4sub2" >追加回復[+1~4]</p>
+                    <p class="cardsub" id="card4sub3" ></p>
+                </div>
+
+                <div id="d_card5" onclick="card_select(4)">
+                    <div class="iconbox" id="icon5"><img class= "icon"  src=""/></div>
+                    <p class="cardname" id="card5name" >アイアンソード</p>
+                    <p class="cardname" id="card5main" >敵[1]にダメージ</p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card5sub1" >固定ダメージ[6]</p>
+                    <p class="cardsub" id="card5sub2" >追加ダメージ[+1~5]</p>
+                    <p class="cardsub" id="card5sub3" ></p>
+                </div>
+
+                <div id="d_card6" onclick="card_select(5)">
+                    <div class="iconbox" id="icon6"><img class= "icon"  src=""/></div>
+                    <p class="cardname" id="card6name" ></p>
+                    <p class="cardname" id="card6main" ></p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card6sub1" ></p>
+                    <p class="cardsub" id="card6sub2" ></p>
+                    <p class="cardsub" id="card6sub3" ></p>
+                </div>
+
+                <div id="d_card7" onclick="card_select(6)">
+                    <div class="iconbox" id="icon7"><img class= "icon"  src=""/></div>
+                    <p class="cardname" id="card7name" ></p>
+                    <p class="cardname" id="card7main" ></p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card7sub1" ></p>
+                    <p class="cardsub" id="card7sub2" ></p>
+                    <p class="cardsub" id="card7sub3" ></p>
+                </div>
+
+                <div id="d_card8" onclick="card_select(7)">
+                    <div class="iconbox" id="icon8"><img class= "icon"  src=""/></div>
+                    <p class="cardname" id="card8name" >ライトニングボルト</p>
+                    <p class="cardname" id="card8main" >敵全体にダメージ</p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card8sub1" >固定ダメージ[5]</p>
+                    <p class="cardsub" id="card8sub2" ></p>
+                    <p class="cardsub" id="card8sub3" ></p>
+                </div>
+
+                <div id="d_card9" onclick="card_select(8)">
+                    <div class="iconbox" id="icon9"><img class= "icon"  src=""/></div>
+                    <p class="cardname" id="card9name" >レアポーション</p>
+                    <p class="cardname" id="card9main" >味方全体を回復</p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card9sub1" >固定回復[2]</p>
+                    <p class="cardsub" id="card9sub2" >追加回復[+1~4]</p>
+                    <p class="cardsub" id="card9sub3" ></p>
+                </div>
+
+                <div id="d_card10" onclick="card_select(9)">
+                    <div class="iconbox" id="icon10"><img class= "icon"  src=""/></div>
+                    <p class="cardname" id="card10name" >アイアンソード</p>
+                    <p class="cardname" id="card10main" >敵[1]にダメージ</p>
+                    <p class="line" >~効果~</p>
+                    <p class="cardsub" id="card10sub1" >固定ダメージ[6]</p>
+                    <p class="cardsub" id="card10sub2" >追加ダメージ[+1~5]</p>
+                    <p class="cardsub" id="card10sub3" ></p>
+                </div>
+
+                <div id="d_cardselect">
+                        <div class="iconbox" id="iconse"><img class= "icon"  src=""/></div>
+                        <p class="cardname" id="cardsename" >アイアンソード</p>
+                        <p class="cardname" id="cardsemain" >敵[1]にダメージ</p>
+                        <p class="line" >~効果~</p>
+                        <p class="cardsub" id="cardsesub1" >固定ダメージ[6]</p>
+                        <p class="cardsub" id="cardsesub2" >追加ダメージ[+1~5]</p>
+                        <p class="cardsub" id="cardsesub3" ></p>
+                </div>
+
+                <div id="d_button1" onclick="deck_button(1)">No.1～No.10</div>
+                <div id="d_button2" onclick="deck_button(2)">No.11～No.20</div>
+                <div id="d_button3" onclick="deck_button(3)">No.21～No.30</div>
+
+                <div id="d_button4" onclick="deck_button(4)">入れ替え</div>
+                <div id="d_button5" onclick="deck_button(5)">戦闘開始！</div>
+
+                <select id="subcard"></select>
+    
+            </div>
+
+            
+
+        </div>  
+
+    </body>
+
+</html>
+
+    
