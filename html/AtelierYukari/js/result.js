@@ -61,9 +61,26 @@ function nextbattle(round){
     MAXHP_1 =localStorage.getItem("yukariHP");
     MAXHP_2 =localStorage.getItem("akaneHP");
     MAXHP_3 =localStorage.getItem("aoiHP");
+    sta_p1 = 1;
+    sta_p2 = 1;
+    sta_p3 = 1;
     sta_e1 = 1;
     sta_e2 = 1;
     sta_e3 = 1;
+    var ahp1 = parseFloat(AHP_1) + 1;
+    var ahp2 = parseFloat(AHP_2) + 1;
+    var ahp3 = parseFloat(AHP_3) + 1;
+    AHP_1 = ahp1;
+    AHP_2 = ahp2;
+    AHP_3 = ahp3;
+
+    if (AHP_1 > MAXHP_1){AHP_1 = MAXHP_1}
+    if (AHP_2 > MAXHP_2){AHP_2 = MAXHP_2}
+    if (AHP_3 > MAXHP_3){AHP_3 = MAXHP_3}
+
+
+
+
 
     switch (round){
 
