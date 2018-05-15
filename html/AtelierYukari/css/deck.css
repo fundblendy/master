@@ -282,11 +282,37 @@
     border-width: 3px;
     border-style: solid; 
     float:left;
+    z-index:102;
 }
 
 #subcard{
     position: absolute;
     margin-left: 300px;
-    margin-top: 620px;
+    margin-top: 630px;
     width: 680px;
+    z-index:102;
+}
+
+.subcard{
+    position: absolute;
+    margin-left: 300px;
+    margin-top: 600px;
+    width: 680px;
+    height: 70px;
+    background-color: lightgreen;
+    font-size: 20px;
+    color: black;
+    z-index:101;
+}
+
+.maincard{
+    position: absolute;
+    margin-left: 40px;
+    margin-top: 590px;
+    width: 220px;
+    height: 240px;
+    background-color: lightcoral;
+    font-size: 20px;
+    color: black;
+    z-index:101;
 }

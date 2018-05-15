@@ -1,9 +1,9 @@
-var MAXHP_1 =28;
-var MAXHP_2 =35;
-var MAXHP_3 =31;
-var AHP_1 =28;
-var AHP_2 =35;
-var AHP_3 =31;
+var MAXHP_1 =localStorage.getItem("yukariHP");
+var MAXHP_2 =localStorage.getItem("akaneHP");
+var MAXHP_3 =localStorage.getItem("aoiHP");
+var AHP_1 =MAXHP_1;
+var AHP_2 =MAXHP_2;
+var AHP_3 =MAXHP_3;
 
 var MAXEHP_1 =50;
 var MAXEHP_2 =60;
@@ -116,7 +116,6 @@ function damagecore(card){
 
 
 
-
 }
 
 
@@ -179,7 +178,14 @@ function enemyatk(){
 
     damage =0;
 
-
+    if(sta_p1 == 0 && sta_p2 == 0 && sta_p3 == 0){
+        defeat();
+        return;
+    }
+    if(sta_e1 == 0 && sta_e2 == 0 && sta_e3 == 0){
+        result();
+        return;
+    }
 }
 
 
@@ -296,6 +302,15 @@ function actoratk(no){
     $("#EHP_1").html( "HP "+EHP_1+"/"+MAXEHP_1);
     $("#EHP_2").html( "HP "+EHP_2+"/"+MAXEHP_2);
     $("#EHP_3").html( "HP "+EHP_3+"/"+MAXEHP_3);
+
+    if(sta_p1 == 0 && sta_p2 == 0 && sta_p3 == 0){
+        defeat();
+        return;
+    }
+    if(sta_e1 == 0 && sta_e2 == 0 && sta_e3 == 0){
+        result();
+        return;
+    }
 
     damage = 0;
 

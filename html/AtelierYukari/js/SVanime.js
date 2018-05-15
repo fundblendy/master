@@ -10,7 +10,7 @@ var activeactor;
 var keyflag = 1;
 
 $(function(){
-    turninit();
+    nextbattle(1);
     initdraw();
     anime = setInterval(changeImg, 200);//間隔
     i = 10;
@@ -30,7 +30,12 @@ $(function(){
 function atack1(card){
     
     //アニメーション中の操作ロック
-    if (keyflag == 1){return;}
+    if (keyflag == 1){
+        if (CTBwait[0] == CTB_p1 || CTBwait[0] == CTB_p2 || CTBwait[0] == CTB_p3){
+            setTimeout(function(){
+                keyflag = 0;
+            }, 1000);
+        } return;}
     keyflag = 1;
 
     //次回プレイヤーターンの場合、1.8秒後に操作ロック解除

@@ -1,7 +1,7 @@
 .main{
 	position: absolute;
 	text-align: center;
-	top: 40%;
+	top: 50%;
 	left: 50%;
 	-ms-transform: translate(-50%,-50%);
 	-webkit-transform : translate(-50%,-50%);
@@ -31,6 +31,19 @@
 	z-index:2;
 }
 
+#battle_result{
+	position: absolute;
+	width: 100%;
+	top: 200px;
+	height: 300px;
+	text-align: center;
+	z-index: 1000;
+	background-color: rgb(0, 0, 0);
+	opacity:0;
+    color:rgb(255, 255, 255);
+	font-size: 34px;
+    object-fit: cover;
+}
 
 
 

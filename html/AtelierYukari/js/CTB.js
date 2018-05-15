@@ -12,6 +12,15 @@ var CTBwait = [CTB_p1,CTB_p2,CTB_p3,CTB_e1,CTB_e2,CTB_e3,CTB_p1,CTB_p2,CTB_p3,CT
 
 function turninit(){
 
+    CTBwait = [CTB_p1,CTB_p2,CTB_p3,CTB_e1,CTB_e2,CTB_e3,CTB_p1,CTB_p2,CTB_p3,CTB_e1,CTB_e2,CTB_e3];
+
+    $("#battle_result").animate({
+        opacity: "1"
+    }, 1000)
+    $("#battle_result").animate({
+        opacity: "0"
+    }, 2000)
+
     $("#HP_1").html( "HP "+AHP_1+"/"+MAXHP_1);
     $("#HP_2").html( "HP "+AHP_2+"/"+MAXHP_2);
     $("#HP_3").html( "HP "+AHP_3+"/"+MAXHP_3);
@@ -61,13 +70,6 @@ function turninit(){
 
 
 function turnnext(){
-
-    if(sta_p1 == 0 && sta_p2 == 0 && sta_p3 == 0){
-        defeat();
-    }
-    if(sta_e1 == 0 && sta_e2 == 0 && sta_e3 == 0){
-        result();
-    }
     
 
     var select = "#HPbox_"+turn.slice(1);

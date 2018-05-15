@@ -125,8 +125,8 @@
 
 .line{
     display: inline-block;
-    margin: 0px;
-	width: 150px;
+    margin: 5px;
+	width: 170px;
 	height: 1px;
     background: rgb(176, 255, 202);
     color:rgb(176, 255, 202);

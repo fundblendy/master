@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.js"></script>
+        <script src="js/cmn.js"></script>
+        <script src="js/CTB.js"></script>
+        <script src="js/damage.js"></script>
+        <script src="js/result.js"></script>
+        <script src="js/enemy.js"></script>
+        <script src="js/home.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/main.css">
+        <link rel="stylesheet" type="text/css" href="./css/SV.css">
+        <link rel="stylesheet" type="text/css" href="./css/CTB.css">
+        <link rel="stylesheet" type="text/css" href="./css/HUD.css">
+        <link rel="stylesheet" type="text/css" href="./css/status.css">
+        <link rel="stylesheet" type="text/css" href="./css/deck.css">
+        <link rel="stylesheet" type="text/css" href="./css/home.css">
+        
+
+        <script>
+        /* ダブルタップによる拡大を禁止 */
+            let lastTouch = 0;
+            document.addEventListener('touchend', event => {
+                const now = window.performance.now();
+                if (now - lastTouch <= 400) {
+                event.preventDefault();
+                }
+                lastTouch = now;
+            }, true);
+        </script>
+
+        <style>
+        body , input , textarea , select {
+        /* 入力欄にフォーカスが当たっても拡大しない */
+            font-size:17px;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class ="home_main">
+
+                <img id="bgA" src="./img/BG/Wood1.png" alt=""/>
+                <img id="bgB" src="./img/BG/Room1.png" alt=""/>
+
+                <div id="h_button1" onclick="h_button(1)">錬金ガチャ</div>
+                <div id="h_button2" onclick="h_button(2)">調合</div>
+                <div id="h_button3" onclick="h_button(3)">強化調合</div>
+
+                <div id="h_button4" onclick="h_button(4)">デッキ編成</div>
+                <div id="h_button5" onclick="h_button(5)">戦闘開始</div> 
+
+
+        </div>  
+
+    </body>
+
+</html>

@@ -34,80 +34,30 @@ var card_31 = ["./img/Card/Art of Chemistry.ico", "ハイレアポーション","味方全体
 
 //　カードデッキ山札　2次元配列
 var card_deck = [card_1,card_2,card_3,card_4,card_5,card_6,card_7,card_8,card_9,card_10,card_11,card_12,card_13,card_14,card_15,card_16,card_17,card_18,card_19,card_20,card_21,card_22,card_23,card_24,card_25,card_26,card_27,card_28,card_29,card_30,card_31];
-var d_flag = 0;
-var card_tmp;
-var card_no = 0;
 
-function deck_button(no){
 
-    switch(no){
-        case 1:card_place(1); d_flag = 0; break;
-        case 2:card_place(2); d_flag = 1; break;
-        case 3:card_place(3); d_flag = 2; break;
-        case 4:card_change(); break;
-        case 5:location.href = "./home.html"; break;
+$(function(){
+
+    var f = localStorage.getItem("first");
+
+    if(f != 1){
+
+    
+        for (var i = 1 ; i <= 31; i++){
+            localStorage.setItem("card"+i, JSON.stringify(card_deck[0]));
+            card_deck.shift();
+            localStorage.setItem("cardcount",31);
+            localStorage.setItem("first",1)
+        }
+        localStorage.setItem("ticket",5);
+        localStorage.setItem("yukariHP",28);
+        localStorage.setItem("akaneHP",35);
+        localStorage.setItem("aoiHP",31);
+
     }
-
-}
-
-// カード1~10まで配置
-function card_place(no){
-
-    card_deck.length = 0;
-
-    for (var i = 1 + (no-1)*10 ; i <= no*10; i++){
-        card_deck.push(JSON.parse(localStorage.getItem("card"+i)));
-    }
-
-    for (var card = 1 ; card <= 10; card++){
-        $("#icon"+card).children("img").attr("src",card_deck[0][0]);
-        $("#card"+card+"name").html(card_deck[0][1]);
-        $("#card"+card+"main").html(card_deck[0][2]);
-        $("#card"+card+"sub1").html(card_deck[0][3]);
-        $("#card"+card+"sub2").html(card_deck[0][4]);
-        $("#card"+card+"sub3").html(card_deck[0][5]);
-
-        var tmp = card_deck[0]
-        card_deck.shift();
-        card_deck.push(tmp);
-    }
-
-    card_select(card_no);
-
-}
-
-function card_select(no){
-
-    $("#iconse").children("img").attr("src",card_deck[no][0]);
-    $("#cardsename").html(card_deck[no][1]);
-    $("#cardsemain").html(card_deck[no][2]);
-    $("#cardsesub1").html(card_deck[no][3]);
-    $("#cardsesub2").html(card_deck[no][4]);
-    $("#cardsesub3").html(card_deck[no][5]);
-
-    card_tmp = card_deck[no];
-    card_no = no;
-
-
-}
-
-function card_change(){
-
-    var card_main_tmp = "card"+(d_flag*10+(card_no+1)); //選択したデッキカード番号
-
-    var val = $('#subcard').val();　//選択したサブカード番号
-    var card_sub_tmp = JSON.parse(localStorage.getItem(val));
-
-    localStorage.setItem(card_main_tmp, JSON.stringify(card_sub_tmp));
-    localStorage.setItem(val, JSON.stringify(card_tmp));
-
-    card_place(d_flag+1);
-    card_select(card_no);
-
-    $('#subcard').children().remove();
-
-
+    
     var count = localStorage.getItem("cardcount")
+
     for (var n = 31 ; n <= count; n++){
 
         var sub = JSON.parse(localStorage.getItem("card"+n));
@@ -116,11 +66,17 @@ function card_change(){
 
     }
 
+});
+
+
+function h_button(i){
+    var link;
+    switch (i) {
+        case 1: link = "./gacha.html"; break;
+        //case 2: link = ".html"; break;
+        //case 3: link = "../slot_YukariA/index.html"; break;
+        case 4: link = "./deck.html"; break;
+        case 5: link = "./battle.html"; break;
+    }
+    location.href = link;
 }
-
-
-
-
-
-
-

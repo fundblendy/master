@@ -13,5 +13,21 @@ function edamagecore(){
         damage = Math.floor( Math.random() * 8 ) + 7;
         break;
 
+        case "./img/Enemy/s_maitake.png":
+        damage = Math.floor( Math.random() * 7 ) + 7;
+        break;
+
+        case "./img/Enemy/s_mandragora.png":
+        damage = Math.floor( Math.random() * 7 ) + 7;
+        break;
+
+        case "./img/Enemy/s_lobo.png":
+        damage = Math.floor( Math.random() * 8 ) + 8;
+        break;
+
+        case "./img/Enemy/s_golem.png":
+        damage = Math.floor( Math.random() * 8 ) + 10;
+        break;
+
     }
 }
