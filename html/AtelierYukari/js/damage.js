@@ -163,8 +163,18 @@ function enemyatk(){
     }
 
     var select = "#HPbox_p"+a;
-    
+    var selectB = "#Damage_"+a;
+    var dmvis = damage;
 
+    $(selectB).html(dmvis);
+    $(selectB).css("color","pink");
+
+    $(selectB).animate({
+        opacity: 1
+    }, 200)
+    $(selectB).animate({
+        opacity: 0
+    }, 1500)
     $(select).animate({
         backgroundColor: "rgb(200, 0, 0)"
     }, 300)
@@ -268,8 +278,14 @@ function actoratk(no){
         break;
     }
 
+    var dmvis = damage;
+    
     if (a <= 3){
         var select = "#HPbox_e"+a;
+        var selectB = "#EDamage_"+a;
+        
+        $(selectB).html(dmvis);
+        $(selectB).css("color","pink");
 
         $(select).animate({
             backgroundColor: "rgb(200, 0, 0)"
@@ -277,7 +293,20 @@ function actoratk(no){
         $(select).animate({
             backgroundColor: "rgb(0, 0, 0)"
         }, 300)
+        $(selectB).animate({
+            opacity: 1
+        }, 200)
+        $(selectB).animate({
+            opacity: 0
+        }, 1000)
     } else{
+        $("#EDamage_1").html(dmvis);
+        $("#EDamage_1").css("color","pink");
+        $("#EDamage_2").html(dmvis);
+        $("#EDamage_2").css("color","pink");
+        $("#EDamage_3").html(dmvis);
+        $("#EDamage_3").css("color","pink");
+
         $("#HPbox_e1").animate({
             backgroundColor: "rgb(200, 0, 0)"
         }, 300)
@@ -296,6 +325,25 @@ function actoratk(no){
         $("#HPbox_e3").animate({
             backgroundColor: "rgb(0, 0, 0)"
         }, 300)
+
+        $("#EDamage_1").animate({
+            opacity: 1
+        }, 200)
+        $("#EDamage_1").animate({
+            opacity: 0
+        }, 1000)
+        $("#EDamage_2").animate({
+            opacity: 1
+        }, 200)
+        $("#EDamage_2").animate({
+            opacity: 0
+        }, 1000)
+        $("#EDamage_3").animate({
+            opacity: 1
+        }, 200)
+        $("#EDamage_3").animate({
+            opacity: 0
+        }, 1000)
     }
 
 
@@ -381,7 +429,11 @@ function actorheal(no){
     }
 
     var select = "#HPbox_p"+a;
-    
+    var selectB = "#Damage_"+a;
+    var dmvis = heal;
+
+    $(selectB).html(dmvis);
+    $(selectB).css("color","lightgreen");
 
     if (a <= 3){
         $(select).animate({
@@ -390,7 +442,19 @@ function actorheal(no){
         $(select).animate({
             backgroundColor: "rgb(0, 0, 0)"
         }, 300)
+        $(selectB).animate({
+            opacity: 1
+        }, 200)
+        $(selectB).animate({
+            opacity: 0
+        }, 1000)
     }else{
+        $("#Damage_1").html(dmvis);
+        $("#Damage_1").css("color","lightgreen");
+        $("#Damage_2").html(dmvis);
+        $("#Damage_2").css("color","lightgreen");
+        $("#Damage_3").html(dmvis);
+        $("#Damage_3").css("color","lightgreen");
         $("#HPbox_p1").animate({
             backgroundColor: "rgb(0, 200, 0)"
         }, 300)
@@ -409,6 +473,25 @@ function actorheal(no){
         $("#HPbox_p3").animate({
             backgroundColor: "rgb(0, 0, 0)"
         }, 300)
+        $("#Damage_1").animate({
+            opacity: 1
+        }, 200)
+        $("#Damage_1").animate({
+            opacity: 0
+        }, 1000)
+        $("#Damage_2").animate({
+            opacity: 1
+        }, 200)
+        $("#Damage_2").animate({
+            opacity: 0
+        }, 1000)
+        $("#Damage_3").animate({
+            opacity: 1
+        }, 200)
+        $("#Damage_3").animate({
+            opacity: 0
+        }, 1000)
+
     }
 
 

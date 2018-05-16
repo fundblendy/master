@@ -174,6 +174,9 @@ function nextbattle(round){
         }, 3000);
         break;
     }
+    $("#e1").children("img").attr("src",CTB_e1);
+    $("#e2").children("img").attr("src",CTB_e2);
+    $("#e3").children("img").attr("src",CTB_e3);
     EHP_1 = MAXEHP_1;
     EHP_2 = MAXEHP_2;
     EHP_3 = MAXEHP_3;

@@ -81,6 +81,11 @@
     font-size: 14px;
 }
 
+.Statustext2{
+    margin: 0px;
+    font-size: 14px;
+}
+
 .StatusB{
 	position: absolute;
     top: 35%;
