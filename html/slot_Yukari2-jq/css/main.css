@@ -1,0 +1,31 @@
+p {
+	margin: 0;	/* 上下左右のマージン */
+	padding: 10px;	/* 上下左右の余白 */
+}
+
+#app{
+    height: 100px;
+    width: 856px;
+    background: #000000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color:seashell;
+}
+
+#stats{
+    display: inline-block;
+    height: 100px;
+    width: 166px;
+    background: #141018;
+    text-align: center;
+}
+
+#bonus{
+    position:absolute;
+    top:140px;
+    left:620px;
+    font-size: 25px;
+    color:seashell;
+    -webkit-text-stroke: 1px #000;
+    z-index:2000;
+}

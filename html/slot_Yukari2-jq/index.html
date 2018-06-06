@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/common.js"></script>
+    <script type="text/javascript" src="./js/setting.js"></script>
+    <script type="text/javascript" src="./js/act.js"></script>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <div id="stats"><p>所持コイン</p><p>{{ coin }}</p></div>
+      <div id="stats"><p>獲得コイン</p><p>{{ get }}</p></div>
+      <div id="stats"><p>総回転数</p><p>{{ count1 }}</p></div>
+      <div id="stats"><p>ボーナス間</p><p>{{ count2 }}</p></div>
+      <div id="stats"><p>閉店まで</p><p>{{ count3 }}</p></div>
+    </div>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <div id="dp">
+        <div id="bonus">{{ bonuscount }}</div>
+    </div>
+    <script src="./js/stat.js"></script>
+  </body>
+</html>
